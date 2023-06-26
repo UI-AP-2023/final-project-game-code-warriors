@@ -7,11 +7,21 @@ public class Hero {
     private int hit;
     private int speed;
     private int unlockLevel;
+    private int hitRange; // how far a hero can hit
 
-    public Hero(int health, int hit, int speed) {
+    public Hero(int health, int hit, int speed,int hitRange) {
         this.health = health;
         this.hit = hit;
         this.speed = speed;
+        this.hitRange=hitRange;
+    }
+
+    public int getHitRange() {
+        return hitRange;
+    }
+
+    public void setHitRange(int hitRange) {
+        this.hitRange = hitRange;
     }
 
     public int getUnlockLevel() {

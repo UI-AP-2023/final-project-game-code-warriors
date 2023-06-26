@@ -5,6 +5,6 @@ import javafx.scene.image.Image;
 
 public class Knight extends Hero {
     public Knight() {
-        super(Values.KNIGHT_HEALTH, Values.GREEN_HIT, Values.KNIGHT_SPEED);
+        super(Values.KNIGHT_HEALTH, Values.KNIGHT_HIT, Values.KNIGHT_SPEED,Values.KNIGHT_HITRANGE);
     }
 }
