@@ -1,7 +1,9 @@
 package com.example.clashofclans.Model.Hero;
 
-public class Knight extends Hero{
+import com.example.clashofclans.Values;
+
+public class Knight extends Hero {
     public Knight() {
-        super(50, 30, 1000, 7);
+        super(Values.KNIGHT_HEALTH, Values.GREEN_HIT, Values.KNIGHT_SPEED);
     }
 }

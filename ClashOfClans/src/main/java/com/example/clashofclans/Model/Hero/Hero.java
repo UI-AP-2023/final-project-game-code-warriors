@@ -5,14 +5,12 @@ import javafx.scene.image.Image;
 public class Hero {
     private int health;
     private int hit;
-    private int hitSpeed;
     private int speed;
     private int unlockLevel;
 
-    public Hero(int health, int hit, int hitSpeed, int speed) {
+    public Hero(int health, int hit, int speed) {
         this.health = health;
         this.hit = hit;
-        this.hitSpeed = hitSpeed;
         this.speed = speed;
     }
 
@@ -38,14 +36,6 @@ public class Hero {
 
     public void setHit(int hit) {
         this.hit = hit;
-    }
-
-    public int getHitSpeed() {
-        return hitSpeed;
-    }
-
-    public void setHitSpeed(int hitSpeed) {
-        this.hitSpeed = hitSpeed;
     }
 
     public int getSpeed() {
