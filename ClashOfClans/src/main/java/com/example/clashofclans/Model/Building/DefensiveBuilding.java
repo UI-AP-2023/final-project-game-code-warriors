@@ -6,8 +6,8 @@ public class DefensiveBuilding extends Building {
     private int hit;
     private int hitRange;
 
-    public DefensiveBuilding(int damage, int hit, int hitRange) {
-        super(damage, Values.DefensiveType.DEFENSIVE);
+    public DefensiveBuilding(int damage, int hit, int hitRange,String imagePath) {
+        super(damage, Values.DefensiveType.DEFENSIVE,imagePath);
         this.hit = hit;
         this.hitRange = hitRange;
     }

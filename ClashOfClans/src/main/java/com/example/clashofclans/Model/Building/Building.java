@@ -5,12 +5,12 @@ import javafx.scene.image.Image;
 
 import java.io.FileInputStream;
 
-public class Building {
+public class Building extends Image{
     private int damage;
     private Values.DefensiveType type;
-    private String imagePath;
 
-    public Building(int damage, Values.DefensiveType type) {
+    public Building(int damage, Values.DefensiveType type,String imagePath) {
+        super(imagePath);
         this.damage = damage;
         this.type = type;
     }
@@ -31,11 +31,4 @@ public class Building {
         this.type = type;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
 }

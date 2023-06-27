@@ -37,21 +37,40 @@ public class Values {
 
     public enum DefensiveType {
         DEFENSIVE,
-        NORMAL
+        NORMAL,
     }
 
     // Canon - middle
     public static int CANON_HIT = 20;
-    public static int CANON_HITRANGE = 15;
+    public static int CANON_HITRANGE = 20;
     public static int CANON_DAMAGE = 200;
 
     // Thrower - middle
-    public static int THROWER_HIT = 20;
+    public static int THROWER_HIT = 30;
     public static int THROWER_HITRANGE = 15;
-    public static int THROWER_DAMAGE = 200;
+    public static int THROWER_DAMAGE = 250;
 
     // Powder - Strong
-    public static int POWDER_HIT = 20;
-    public static int POWDER_HITRANGE = 15;
-    public static int POWDER_DAMAGE = 200;
+    public static int POWDER_HIT = 40;
+    public static int POWDER_HITRANGE = 10;
+    public static int POWDER_DAMAGE = 300;
+
+    // Home (Level 1) - weak
+    public static int HOME1_DAMAGE = 170;
+
+    // Home (Level 2) - middle
+    public static int HOME2_DAMAGE = 200;
+
+    // Home (Level 3) - Strong
+    public static int HOME3_DAMAGE = 250;
+
+    // Castle - Strong
+    public static int CASTLE_DAMAGE = 350;
+
+    // Barracks - Middle
+    public static int BARRACKS_DAMAGE = 250;
+
+    // Storage - Weak
+    public static int STORAGE_DAMAGE = 200;
+
 }
