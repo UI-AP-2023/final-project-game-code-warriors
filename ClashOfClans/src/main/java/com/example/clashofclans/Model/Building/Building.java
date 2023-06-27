@@ -8,7 +8,7 @@ import java.io.FileInputStream;
 public class Building {
     private int damage;
     private Values.DefensiveType type;
-    private Image image;
+    private String imagePath;
 
     public Building(int damage, Values.DefensiveType type) {
         this.damage = damage;
@@ -31,11 +31,11 @@ public class Building {
         this.type = type;
     }
 
-    public Image getImage() {
-        return image;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

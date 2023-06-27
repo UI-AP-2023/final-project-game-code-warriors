@@ -1,5 +1,6 @@
 package com.example.clashofclans;
 
+import com.example.clashofclans.Model.Building.Canon;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -8,7 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -20,7 +23,7 @@ import java.io.InputStream;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Image KNIGHT_0 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_000.png").toString());
+        /*Image KNIGHT_0 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_000.png").toString());
         Image KNIGHT_1 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_001.png").toString());
         Image KNIGHT_2 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_002.png").toString());
         Image KNIGHT_3 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_003.png").toString());
@@ -130,13 +133,21 @@ public class HelloApplication extends Application {
                     root.getChildren().setAll(knight9);
                 }
         ));
-        t.play();
+        t.play();*/
+        Canon canon = new Canon();
+        Image image = new Image(canon.getImagePath());
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(100);
+        imageView.setPreserveRatio(true);
+
+        AnchorPane root = new AnchorPane();
 
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+        stage.setFullScreen(true);
     }
 
     public static void main(String[] args) {
