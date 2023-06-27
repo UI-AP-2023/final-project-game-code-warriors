@@ -27,4 +27,10 @@ public class Values {
     public static int DRAGON_HIT = 40;
     public static int DRAGON_SPEED = 30;
     public static int DRAGON_HITRANGE = 10;
+
+    //Troll - Strong
+    public static int TROLL_HEALTH = 80;
+    public static int TROLL_HIT = 50;
+    public static int TROLL_SPEED = 10;
+    public static int TROLL_HITRANGE = 2;
 }
