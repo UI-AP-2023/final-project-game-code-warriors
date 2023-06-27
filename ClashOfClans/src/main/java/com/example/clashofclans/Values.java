@@ -2,7 +2,8 @@ package com.example.clashofclans;
 
 public class Values {
 
-    // Max health = 100; Max hit/second = 50; Max speed = 20; Max hit range = 10;
+    // Max health = 100; Max hit/second = 50; Max speed = 20; Max hit range(HERO) = 10; Max hit range(BUILDING) = 10;
+    // Max Damage = 500;
 
     // Knight - middle
     public static int KNIGHT_HEALTH = 60;
@@ -33,4 +34,24 @@ public class Values {
     public static int TROLL_HIT = 50;
     public static int TROLL_SPEED = 10;
     public static int TROLL_HITRANGE = 2;
+
+    public enum DefensiveType {
+        DEFENSIVE,
+        NORMAL
+    }
+
+    // Canon - middle
+    public static int CANON_HIT = 20;
+    public static int CANON_HITRANGE = 15;
+    public static int CANON_DAMAGE = 200;
+
+    // Thrower - middle
+    public static int THROWER_HIT = 20;
+    public static int THROWER_HITRANGE = 15;
+    public static int THROWER_DAMAGE = 200;
+
+    // Powder - Strong
+    public static int POWDER_HIT = 20;
+    public static int POWDER_HITRANGE = 15;
+    public static int POWDER_DAMAGE = 200;
 }

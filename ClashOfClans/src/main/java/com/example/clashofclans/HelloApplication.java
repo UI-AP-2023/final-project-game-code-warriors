@@ -15,20 +15,21 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Image KNIGHT_0 = new Image(new FileInputStream("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\java\\com\\example\\clashofclans\\Knight_01__WALK_000.png"));
-        Image KNIGHT_1 = new Image(new FileInputStream("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_001.png"));
-        Image KNIGHT_2 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_002.png");
-        Image KNIGHT_3 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_003.png");
-        Image KNIGHT_4 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_004.png");
-        Image KNIGHT_5 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_005.png");
-        Image KNIGHT_6 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_006.png");
-        Image KNIGHT_7 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_007.png");
-        Image KNIGHT_8 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_008.png");
-        Image KNIGHT_9 = new Image("E:\\University\\java\\final-project-codewarriors\\ClashOfClans\\src\\main\\resources\\Heroes\\Knight_01__WALK_009.png");
+        Image KNIGHT_0 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_000.png").toString());
+        Image KNIGHT_1 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_001.png").toString());
+        Image KNIGHT_2 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_002.png").toString());
+        Image KNIGHT_3 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_003.png").toString());
+        Image KNIGHT_4 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_004.png").toString());
+        Image KNIGHT_5 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_005.png").toString());
+        Image KNIGHT_6 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_006.png").toString());
+        Image KNIGHT_7 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_007.png").toString());
+        Image KNIGHT_8 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_008.png").toString());
+        Image KNIGHT_9 = new Image(getClass().getResource("Heroes/Knight/Knight_01__WALK_009.png").toString());
 
         ImageView knight0 = new ImageView(KNIGHT_0);
         knight0.setFitWidth(300);
