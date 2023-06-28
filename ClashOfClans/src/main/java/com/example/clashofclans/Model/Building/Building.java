@@ -2,17 +2,20 @@ package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.Values;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.FileInputStream;
 
-public class Building extends Image{
+public class Building extends ImageView {
     private int damage;
     private Values.DefensiveType type;
 
-    public Building(int damage, Values.DefensiveType type,String imagePath) {
-        super(imagePath);
+    public Building(int damage, Values.DefensiveType type,String imagePath,double size) {
+        super(new Image(imagePath));
         this.damage = damage;
         this.type = type;
+        this.setFitWidth(size);
+        this.setPreserveRatio(true);
     }
 
     public int getDamage() {

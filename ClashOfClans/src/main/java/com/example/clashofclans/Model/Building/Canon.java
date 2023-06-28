@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 public class Canon extends DefensiveBuilding {
 
     public Canon() {
-        super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE,new HelloApplication().getClass().getResource("Building/Canon.png").toString());
+        super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE,new HelloApplication().getClass().getResource("Building/Canon.png").toString(),50);
     }
 
 }

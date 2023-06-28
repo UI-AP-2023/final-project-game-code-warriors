@@ -1,16 +1,20 @@
 package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Building.Canon;
+import com.example.clashofclans.Model.Building.Castle;
+import com.example.clashofclans.Model.Building.HomeLevel1;
+import com.example.clashofclans.Model.Field;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -134,23 +138,46 @@ public class HelloApplication extends Application {
                 }
         ));
         t.play();*/
-        Canon canon = new Canon();
-        Image image = new Image(canon.getImagePath());
-        ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(100);
-        imageView.setPreserveRatio(true);
 
-        AnchorPane root = new AnchorPane();
+
+        HBox root = new HBox();
+
+        VBox menu = new VBox();
+        menu.setPrefWidth(Screen.getPrimary().getBounds().getWidth()/4);
+        menu.setPrefHeight(Screen.getPrimary().getBounds().getHeight());
+        menu.setBackground(new Background(new BackgroundFill(Color.RED,new CornerRadii(0),new Insets(0))));
+
+        root.getChildren().addAll(menu,Values.maps.get(0));
 
 
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
-        stage.setTitle("Hello!");
+
+        stage.setTitle("Clash Of Clans");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
     }
 
     public static void main(String[] args) {
+        //map 1
+        Field field = new Field();
+
+        HomeLevel1 home1 = new HomeLevel1();
+        AnchorPane.setLeftAnchor(home1,Screen.getPrimary().getBounds().getHeight()/2);
+        AnchorPane.setTopAnchor(home1,400.0);
+
+        Castle castle = new Castle();
+        AnchorPane.setLeftAnchor(castle,Screen.getPrimary().getBounds().getHeight()/2+50);
+        AnchorPane.setTopAnchor(castle,400.0);
+
+        Canon canon = new Canon();
+        AnchorPane.setLeftAnchor(canon,Screen.getPrimary().getBounds().getHeight()/2+200);
+        AnchorPane.setTopAnchor(canon,200.0);
+
+        field.getChildren().addAll(home1,castle,canon);
+        Values.maps.add(field);
+
         launch();
     }
 }

@@ -5,6 +5,6 @@ import com.example.clashofclans.Values;
 
 public class Storage extends Building{
     public Storage() {
-        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL,new HelloApplication().getClass().getResource("Building/Storage.png").toString());
+        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL,new HelloApplication().getClass().getResource("Building/Storage.png").toString(),30);
     }
 }
