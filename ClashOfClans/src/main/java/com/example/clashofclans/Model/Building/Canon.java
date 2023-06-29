@@ -28,9 +28,4 @@ public class Canon extends DefensiveBuilding {
         return imageView;
     }
 
-    @Override
-    public void getInsets(double topInsets,double leftInset) {
-        AnchorPane.setLeftAnchor(getImageView(),leftInset);
-        AnchorPane.setTopAnchor(getImageView(),topInsets);
-    }
 }

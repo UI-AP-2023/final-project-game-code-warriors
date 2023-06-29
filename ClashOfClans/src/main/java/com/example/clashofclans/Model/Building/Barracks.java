@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class Barracks extends Building {
-    ImageView imageView;
+    private ImageView imageView;
 
     public Barracks() {
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);

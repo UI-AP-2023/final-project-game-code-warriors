@@ -4,6 +4,7 @@ import com.example.clashofclans.Model.Building.*;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Model.Hero.Hero;
 import com.example.clashofclans.Model.Hero.Spear;
+import com.example.clashofclans.Utility.MapHandler;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -129,7 +130,7 @@ public class HelloApplication extends Application {
         ));
         t.play();*/
 
-        Scene scene = new Scene(Values.maps.get(0), Screen.getPrimary().getBounds().getWidth() * 3 / 4, Screen.getPrimary().getBounds().getHeight());
+        Scene scene = new Scene(Values.maps.get(1), Screen.getPrimary().getBounds().getWidth() * 3 / 4, Screen.getPrimary().getBounds().getHeight());
 
         stage.setTitle("Clash Of Clans");
         stage.setScene(scene);
@@ -139,44 +140,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        HomeLevel3 home1 = new HomeLevel3();
-        home1.getInsets(280, 530);
-
-        HomeLevel2 home2 = new HomeLevel2();
-        home2.getInsets(300, 500);
-
-        HomeLevel2 home3 = new HomeLevel2();
-        home3.getInsets(320, 470);
-
-        HomeLevel2 home4 = new HomeLevel2();
-        home4.getInsets(340,440);
-
-        Storage storage1 = new Storage();
-        storage1.getInsets(450, 300);
-
-        Storage storage2 = new Storage();
-        storage2.getInsets(475,335);
-
-        Storage storage3 = new Storage();
-        storage3.getInsets(500,370);
-
-        Canon canon1 = new Canon();
-        canon1.getInsets(350, 550);
-
-        Canon canon2 = new Canon();
-        canon2.getInsets(400, 900);
-
-        Thrower thrower1 = new Thrower();
-        thrower1.getInsets(130, 500);
-
-        Barracks barracks1 = new Barracks();
-        barracks1.getInsets(250, 700);
-
-        Field map1 = new Field();
-        map1.getChildren().addAll(home1.getImageView(60), home2.getImageView(60), home3.getImageView(60),home4.getImageView(60),storage1.getImageView(80),storage2.getImageView(80), storage3.getImageView(80), canon1.getImageView(60), canon2.getImageView(60), thrower1.getImageView(80), barracks1.getImageView(60));
-
-
-        Values.maps.add(map1);
+        MapHandler.map1();
+        MapHandler.map2();
         launch();
     }
 }
