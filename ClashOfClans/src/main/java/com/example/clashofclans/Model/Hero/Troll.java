@@ -16,6 +16,7 @@ import javafx.util.Duration;
 
 import java.util.List;
 
+import static com.example.clashofclans.Values.TrollDieFrames;
 import static com.example.clashofclans.Values.TrollFrames;
 
 public class Troll extends Hero implements IGameComponent, IMortal , IAnimated{
@@ -54,6 +55,9 @@ public class Troll extends Hero implements IGameComponent, IMortal , IAnimated{
 
     @Override
     public void setDieToDefaultAnim() {
+        IFramer iFramer = new FramerTimeLine(imageView , TrollDieFrames, Duration.seconds(1));
+        timeLine.getKeyFrames().clear();
+        timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
 
     }
 }

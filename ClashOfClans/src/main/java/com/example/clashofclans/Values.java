@@ -115,7 +115,7 @@ public class Values {
     public static String TrollDieFrame9 = "Heroes/Troll/Troll_01_1_DIE_009.png";
 
     public static List<String> TrollFrames = List.of(Values.TrollFrame0 , Values.TrollFrame1 , Values.TrollFrame2 , Values.TrollFrame3 , Values.TrollFrame4 , Values.TrollFrame5 , Values.TrollFrame6 , Values.TrollFrame7 , Values.TrollFrame8 , Values.TrollFrame9);
-
+    public static List<String> TrollDieFrames = List.of(Values.TrollDieFrame0 , Values.TrollDieFrame1 , Values.TrollDieFrame2 , Values.TrollDieFrame3 , Values.TrollDieFrame4 , Values.TrollDieFrame5 , Values.TrollDieFrame6 , Values.TrollDieFrame7 , Values.TrollDieFrame8 , Values.TrollDieFrame9);
 
 
 
