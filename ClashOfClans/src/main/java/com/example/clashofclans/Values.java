@@ -85,5 +85,11 @@ public class Values {
     public static String SpearFrame2 = "Heroes/Spear/2 WALK_002.png";
     public static String SpearFrame3 = "Heroes/Spear/2 WALK_003.png";
     public static String SpearFrame4 = "Heroes/Spear/2 WALK_004.png";
+    public static String SpearDieFrame0 = "Heroes/Spear/7 DIE_000.png";
+    public static String SpearDieFrame1 = "Heroes/Spear/7 DIE_001.png";
+    public static String SpearDieFrame2 = "Heroes/Spear/7 DIE_002.png";
+    public static String SpearDieFrame3 = "Heroes/Spear/7 DIE_003.png";
+    public static String SpearDieFrame4 = "Heroes/Spear/7 DIE_004.png";
+
 
 }
