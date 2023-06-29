@@ -40,14 +40,12 @@ public class Spear extends Hero implements IAnimated , IMortal {
         return null;
     }
 
-    @Override
-    public Timeline getTimeLine() {
-        return timeLine;
-    }
+
 
     @Override
     public void initDefaultAnimation() {
         IFramer iFramer  = new FramerTimeLine(imageView , List.of(Values.SpearFrame1, Values.SpearFrame2 , Values.SpearFrame3 , Values.SpearFrame4 ,Values.SpearFrame0) , Duration.seconds(1));
+        timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
     }
@@ -58,4 +56,7 @@ public class Spear extends Hero implements IAnimated , IMortal {
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
     }
+
+
+
 }

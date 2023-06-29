@@ -4,6 +4,8 @@ import javafx.animation.Timeline;
 
 public interface IAnimated {
     Timeline timeLine = new Timeline();
-    Timeline getTimeLine();
+    default Timeline getTimeLine(){
+        return timeLine;
+    };
     void initDefaultAnimation();
 }

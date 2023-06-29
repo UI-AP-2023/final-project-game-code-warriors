@@ -3,6 +3,7 @@ package com.example.clashofclans;
 import com.example.clashofclans.Model.Field;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Values {
@@ -90,6 +91,32 @@ public class Values {
     public static String SpearDieFrame2 = "Heroes/Spear/7 DIE_002.png";
     public static String SpearDieFrame3 = "Heroes/Spear/7 DIE_003.png";
     public static String SpearDieFrame4 = "Heroes/Spear/7 DIE_004.png";
+
+    public static String TrollFrame0 = "Heroes/Troll/Troll_01_1_RUN_000.png";
+    public static String TrollFrame1 = "Heroes/Troll/Troll_01_1_RUN_001.png";
+    public static String TrollFrame2 = "Heroes/Troll/Troll_01_1_RUN_002.png";
+    public static String TrollFrame3 = "Heroes/Troll/Troll_01_1_RUN_003.png";
+    public static String TrollFrame4 = "Heroes/Troll/Troll_01_1_RUN_004.png";
+    public static String TrollFrame5 = "Heroes/Troll/Troll_01_1_RUN_005.png";
+    public static String TrollFrame6 = "Heroes/Troll/Troll_01_1_RUN_006.png";
+    public static String TrollFrame7 = "Heroes/Troll/Troll_01_1_RUN_007.png";
+    public static String TrollFrame8 = "Heroes/Troll/Troll_01_1_RUN_008.png";
+    public static String TrollFrame9 = "Heroes/Troll/Troll_01_1_RUN_009.png";
+
+    public static String TrollDieFrame0 = "Heroes/Troll/Troll_01_1_DIE_000.png";
+    public static String TrollDieFrame1 = "Heroes/Troll/Troll_01_1_DIE_001.png";
+    public static String TrollDieFrame2 = "Heroes/Troll/Troll_01_1_DIE_002.png";
+    public static String TrollDieFrame3 = "Heroes/Troll/Troll_01_1_DIE_003.png";
+    public static String TrollDieFrame4 = "Heroes/Troll/Troll_01_1_DIE_004.png";
+    public static String TrollDieFrame5 = "Heroes/Troll/Troll_01_1_DIE_005.png";
+    public static String TrollDieFrame6 = "Heroes/Troll/Troll_01_1_DIE_006.png";
+    public static String TrollDieFrame7 = "Heroes/Troll/Troll_01_1_DIE_007.png";
+    public static String TrollDieFrame8 = "Heroes/Troll/Troll_01_1_DIE_008.png";
+    public static String TrollDieFrame9 = "Heroes/Troll/Troll_01_1_DIE_009.png";
+
+    public static List<String> TrollFrames = List.of(Values.TrollFrame0 , Values.TrollFrame1 , Values.TrollFrame2 , Values.TrollFrame3 , Values.TrollFrame4 , Values.TrollFrame5 , Values.TrollFrame6 , Values.TrollFrame7 , Values.TrollFrame8 , Values.TrollFrame9);
+
+
 
 
 }
