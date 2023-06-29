@@ -1,5 +1,6 @@
 package com.example.clashofclans;
 
+import com.example.clashofclans.Model.Building.Barracks;
 import com.example.clashofclans.Model.Building.Canon;
 import com.example.clashofclans.Model.Building.Castle;
 import com.example.clashofclans.Model.Building.HomeLevel1;
@@ -145,7 +146,7 @@ public class HelloApplication extends Application {
         VBox menu = new VBox();
         menu.setPrefWidth(Screen.getPrimary().getBounds().getWidth()/4);
         menu.setPrefHeight(Screen.getPrimary().getBounds().getHeight());
-        menu.setBackground(new Background(new BackgroundFill(Color.RED,new CornerRadii(0),new Insets(0))));
+
 
         root.getChildren().addAll(menu,Values.maps.get(0));
 
@@ -160,24 +161,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        //map 1
-        Field field = new Field();
-
-        HomeLevel1 home1 = new HomeLevel1();
-        AnchorPane.setLeftAnchor(home1,Screen.getPrimary().getBounds().getHeight()/2);
-        AnchorPane.setTopAnchor(home1,400.0);
-
-        Castle castle = new Castle();
-        AnchorPane.setLeftAnchor(castle,Screen.getPrimary().getBounds().getHeight()/2+50);
-        AnchorPane.setTopAnchor(castle,400.0);
-
-        Canon canon = new Canon();
-        AnchorPane.setLeftAnchor(canon,Screen.getPrimary().getBounds().getHeight()/2+200);
-        AnchorPane.setTopAnchor(canon,200.0);
-
-        field.getChildren().addAll(home1,castle,canon);
-        Values.maps.add(field);
-
         launch();
     }
 }

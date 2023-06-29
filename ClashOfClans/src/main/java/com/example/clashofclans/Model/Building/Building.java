@@ -1,21 +1,21 @@
 package com.example.clashofclans.Model.Building;
 
+import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.IGameComponent;
 import com.example.clashofclans.Values;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
 
-public class Building extends ImageView {
+public abstract class Building implements IGameComponent {
     private int damage;
     private Values.DefensiveType type;
 
-    public Building(int damage, Values.DefensiveType type,String imagePath,double size) {
-        super(new Image(imagePath));
+    public Building(int damage, Values.DefensiveType type) {
         this.damage = damage;
         this.type = type;
-        this.setFitWidth(size);
-        this.setPreserveRatio(true);
     }
 
     public int getDamage() {
@@ -33,5 +33,4 @@ public class Building extends ImageView {
     public void setType(Values.DefensiveType type) {
         this.type = type;
     }
-
 }
