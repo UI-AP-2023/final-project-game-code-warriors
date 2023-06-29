@@ -1,8 +1,8 @@
 package com.example.clashofclans.Model.Hero;
 
-import javafx.scene.image.Image;
+import com.example.clashofclans.Model.IGameComponent;
 
-public class Hero {
+public abstract class Hero implements IGameComponent {
     private int health;
     private int hit;
     private int speed;

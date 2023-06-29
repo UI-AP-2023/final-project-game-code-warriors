@@ -5,6 +5,7 @@ import com.example.clashofclans.Model.Building.Canon;
 import com.example.clashofclans.Model.Building.Castle;
 import com.example.clashofclans.Model.Building.HomeLevel1;
 import com.example.clashofclans.Model.Field;
+import com.example.clashofclans.Model.Hero.Spear;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -142,13 +143,8 @@ public class HelloApplication extends Application {
 
 
         HBox root = new HBox();
-
-        VBox menu = new VBox();
-        menu.setPrefWidth(Screen.getPrimary().getBounds().getWidth()/4);
-        menu.setPrefHeight(Screen.getPrimary().getBounds().getHeight());
-
-
-        root.getChildren().addAll(menu,Values.maps.get(0));
+        Spear spear = new Spear();
+        root.getChildren().add(spear.getComponent(40));
 
 
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
