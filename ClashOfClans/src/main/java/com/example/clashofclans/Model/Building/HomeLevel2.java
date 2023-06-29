@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class HomeLevel2 extends Building {
     private ImageView imageView ;
@@ -26,8 +27,5 @@ public class HomeLevel2 extends Building {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
+
 }

@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Troll extends Hero {
     private ImageView imageView ;
@@ -24,10 +25,5 @@ public class Troll extends Hero {
     @Override
     public ImageView getImageView() {
         return imageView;
-    }
-
-    @Override
-    public Insets getInsets() {
-        return null;
     }
 }

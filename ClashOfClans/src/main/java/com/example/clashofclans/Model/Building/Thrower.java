@@ -5,6 +5,7 @@ import com.example.clashofclans.Values;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Thrower extends DefensiveBuilding {
     private ImageView imageView;
@@ -26,8 +27,5 @@ public class Thrower extends DefensiveBuilding {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
+
 }

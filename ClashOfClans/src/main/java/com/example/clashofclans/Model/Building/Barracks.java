@@ -5,13 +5,14 @@ import com.example.clashofclans.Values;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Barracks extends Building {
     ImageView imageView;
 
     public Barracks() {
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
-        imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Barracks").toString()));
+        imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Barracks.png").toString()));
     }
 
     @Override
@@ -26,8 +27,5 @@ public class Barracks extends Building {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
+
 }

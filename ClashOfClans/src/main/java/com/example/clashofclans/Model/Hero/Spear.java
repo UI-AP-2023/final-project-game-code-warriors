@@ -9,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.util.List;
@@ -34,10 +35,6 @@ public class Spear extends Hero implements IAnimated {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
 
     @Override
     public Timeline getAnimation() {
