@@ -1,10 +1,10 @@
 package com.example.clashofclans.Model;
 
 import javafx.geometry.Insets;
-import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 
 public interface IGameComponent {
-    Node getComponent(double size);
-
+    ImageView getImageView(double size);
+    ImageView getImageView();
     Insets getInsets();
 }

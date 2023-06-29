@@ -9,15 +9,21 @@ import javafx.scene.image.ImageView;
 
 public class Canon extends DefensiveBuilding {
 
+    private ImageView imageView ;
     public Canon() {
         super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE);
+        imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Canon.png").toString()));
     }
 
     @Override
-    public Node getComponent(double size) {
-        ImageView imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Canon.png").toString()));
+    public ImageView getImageView(double size) {
         imageView.setFitWidth(size);
         imageView.setPreserveRatio(true);
+        return imageView;
+    }
+
+    @Override
+    public ImageView getImageView() {
         return imageView;
     }
 

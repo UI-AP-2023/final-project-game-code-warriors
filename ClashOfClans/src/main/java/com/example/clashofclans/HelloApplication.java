@@ -1,30 +1,13 @@
 package com.example.clashofclans;
 
-import com.example.clashofclans.Model.Building.Barracks;
-import com.example.clashofclans.Model.Building.Canon;
-import com.example.clashofclans.Model.Building.Castle;
-import com.example.clashofclans.Model.Building.HomeLevel1;
-import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Model.Hero.Spear;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class HelloApplication extends Application {
     @Override
@@ -144,7 +127,7 @@ public class HelloApplication extends Application {
 
         HBox root = new HBox();
         Spear spear = new Spear();
-        root.getChildren().add(spear.getComponent(40));
+        root.getChildren().add(spear.getImageView(40));
 
 
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());

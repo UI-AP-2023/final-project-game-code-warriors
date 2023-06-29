@@ -8,14 +8,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Storage extends Building{
+    private ImageView imageView ;
     public Storage() {
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
+        imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Storage.png").toString()));
     }
     @Override
-    public Node getComponent(double size) {
-        ImageView imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Storage.png").toString()));
+    public ImageView getImageView(double size) {
         imageView.setFitWidth(size);
         imageView.setPreserveRatio(true);
+        return imageView;
+    }
+
+    @Override
+    public ImageView getImageView() {
         return imageView;
     }
 
