@@ -127,9 +127,9 @@ public class HelloApplication extends Application {
 
         HBox root = new HBox();
         Spear spear = new Spear();
-        root.getChildren().add(spear.getImageView(40));
+        root.getChildren().add(spear.getImageView(100));
 
-
+        spear.getAnimation().play();
         Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
 
         stage.setTitle("Clash Of Clans");

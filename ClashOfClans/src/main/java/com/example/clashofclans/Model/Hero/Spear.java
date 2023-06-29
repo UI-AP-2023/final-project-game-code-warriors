@@ -1,12 +1,20 @@
 package com.example.clashofclans.Model.Hero;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.IAnimated;
+import com.example.clashofclans.Utility.FramerTimeLine;
+import com.example.clashofclans.Utility.IFramer;
 import com.example.clashofclans.Values;
+import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
-public class Spear extends Hero {
+import java.util.List;
+
+public class Spear extends Hero implements IAnimated {
+
     private ImageView imageView ;
 
     public Spear() {
@@ -29,5 +37,11 @@ public class Spear extends Hero {
     @Override
     public Insets getInsets() {
         return null;
+    }
+
+    @Override
+    public Timeline getAnimation() {
+        IFramer iFramer  = new FramerTimeLine(imageView , List.of(Values.SpearFrame1, Values.SpearFrame2 , Values.SpearFrame3 , Values.SpearFrame4 ,Values.SpearFrame0) , Duration.seconds(1));
+        return iFramer.getTimeLine();
     }
 }

@@ -80,4 +80,10 @@ public class Values {
     // Storage - Weak
     public static int STORAGE_DAMAGE = 200;
 
+    public static String SpearFrame0 = "Heroes/Spear/2 WALK_000.png";
+    public static String SpearFrame1 = "Heroes/Spear/2 WALK_001.png";
+    public static String SpearFrame2 = "Heroes/Spear/2 WALK_002.png";
+    public static String SpearFrame3 = "Heroes/Spear/2 WALK_003.png";
+    public static String SpearFrame4 = "Heroes/Spear/2 WALK_004.png";
+
 }
