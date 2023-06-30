@@ -17,9 +17,10 @@ import javafx.util.Duration;
 public class Field extends AnchorPane {
     public Field() {
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
-        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.RIGHT, 0, true, Side.BOTTOM, 0, true), new BackgroundSize(Screen.getPrimary().getBounds().getHeight() * 3 / 4, Screen.getPrimary().getBounds().getHeight(), true, false, true, false));
+        BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.RIGHT, 0, true, Side.BOTTOM, 0, true), new BackgroundSize(1150, 865, true, false, true, false));
 
         this.setBackground(new Background(backgroundImage));
+        this.setPrefSize(1150,865);
     }
     public void move(Insets targetPosition, IGameComponent gameComponent, Duration duration){
         Timeline timeline = new Timeline();
