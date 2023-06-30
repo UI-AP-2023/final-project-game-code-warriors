@@ -136,8 +136,8 @@ public class HelloApplication extends Application {
         AnchorPane.setTopAnchor(spear.getImageView(100), 50.0);
         AnchorPane.setLeftAnchor(spear.getImageView(100), 20.0);
 //        root.getChildren().add(spear.getImageView(100));
-        ComponentMover.moveComponent(new Insets(300 , 0 , 0 , 100),spear , Duration.millis(10000));
-        spear.getAnimation().play();
+//        ComponentMover.moveComponent(new Insets(300 , 0 , 0 , 100),spear , Duration.millis(10000));
+//        spear.getAnimation().play();
         Scene scene = new Scene(field, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
 
         stage.setTitle("Clash Of Clans");

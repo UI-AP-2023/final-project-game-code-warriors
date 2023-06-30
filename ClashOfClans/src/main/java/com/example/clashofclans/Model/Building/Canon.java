@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Canon extends DefensiveBuilding {
 
@@ -27,8 +28,4 @@ public class Canon extends DefensiveBuilding {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
 }

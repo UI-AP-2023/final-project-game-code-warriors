@@ -9,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class Dragon extends Hero  {
     private ImageView imageView;
@@ -29,10 +30,7 @@ public class Dragon extends Hero  {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
+
 
 
 }

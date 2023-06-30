@@ -5,6 +5,7 @@ import com.example.clashofclans.Values;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class HomeLevel1 extends Building {
     private ImageView imageView;
@@ -16,7 +17,6 @@ public class HomeLevel1 extends Building {
 
     @Override
     public ImageView getImageView(double size) {
-
         imageView.setFitWidth(size);
         imageView.setPreserveRatio(true);
         return imageView;
@@ -27,8 +27,5 @@ public class HomeLevel1 extends Building {
         return imageView;
     }
 
-    @Override
-    public Insets getInsets() {
-        return null;
-    }
+
 }

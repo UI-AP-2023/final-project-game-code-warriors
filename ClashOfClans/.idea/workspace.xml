@@ -5,15 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Powder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Powder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Thrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Thrower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Green.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Green.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Hero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/IGameComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/IGameComponent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +34,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -58,13 +70,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "refactor",
+    "git-widget-placeholder": "Merging master",
     "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -115,7 +128,11 @@
       <workItem from="1687987864343" duration="80000" />
       <workItem from="1687988610672" duration="58000" />
       <workItem from="1687989522729" duration="22000" />
-      <workItem from="1687991369879" duration="6706000" />
+      <workItem from="1687991369879" duration="7735000" />
+      <workItem from="1688030219340" duration="2128000" />
+      <workItem from="1688053449080" duration="887000" />
+      <workItem from="1688054454409" duration="16000" />
+      <workItem from="1688054479716" duration="14247000" />
     </task>
     <servers />
   </component>
