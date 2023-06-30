@@ -1,11 +1,15 @@
 package com.example.clashofclans;
 
+import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Model.Hero.Spear;
+import com.example.clashofclans.Utility.ComponentMover;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -125,12 +129,16 @@ public class HelloApplication extends Application {
         t.play();*/
 
 
-        HBox root = new HBox();
+//        HBox root = new HBox();
         Spear spear = new Spear();
-        root.getChildren().add(spear.getImageView(100));
-
+        Field field = new Field();
+        field.getChildren().add(spear.getImageView(100));
+        AnchorPane.setTopAnchor(spear.getImageView(100), 50.0);
+        AnchorPane.setLeftAnchor(spear.getImageView(100), 20.0);
+//        root.getChildren().add(spear.getImageView(100));
+        ComponentMover.moveComponent(new Insets(300 , 0 , 0 , 100),spear , Duration.millis(10000));
         spear.getAnimation().play();
-        Scene scene = new Scene(root, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
+        Scene scene = new Scene(field, Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
 
         stage.setTitle("Clash Of Clans");
         stage.setScene(scene);
