@@ -5,8 +5,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import javafx.util.Duration;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class FramerTimeLine implements IFramer {
@@ -25,15 +26,24 @@ public class FramerTimeLine implements IFramer {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
 //        timeline.setAutoReverse(true);
-        int i = 0 ;
+        List<KeyFrame> keyFrames = getKeyFrames();
+        timeline.getKeyFrames().addAll(keyFrames);
+
+        return timeline;
+    }
+
+    @Override
+    public List<KeyFrame> getKeyFrames() {
+        List<KeyFrame> keyFrames = new ArrayList<>();
+        int i = 0;
         for (String frame : frames) {
-            timeline.getKeyFrames().add(
+            keyFrames.add(
                     new KeyFrame(Duration.millis(duration.toMillis() / frames.size() * (i++)), e -> {
-                    imageView.setImage(new Image(HelloApplication.class.getResource(frame).toString()));
+                        imageView.setImage(new Image(HelloApplication.class.getResource(frame).toString()));
+
                     })
             );
         }
-
-        return timeline;
+        return keyFrames;
     }
 }
