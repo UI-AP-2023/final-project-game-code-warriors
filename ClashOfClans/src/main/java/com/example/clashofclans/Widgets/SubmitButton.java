@@ -9,8 +9,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class LoginButton extends Button {
-    public LoginButton(double width,double height) {
+public class SubmitButton extends Button {
+    public SubmitButton(double width, double height) {
         Image backgroundImage = new Image(HelloApplication.class.getResource("Buttons/Menu Item.png").toString());
         this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat
                 .NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(width - 5, height - 5, false, false, false, false))));

@@ -1,14 +1,9 @@
 package com.example.clashofclans.View;
 
 import com.example.clashofclans.HelloApplication;
-import com.example.clashofclans.Model.Field;
-import com.example.clashofclans.Widgets.LoginButton;
-import com.example.clashofclans.Widgets.MenuItem;
+import com.example.clashofclans.Widgets.SubmitButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,11 +25,11 @@ public class WelcomePage {
         imageView.setEffect(gaussianBlur);
 
 
-        LoginButton btn_Login = new LoginButton(200, 50);
+        SubmitButton btn_Login = new SubmitButton(200, 50);
         btn_Login.setTranslateY(-30);
 
 
-        LoginButton btn_SignUp = new LoginButton(200, 50);
+        SubmitButton btn_SignUp = new SubmitButton(200, 50);
         btn_SignUp.setTranslateY(30);
         btn_SignUp.setText("Sign Up");
 
