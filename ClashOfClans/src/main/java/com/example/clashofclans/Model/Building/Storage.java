@@ -14,6 +14,10 @@ public class Storage extends Building{
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Storage.png").toString()));
     }
+    public Storage(double size) {
+        this();
+        getImageView(size);
+    }
     @Override
     public ImageView getImageView(double size) {
         imageView.setFitWidth(size);

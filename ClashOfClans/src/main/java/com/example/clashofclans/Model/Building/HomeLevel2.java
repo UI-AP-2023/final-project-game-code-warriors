@@ -14,6 +14,10 @@ public class HomeLevel2 extends Building {
         super(Values.HOME2_DAMAGE, Values.DefensiveType.NORMAL);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/HomeLevel2.png").toString()));
     }
+    public HomeLevel2(double size) {
+        this();
+        getImageView(size);
+    }
 
     @Override
     public ImageView getImageView(double size) {

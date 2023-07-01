@@ -1,8 +1,9 @@
 package com.example.clashofclans.Model.Hero;
 
 import com.example.clashofclans.HelloApplication;
-import com.example.clashofclans.Model.IAnimated;
-import com.example.clashofclans.Model.IMortal;
+import com.example.clashofclans.Model.Interfaces.IAnimated;
+import com.example.clashofclans.Model.Interfaces.IMortal;
+import com.example.clashofclans.Model.Interfaces.ITarget;
 import com.example.clashofclans.Utility.FramerTimeLine;
 import com.example.clashofclans.Utility.IFramer;
 import com.example.clashofclans.Values;
@@ -22,6 +23,10 @@ public class Spear extends Hero implements IAnimated , IMortal {
     public Spear() {
         super(new Image(HelloApplication.class.getResource("Heroes/Spear/2 WALK_000.png").toString()), Values.SPEAR_HEALTH, Values.SPEAR_HIT, 10, Values.SPEAR_SPEED, Values.SPEAR_HITRANGE);
         imageView =  new ImageView(this.getImage());
+    }
+    public Spear(double size) {
+        this();
+        getImageView(size);
     }
 
     @Override

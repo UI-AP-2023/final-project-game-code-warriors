@@ -15,6 +15,10 @@ public class Castle extends Building {
         super(Values.CASTLE_DAMAGE, Values.DefensiveType.NORMAL);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Castle.png").toString()));
     }
+    public Castle(double size) {
+        this();
+        getImageView(size);
+    }
 
     @Override
     public ImageView getImageView(double size) {

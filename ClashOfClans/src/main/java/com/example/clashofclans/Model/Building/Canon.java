@@ -15,6 +15,10 @@ public class Canon extends DefensiveBuilding {
         super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Canon.png").toString()));
     }
+    public Canon(double size) {
+        this();
+        getImageView(size);
+    }
 
     @Override
     public ImageView getImageView(double size) {

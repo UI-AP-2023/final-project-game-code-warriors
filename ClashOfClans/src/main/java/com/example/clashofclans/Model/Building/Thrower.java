@@ -14,6 +14,10 @@ public class Thrower extends DefensiveBuilding {
         super(Values.THROWER_DAMAGE, Values.THROWER_HIT, Values.THROWER_HITRANGE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Thrower.png").toString()));
     }
+    public Thrower(double size) {
+        this();
+        getImageView(size);
+    }
 
     @Override
     public ImageView getImageView(double size) {

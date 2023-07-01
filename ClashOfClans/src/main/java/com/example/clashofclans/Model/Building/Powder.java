@@ -14,6 +14,10 @@ public class Powder extends DefensiveBuilding{
         super(Values.POWDER_DAMAGE, Values.POWDER_HIT, Values.POWDER_HITRANGE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Powder.png").toString()));
     }
+    public Powder(double size) {
+        this();
+        getImageView(size);
+    }
     @Override
     public ImageView getImageView(double size) {
         imageView.setFitWidth(size);
