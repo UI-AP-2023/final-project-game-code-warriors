@@ -40,6 +40,7 @@ public class MapHandler {
         barracks1.setInsets(250, 700);
 
         Field map1 = new Field();
+
         map1.addBulkChildren(home1 , home2 , home3 , home4 , storage1  , storage3 , canon1 , canon2 , thrower1 , barracks1);
         Values.maps.add(map1);
     }

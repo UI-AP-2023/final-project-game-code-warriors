@@ -1,8 +1,10 @@
 package com.example.clashofclans.Model;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
+import com.example.clashofclans.Utility.ComponentMover;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
@@ -24,6 +26,19 @@ public class Field extends Pane implements ITargetHolder {
 
 
     public Field() {
+
+
+        this.setOnMouseClicked(event -> {
+                    Spear spear = new Spear(60);
+                    this.addChildren(spear);
+                    spear.initDefaultAnimation();
+                    spear.getTimeLine().play();
+                    spear.setInsets(event.getY(),event.getX());
+                    IGameComponent iGameComponent = this.getTargetFor(spear);
+                    ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
+        });
+
+
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.RIGHT, 0, true, Side.BOTTOM, 0, true), new BackgroundSize(1150, 865, true, false, true, false));
 

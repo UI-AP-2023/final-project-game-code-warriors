@@ -34,22 +34,16 @@ public class ComponentMover {
     private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, Duration duration, ImageView component) {
         double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
         double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
-        if (oneFrameTopMove < 0) oneFrameTopMove = -oneFrameTopMove;
-        if (oneFrameLeftMove < 0) oneFrameLeftMove = -oneFrameLeftMove;
 
-        System.out.println(oneFrameLeftMove + " " + oneFrameTopMove);
         LinkedList<KeyFrame> res = new LinkedList<>();
         for (int i = 0; i < duration.toMillis(); i += 10) {
-            double interpolatedLeftValue = oneFrameLeftMove * (i/10);
-            double interpolatedTopValue = oneFrameTopMove * (i/10);
+            double interpolatedLeftValue = oneFrameLeftMove * (i/10) + component.getX();
+            double interpolatedTopValue = oneFrameTopMove * (i/10) + component.getY();
 
 
             res.add(new KeyFrame(Duration.millis(i), event -> {
                 component.setX(interpolatedLeftValue);
                 component.setY(interpolatedTopValue);
-//                AnchorPane.setLeftAnchor(component, interpolatedLeftValue);
-//                AnchorPane.setTopAnchor(component, interpolatedTopValue);
-                System.out.println("Key Frame" + interpolatedLeftValue + " " + interpolatedTopValue);
             }));
 
         }
