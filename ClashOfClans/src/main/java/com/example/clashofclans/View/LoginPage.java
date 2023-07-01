@@ -2,22 +2,54 @@ package com.example.clashofclans.View;
 
 import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Widgets.BackwardButton;
+import com.example.clashofclans.Widgets.ErrorMessage;
 import com.example.clashofclans.Widgets.SubmitButton;
 import com.example.clashofclans.Widgets.TextInput;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
+import javafx.scene.Scene;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 
 public class LoginPage {
-    public static StackPane show() {
+    public static void show(Stage stage) {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
+
+        StackPane root = new StackPane();
+
+        Pane pane_Back = new Pane();
+        pane_Back.setMaxSize(100, 600);
+        pane_Back.setMinSize(100, 600);
+        pane_Back.setTranslateX(-450);
+        pane_Back.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(0), new Insets(0))));
+        pane_Back.setOpacity(0);
+
+
+        BackwardButton btn_Back = new BackwardButton(30);
+        //btn_Back.setTranslateY(-180);
+        btn_Back.setTranslateX(-450);
+        btn_Back.setMinSize(100, 600);
+        btn_Back.setMaxSize(100, 600);
+
+
+        btn_Back.setOnMouseEntered(event -> {
+            pane_Back.setOpacity(0.3);
+        });
+        btn_Back.setOnMouseExited(event -> {
+            pane_Back.setOpacity(0);
+        });
+        btn_Back.setOnMouseClicked(event -> {
+            WelcomePage.show(stage);
+        });
+
 
         ImageView imageView = new ImageView(new Image(HelloApplication.class.getResource("Field.jpg").toString()));
         imageView.setFitWidth(1000);
@@ -26,28 +58,43 @@ public class LoginPage {
 
         VBox vBox_field = new VBox();
         vBox_field.setBackground(new Background(new BackgroundFill(Color.web("#383838"), new CornerRadii(15), new Insets(0))));
-        vBox_field.setMaxSize(250, 280);
-        vBox_field.setMinSize(250, 280);
+        vBox_field.setMaxSize(250, 230);
+        vBox_field.setMinSize(250, 230);
         vBox_field.setAlignment(Pos.CENTER);
         vBox_field.setOpacity(0.2);
 
         TextInput textInput_Username = new TextInput("Username");
         textInput_Username.setTranslateX(390);
-        textInput_Username.setTranslateY(180);
+        textInput_Username.setTranslateY(210);
 
         TextInput textInput_Password = new TextInput("Password");
         textInput_Password.setTranslateX(390);
-        textInput_Password.setTranslateY(250);
+        textInput_Password.setTranslateY(280);
 
         SubmitButton btn_Login = new SubmitButton(200, 50);
         btn_Login.setTranslateY(70);
         btn_Login.setOnMouseClicked(event -> {
-            AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText());
+            if (AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText())) {
+                GamePage.show(stage);
+            }
+            else {
+                ErrorMessage errorMessage = new ErrorMessage("Invalid username or password!");
+                errorMessage.setTranslateY(35);
+                errorMessage.setTranslateX(-30);
+
+                vBox_field.setMaxHeight(250);
+                vBox_field.setMinHeight(250);
+                textInput_Password.setTranslateY(270);
+                textInput_Username.setTranslateY(200);
+                btn_Login.setTranslateY(80);
+                root.getChildren().add(errorMessage);
+
+            }
         });
 
 
-        StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login);
+        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back);
 
-        return root;
+        stage.setScene(new Scene(root, 1000, 600));
     }
 }

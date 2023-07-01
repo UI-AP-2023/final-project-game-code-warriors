@@ -32,8 +32,8 @@ public class GamePage {
                 VBox vBox_Menu = new VBox();
                 vBox_Menu.setPrefWidth(100);
 
-                MenuItem item1 = new MenuItem(90, 40, "test");
-                vBox_Menu.getChildren().add(item1);
+                MenuItem item_Attack = new MenuItem(90, 40, "Attack");
+                vBox_Menu.getChildren().add(item_Attack);
                 vBox_Menu.setTranslateX(10);
                 vBox_Menu.setTranslateY(50);
                 root.getChildren().add(vBox_Menu);

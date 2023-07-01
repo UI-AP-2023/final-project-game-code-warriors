@@ -2,12 +2,8 @@ package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Utility.MapHandler;
-import com.example.clashofclans.View.GamePage;
-import com.example.clashofclans.View.LoginPage;
-import com.example.clashofclans.View.MapSelectionPage;
-import com.example.clashofclans.View.SignUpPage;
+import com.example.clashofclans.View.*;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
@@ -15,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Clash Of Clans");
-        GamePage.show(stage);
+        WelcomePage.show(stage);
         stage.setResizable(false);
         stage.show();
     }
