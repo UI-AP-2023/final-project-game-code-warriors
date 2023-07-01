@@ -2,13 +2,14 @@ package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Model.Field;
+import javafx.scene.control.ScrollPane;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Values {
-    public static ArrayList<Field> maps;
+    public static ArrayList<ScrollPane> maps;
     public static ArrayList<Account> users;
     public static Account loggedInUser = null;
 

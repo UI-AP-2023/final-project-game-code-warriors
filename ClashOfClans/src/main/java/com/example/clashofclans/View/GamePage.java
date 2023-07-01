@@ -53,7 +53,7 @@ public class GamePage {
         scoreBoard.setTranslateX(440);
 
 
-        root.getChildren().addAll(scrollPane, menuButton, settingButton,scoreBoard);
+        root.getChildren().addAll(Values.loggedInUser.getMap(), menuButton, settingButton,scoreBoard);
         stage.setScene(new Scene(root, 1000, 600));
     }
 }

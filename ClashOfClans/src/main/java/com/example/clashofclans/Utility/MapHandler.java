@@ -4,6 +4,7 @@ import com.example.clashofclans.Model.Building.*;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Values;
 import javafx.scene.Node;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 
 public class MapHandler {
@@ -41,10 +42,15 @@ public class MapHandler {
         Barracks barracks1 = new Barracks();
         barracks1.getInsets(250, 700);
 
-        Field map1 = new Field();
-        map1.getChildren().addAll(home1.getImageView(60), home2.getImageView(60), home3.getImageView(60), home4.getImageView(60), storage1.getImageView(80), storage2.getImageView(80), storage3.getImageView(80), canon1.getImageView(60), canon2.getImageView(60), thrower1.getImageView(80), barracks1.getImageView(60));
+        Field field = new Field();
+        field.getChildren().addAll(home1.getImageView(60), home2.getImageView(60), home3.getImageView(60), home4.getImageView(60), storage1.getImageView(80), storage2.getImageView(80), storage3.getImageView(80), canon1.getImageView(60), canon2.getImageView(60), thrower1.getImageView(80), barracks1.getImageView(60));
 
-        Values.maps.add(map1);
+        ScrollPane scrollPane = new ScrollPane(field);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setPannable(true);
+
+        Values.maps.add(scrollPane);
     }
 
     public static void map2() {
@@ -87,6 +93,11 @@ public class MapHandler {
         Field field = new Field();
         field.getChildren().addAll(home1.getImageView(70), barracks1.getImageView(60), barracks2.getImageView(60), storage1.getImageView(70), thrower1.getImageView(60), thrower2.getImageView(60), canon1.getImageView(50), canon2.getImageView(50), castle.getImageView(60),home2.getImageView(70),home3.getImageView(70),home4.getImageView(70));
 
-        Values.maps.add(field);
+        ScrollPane scrollPane = new ScrollPane(field);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.setPannable(true);
+
+        Values.maps.add(scrollPane);
     }
 }

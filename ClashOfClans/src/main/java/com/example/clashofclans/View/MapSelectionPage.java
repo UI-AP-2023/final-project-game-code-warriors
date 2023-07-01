@@ -18,12 +18,6 @@ public class MapSelectionPage {
     public static void show(int map, Stage stage) {
         index = map;
 
-        ScrollPane scrollPane = new ScrollPane(Values.maps.get(index));
-        scrollPane.setPannable(true);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
-
         BackwardButton btn_Backward = new BackwardButton(50);
         btn_Backward.setTranslateX(-150);
         btn_Backward.setTranslateY(210);
@@ -55,7 +49,7 @@ public class MapSelectionPage {
             btn_Forward.setDisable(true);
         }
 
-        StackPane root = new StackPane(scrollPane, btn_Backward, btn_Confirm, btn_Forward);
+        StackPane root = new StackPane(Values.maps.get(index), btn_Backward, btn_Confirm, btn_Forward);
         stage.setScene(new Scene(root, 1000, 600));
     }
 }
