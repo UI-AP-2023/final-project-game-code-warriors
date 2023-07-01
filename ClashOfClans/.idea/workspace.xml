@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" afterDir="false" />
-    </list>
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +50,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "refactorField",
+    "git-widget-placeholder": "showHero",
     "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans/Buttons",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",

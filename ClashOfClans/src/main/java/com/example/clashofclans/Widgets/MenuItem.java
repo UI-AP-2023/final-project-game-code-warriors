@@ -15,7 +15,7 @@ public class MenuItem extends Button {
         this.setPrefSize(width, height);
         this.setText(text);
         Image backgroundImage = new Image(HelloApplication.class.getResource("Buttons/Menu Item.png").toString());
-        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(width - 5, height - 5, false, false, false, false))));
+        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(width, height, false, false, false, false))));
         this.setCursor(Cursor.HAND);
         this.setTextFill(Color.WHITE);
         this.setFont(Font.font(this.getFont().getFamily(), FontWeight.BOLD, 13));
