@@ -1,18 +1,22 @@
 package com.example.clashofclans.View;
 
+import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.SubmitButton;
 import com.example.clashofclans.Widgets.TextInput;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class SignUpPage {
-    public static StackPane show() {
+    public static void show(Stage stage) {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
 
@@ -43,11 +47,16 @@ public class SignUpPage {
         SubmitButton btn_SignUp = new SubmitButton(200, 50);
         btn_SignUp.setTranslateY(110);
         btn_SignUp.setText("Sign Up");
+        btn_SignUp.setOnMouseClicked(event -> {
+            if (AccountController.signUp(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText(), textInput_Email.getTextField().getText())) {
+                MapSelectionPage.show(0, stage);
+            }
+        });
 
 
         StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, textInput_Email, btn_SignUp);
 
-        return root;
+        stage.setScene(new Scene(root, 1000, 600));
     }
 
 }

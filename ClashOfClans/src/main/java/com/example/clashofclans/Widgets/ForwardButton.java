@@ -3,8 +3,12 @@ package com.example.clashofclans.Widgets;
 import com.example.clashofclans.HelloApplication;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 public class ForwardButton extends Button {
     public ForwardButton(double size) {
@@ -14,5 +18,18 @@ public class ForwardButton extends Button {
 
         this.setPrefSize(size, size+5);
         this.setCursor(Cursor.HAND);
+
+        this.setOnMousePressed(event ->{
+            DropShadow shadow = new DropShadow();
+            shadow.setBlurType(BlurType.GAUSSIAN);
+            shadow.setRadius(10);
+            shadow.setSpread(0);
+            shadow.setColor(Color.BLACK);
+
+            this.setEffect(shadow);
+        });
+        this.setOnMouseReleased(event ->{
+            this.setEffect(null);
+        });
     }
 }

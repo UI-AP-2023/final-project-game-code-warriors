@@ -1,5 +1,6 @@
 package com.example.clashofclans.View;
 
+import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Widgets.SubmitButton;
 import com.example.clashofclans.Widgets.TextInput;
@@ -38,11 +39,14 @@ public class LoginPage {
         textInput_Password.setTranslateX(390);
         textInput_Password.setTranslateY(250);
 
-        SubmitButton btn_Login = new SubmitButton(200,50);
+        SubmitButton btn_Login = new SubmitButton(200, 50);
         btn_Login.setTranslateY(70);
+        btn_Login.setOnMouseClicked(event -> {
+            AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText());
+        });
 
 
-        StackPane root = new StackPane(imageView, vBox_field, textInput_Username,textInput_Password,btn_Login);
+        StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login);
 
         return root;
     }

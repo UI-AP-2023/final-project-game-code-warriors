@@ -1,14 +1,21 @@
 package com.example.clashofclans;
 
+import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Model.Field;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Values {
+    public static ArrayList<Field> maps;
+    public static ArrayList<Account> users;
+    public static Account loggedInUser = null;
 
-    public static ArrayList<Field> maps = new ArrayList<>();
-
+    static {
+        users = new ArrayList<>();
+        maps = new ArrayList<>();
+    }
     // Max health = 100; Max hit/second = 50; Max speed = 20; Max hit range(HERO) = 10; Max hit range(BUILDING) = 20;
     // Max Damage = 500;
 
