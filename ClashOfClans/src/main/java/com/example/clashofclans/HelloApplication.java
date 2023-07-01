@@ -23,9 +23,6 @@ public class HelloApplication extends Application {
         Field field = Values.maps.get(0);
         Spear spear = new Spear();
         field.getChildren().add(spear.getImageView(60));
-        AnchorPane.setLeftAnchor(spear.getImageView() , 100D);
-        AnchorPane.setTopAnchor(spear.getImageView() , 100D);
-
         spear.initDefaultAnimation();
         IGameComponent iGameComponent  = field.getTargetFor(spear);
         System.out.println(iGameComponent.getInsets());

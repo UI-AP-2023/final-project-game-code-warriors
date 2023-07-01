@@ -32,7 +32,6 @@ public class ComponentMover {
     }
 
     private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, Duration duration, ImageView component) {
-        System.out.println(AnchorPane.getLeftAnchor(component) + " " + AnchorPane.getTopAnchor(component));
         double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
         double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
         if (oneFrameTopMove < 0) oneFrameTopMove = -oneFrameTopMove;

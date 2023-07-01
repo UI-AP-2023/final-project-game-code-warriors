@@ -8,14 +8,11 @@ public interface IGameComponent {
     ImageView getImageView(double size);
     ImageView getImageView();
     default void setInsets(double topInset, double leftInset){
-        AnchorPane.setLeftAnchor(getImageView(),leftInset);
-        AnchorPane.setTopAnchor(getImageView(),topInset);
+        getImageView().setY(topInset);
+        getImageView().setX(leftInset);
     }
 
     default Insets getInsets(){
         return new Insets(getImageView().getY(),0,0,getImageView().getX());
     };
-    default Insets getAnchorPaneInset(){
-        return new Insets(AnchorPane.getTopAnchor(getImageView()),0,0,AnchorPane.getLeftAnchor(getImageView()));
-    }
 }

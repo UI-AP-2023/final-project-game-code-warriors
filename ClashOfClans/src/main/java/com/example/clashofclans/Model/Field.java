@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class Field extends AnchorPane implements ITargetHolder {
+public class Field extends Pane implements ITargetHolder {
 
 
 
@@ -67,8 +67,8 @@ public class Field extends AnchorPane implements ITargetHolder {
 
     @Override
     public IGameComponent getTargetFor(IGameComponent gameComponent) {
-        double top =  gameComponent.getAnchorPaneInset().getTop();
-        double left = gameComponent.getAnchorPaneInset().getLeft();
+        double top =  gameComponent.getInsets().getTop();
+        double left = gameComponent.getInsets().getLeft();
         Map<IGameComponent , Double > targetDistanceMap = getTargetDistanceMap(top, left , true);
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
@@ -79,7 +79,7 @@ public class Field extends AnchorPane implements ITargetHolder {
                 min.set(value);
             };
         });
-        System.out.println(target.get().getAnchorPaneInset());
+        System.out.println(target.get().getInsets());
         return target.get();
     }
 
