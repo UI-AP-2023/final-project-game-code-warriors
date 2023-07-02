@@ -6,12 +6,11 @@ import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
+import java.util.List;
 
 
 public class ComponentMover {
@@ -21,33 +20,68 @@ public class ComponentMover {
         ImageView component = gameComponent.getImageView();
 
         Platform.runLater(() -> {
-            System.out.println("hello");
-            LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, duration, component);
+            LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, component);
             timeline.getKeyFrames().addAll(keyFrames);
-            System.out.println("done");
             timeline.play();
         });
 
 
     }
 
-    private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, Duration duration, ImageView component) {
-        double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
-        double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
+    private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, ImageView component) {
+//        double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
+//        double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
+//
+//        LinkedList<KeyFrame> res = new LinkedList<>();
+//        for (int i = 0; i < duration.toMillis(); i += 10) {
+//            double interpolatedLeftValue = oneFrameLeftMove * (i/10) + component.getX();
+//            double interpolatedTopValue = oneFrameTopMove * (i/10) + component.getY();
+//
+//
+//            res.add(new KeyFrame(Duration.millis(i), event -> {
+//                component.setX(interpolatedLeftValue);
+//                component.setY(interpolatedTopValue);
+//            }));
+//
+//        }
+//        return res;
 
-        LinkedList<KeyFrame> res = new LinkedList<>();
-        for (int i = 0; i < duration.toMillis(); i += 10) {
-            double interpolatedLeftValue = oneFrameLeftMove * (i/10) + component.getX();
-            double interpolatedTopValue = oneFrameTopMove * (i/10) + component.getY();
+        LinkedList<KeyFrame> keyFrames = new LinkedList<>();
 
+        double destenationX = targetPosition.getLeft();
+        double destenationY = targetPosition.getTop();
+        double currentX = component.getX();
+        double currentY = component.getY();
+        long index = 0;
+        int speed = 5;
+        while (true){
+            double differenceX = destenationX > currentX ? destenationX - currentX : currentX - destenationX;
+            double differenceY = destenationY > currentY ? destenationY - currentY : currentY - destenationY;
+            if (differenceY < speed*2 && differenceX < speed*2)break;
+            if (currentX == destenationX && currentY == destenationY) break;
+            if (differenceX > speed){
+                if (currentX != destenationX){
+                    if (currentX > destenationX) currentX-=speed;
+                    else currentX+=speed;
+                }
+            }
+            if (differenceY > speed){
+                if (currentY != destenationY){
+                    if (currentY > destenationY +speed) currentY-=speed;
+                    else currentY+=speed;
+                }
+            }
 
-            res.add(new KeyFrame(Duration.millis(i), event -> {
-                component.setX(interpolatedLeftValue);
-                component.setY(interpolatedTopValue);
+            double finalCurrentX = currentX;
+            double finalCurrentY = currentY;
+            keyFrames.add(new KeyFrame(Duration.millis(index), event -> {
+                component.setX(finalCurrentX);
+                component.setY(finalCurrentY);
             }));
-
+            index += 20;
         }
-        return res;
+        return keyFrames;
+
 
     }
 
