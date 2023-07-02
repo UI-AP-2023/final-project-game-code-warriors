@@ -1,20 +1,19 @@
 package com.example.clashofclans.View;
 
 import com.example.clashofclans.Values;
-import com.example.clashofclans.Widgets.MenuButton;
-import com.example.clashofclans.Widgets.MenuItem;
-import com.example.clashofclans.Widgets.Board;
-import com.example.clashofclans.Widgets.SettingButton;
+import com.example.clashofclans.Widgets.*;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GamePage {
+    private static StackPane root = new StackPane();
     public static void show(Stage stage) {
-        StackPane root = new StackPane();
         root.setPrefSize(1000, 600);
 
         ScrollPane scrollPane = new ScrollPane(Values.loggedInUser.getMap());
@@ -22,26 +21,15 @@ public class GamePage {
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setPannable(true);
 
+        InGameMenu menu = new InGameMenu();
+        menu.setTranslateX(10);
+        menu.setTranslateY(50);
+
         MenuButton menuButton = new MenuButton(30);
         menuButton.setTranslateX(-470);
         menuButton.setTranslateY(-270);
-
-        AtomicBoolean activeMenu = new AtomicBoolean(false);
-        menuButton.setOnMouseClicked(mouseEvent -> {
-            if (!activeMenu.get()) {
-                VBox vBox_Menu = new VBox();
-                vBox_Menu.setPrefWidth(100);
-
-                MenuItem item_Attack = new MenuItem(90, 40, "Attack");
-                vBox_Menu.getChildren().add(item_Attack);
-                vBox_Menu.setTranslateX(10);
-                vBox_Menu.setTranslateY(50);
-                root.getChildren().add(vBox_Menu);
-                activeMenu.set(true);
-            } else {
-                root.getChildren().remove(root.getChildren().size() - 1);
-                activeMenu.set(false);
-            }
+        menuButton.setOnMouseClicked(event -> {
+            menu.setVisible(!menu.isVisible());
         });
 
         SettingButton settingButton = new SettingButton(30);
@@ -52,8 +40,16 @@ public class GamePage {
         scoreBoard.setTranslateY(-270);
         scoreBoard.setTranslateX(440);
 
+        HeroesList heroesList = new HeroesList();
+        heroesList.setTranslateY(225);
 
-        root.getChildren().addAll(Values.loggedInUser.getMap(), menuButton, settingButton,scoreBoard);
+
+        root.getChildren().addAll(Values.loggedInUser.getMap(), menuButton, menu, settingButton, scoreBoard, heroesList);
         stage.setScene(new Scene(root, 1000, 600));
     }
+
+    public static void showHeroList() {
+        (root.getChildren().get(root.getChildren().size() - 1)).setVisible(!root.getChildren().get(root.getChildren().size() - 1).isVisible());
+    }
 }
+

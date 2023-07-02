@@ -15,7 +15,7 @@ public class Dragon extends Hero  {
     }
 
     public Dragon() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Dragon/Dragon - Walking.png").toString()),Values.DRAGON_HEALTH, Values.DRAGON_HIT, 10 ,Values.DRAGON_SPEED, Values.DRAGON_HITRANGE);
+        super(new Image(HelloApplication.class.getResource("Heroes/Dragon/Dragon - Walk.png").toString()),Values.DRAGON_HEALTH, Values.DRAGON_HIT, 10 ,Values.DRAGON_SPEED, Values.DRAGON_HITRANGE);
         imageView = new ImageView(this.getImage());
     }
 

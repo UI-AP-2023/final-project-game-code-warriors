@@ -4,6 +4,7 @@ import com.example.clashofclans.HelloApplication;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -15,10 +16,20 @@ public class MenuItem extends Button {
         this.setPrefSize(width, height);
         this.setText(text);
         Image backgroundImage = new Image(HelloApplication.class.getResource("Buttons/Menu Item.png").toString());
-        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(width - 5, height - 5, false, false, false, false))));
+        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(width, height, false, false, false, false))));
         this.setCursor(Cursor.HAND);
         this.setTextFill(Color.WHITE);
         this.setFont(Font.font(this.getFont().getFamily(), FontWeight.BOLD, 13));
         this.setAlignment(Pos.BASELINE_CENTER);
+
+        this.setOnMousePressed(event -> {
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setColor(Color.BLACK);
+            dropShadow.setRadius(5);
+            this.setEffect(dropShadow);
+        });
+        this.setOnMouseReleased(event ->{
+            this.setEffect(null);
+        });
     }
 }
