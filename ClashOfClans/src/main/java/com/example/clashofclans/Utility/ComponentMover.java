@@ -23,8 +23,8 @@ public class ComponentMover {
             LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, component);
             timeline.getKeyFrames().addAll(keyFrames);
             timeline.play();
+            timeline.setOnFinished(actionEvent -> System.out.println(component.getX() + " => " + component.getY()));
         });
-
 
     }
 
