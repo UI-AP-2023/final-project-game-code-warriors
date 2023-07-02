@@ -22,7 +22,7 @@ public class GamePage {
         scrollPane.setPannable(true);
 
         InGameMenu menu = new InGameMenu();
-        menu.setTranslateX(10);
+        menu.setTranslateX(-440);
         menu.setTranslateY(50);
 
         MenuButton menuButton = new MenuButton(30);
