@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Field extends Pane implements ITargetHolder {
@@ -28,26 +29,33 @@ public class Field extends Pane implements ITargetHolder {
 
     public Field() {
 
-
-        this.setOnMouseClicked(event -> {
-                    Spear spear = new Spear(60);
-                    this.addChildren(spear);
-                    spear.initDefaultAnimation();
-                    spear.getTimeLine().play();
-                    spear.setInsets(event.getY(),event.getX());
-                    IGameComponent iGameComponent = this.getTargetFor(spear);
-                    ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
-
+        AtomicBoolean isDragged = new AtomicBoolean(false);
+        this.setOnDragDetected(mouseEvent -> {
+            isDragged.set(true);
         });
+        this.setOnMouseClicked(event -> {
+            if (!isDragged.get()) {
+                Spear spear = new Spear(60);
+                this.addChildren(spear);
+                spear.initDefaultAnimation();
+                spear.getTimeLine().play();
+                spear.setInsets(event.getY(), event.getX());
+                IGameComponent iGameComponent = this.getTargetFor(spear);
+                ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
+            }
+            isDragged.set(false);
+        });
+
 
 
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.RIGHT, 0, true, Side.BOTTOM, 0, true), new BackgroundSize(1150, 865, true, false, true, false));
 
         this.setBackground(new Background(backgroundImage));
-        this.setPrefSize(1150,865);
+        this.setPrefSize(1150, 865);
     }
-    public void move(Insets targetPosition, IGameComponent gameComponent, Duration duration){
+
+    public void move(Insets targetPosition, IGameComponent gameComponent, Duration duration) {
         Timeline timeline = new Timeline();
         ImageView component = gameComponent.getImageView();
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -67,17 +75,17 @@ public class Field extends Pane implements ITargetHolder {
     }
 
 
-
     @Override
     public ObservableList<Node> getChildren() {
         return super.getChildren();
     }
 
-    public void addChildren(IGameComponent iGameComponent){
+    public void addChildren(IGameComponent iGameComponent) {
         targets.add(iGameComponent);
         this.getChildren().add(iGameComponent.getImageView());
     }
-    public void addBulkChildren(IGameComponent ... iGameComponents){
+
+    public void addBulkChildren(IGameComponent... iGameComponents) {
         targets.addAll(List.of(iGameComponents));
         this.getChildren().addAll(Arrays.stream(iGameComponents).map(IGameComponent::getImageView).toList());
     }
@@ -89,18 +97,19 @@ public class Field extends Pane implements ITargetHolder {
 
     @Override
     public IGameComponent getTargetFor(IGameComponent gameComponent) {
-        double top =  gameComponent.getInsets().getTop();
+        double top = gameComponent.getInsets().getTop();
         double left = gameComponent.getInsets().getLeft();
-        Map<IGameComponent , Double > targetDistanceMap = getTargetDistanceMap(top, left , true);
+        Map<IGameComponent, Double> targetDistanceMap = getTargetDistanceMap(top, left, true);
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
-        targetDistanceMap.forEach((key , value)->{
+        targetDistanceMap.forEach((key, value) -> {
 //            System.out.println("hhh")hhh
-            System.out.println(key.getInsets() +"=>"+key.getClass());
+            System.out.println(key.getInsets() + "=>" + key.getClass());
             if (value < min.get()) {
                 target.set(key);
                 min.set(value);
-            };
+            }
+            ;
         });
         System.out.println(target.get().getClass());
         System.out.println(target.get().getInsets());
