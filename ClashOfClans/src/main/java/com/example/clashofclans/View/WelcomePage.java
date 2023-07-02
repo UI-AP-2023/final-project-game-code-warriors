@@ -22,6 +22,12 @@ public class WelcomePage {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
 
+        ImageView img_Icon = new ImageView(new Image(HelloApplication.class.getResource("Icon.png").toString()));
+        img_Icon.setTranslateY(-200);
+        img_Icon.setFitHeight(200);
+        img_Icon.setPreserveRatio(true);
+
+
         ImageView imageView = new ImageView(new Image(HelloApplication.class.getResource("Field.jpg").toString()));
         imageView.setFitWidth(1000);
         imageView.setPreserveRatio(true);
@@ -45,7 +51,7 @@ public class WelcomePage {
         vBox_Buttons.setAlignment(Pos.CENTER);
         vBox_Buttons.setOpacity(0.2);
 
-        root.getChildren().addAll(imageView, vBox_Buttons, btn_Login, btn_SignUp);
+        root.getChildren().addAll(imageView, vBox_Buttons, btn_Login, btn_SignUp,img_Icon);
 
 
         stage.setScene(new Scene(root, 1000, 600));

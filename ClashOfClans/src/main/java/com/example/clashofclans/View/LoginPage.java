@@ -25,6 +25,11 @@ public class LoginPage {
 
         StackPane root = new StackPane();
 
+        ImageView img_Icon = new ImageView(new Image(HelloApplication.class.getResource("Icon.png").toString()));
+        img_Icon.setTranslateY(-200);
+        img_Icon.setFitHeight(200);
+        img_Icon.setPreserveRatio(true);
+
         Pane pane_Back = new Pane();
         pane_Back.setMaxSize(100, 600);
         pane_Back.setMinSize(100, 600);
@@ -93,7 +98,7 @@ public class LoginPage {
         });
 
 
-        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back);
+        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back,img_Icon);
 
         stage.setScene(new Scene(root, 1000, 600));
     }

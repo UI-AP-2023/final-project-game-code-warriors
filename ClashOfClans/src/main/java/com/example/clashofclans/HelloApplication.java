@@ -9,6 +9,7 @@ import com.example.clashofclans.Utility.MapHandler;
 import com.example.clashofclans.View.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -18,8 +19,9 @@ import javafx.util.Duration;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
-        stage.setTitle("Clash Of Clans");
         WelcomePage.show(stage);
+        stage.setTitle("Clash Of Clans");
+        stage.getIcons().add(new Image(getClass().getResource("Stage Icon.png").toString()));
         stage.setResizable(false);
         stage.show();
     }

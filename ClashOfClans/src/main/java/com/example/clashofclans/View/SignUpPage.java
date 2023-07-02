@@ -20,6 +20,11 @@ public class SignUpPage {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
 
+        ImageView img_Icon = new ImageView(new Image(HelloApplication.class.getResource("Icon.png").toString()));
+        img_Icon.setTranslateY(-200);
+        img_Icon.setFitHeight(200);
+        img_Icon.setPreserveRatio(true);
+
         ImageView imageView = new ImageView(new Image(HelloApplication.class.getResource("Field.jpg").toString()));
         imageView.setFitWidth(1000);
         imageView.setPreserveRatio(true);
@@ -79,7 +84,7 @@ public class SignUpPage {
         });
 
 
-        StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, textInput_Email, btn_SignUp,pane_Back,btn_Back);
+        StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, textInput_Email, btn_SignUp,pane_Back,btn_Back,img_Icon);
 
         stage.setScene(new Scene(root, 1000, 600));
     }
