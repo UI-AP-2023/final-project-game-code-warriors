@@ -16,13 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Field extends Pane implements ITargetHolder {
-
+    List<IGameComponent> targets = new ArrayList<>();
 
 
     public Field() {
@@ -36,6 +37,7 @@ public class Field extends Pane implements ITargetHolder {
                     spear.setInsets(event.getY(),event.getX());
                     IGameComponent iGameComponent = this.getTargetFor(spear);
                     ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
+
         });
 
 
@@ -81,6 +83,11 @@ public class Field extends Pane implements ITargetHolder {
     }
 
     @Override
+    public List<IGameComponent> getTargets() {
+        return targets;
+    }
+
+    @Override
     public IGameComponent getTargetFor(IGameComponent gameComponent) {
         double top =  gameComponent.getInsets().getTop();
         double left = gameComponent.getInsets().getLeft();
@@ -88,12 +95,14 @@ public class Field extends Pane implements ITargetHolder {
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
         targetDistanceMap.forEach((key , value)->{
-            System.out.println("hhh");
+//            System.out.println("hhh")hhh
+            System.out.println(key.getInsets() +"=>"+key.getClass());
             if (value < min.get()) {
                 target.set(key);
                 min.set(value);
             };
         });
+        System.out.println(target.get().getClass());
         System.out.println(target.get().getInsets());
         return target.get();
     }

@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface ITargetHolder {
-    List<IGameComponent> targets = new ArrayList<>();
-    default List<IGameComponent> getTargets(){return targets;};
+
+    List<IGameComponent> getTargets();
 
     IGameComponent getTargetFor(IGameComponent gameComponent);
 
