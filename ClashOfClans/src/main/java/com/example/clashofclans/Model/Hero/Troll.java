@@ -21,7 +21,7 @@ public class Troll extends Hero implements IGameComponent, IMortal , IAnimated {
     private ImageView imageView ;
     public Troll() {
         super(new Image(HelloApplication.class.getResource("Heroes/Troll/Troll_01_1_WALK_000.png").toString()),Values.TROLL_HEALTH, Values.TROLL_HIT,10, Values.TROLL_SPEED, Values.TROLL_HITRANGE);
-        imageView = new ImageView();
+        imageView = new ImageView(this.getImage());
     }
     public Troll(double size) {
         this();
