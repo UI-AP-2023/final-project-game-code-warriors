@@ -20,15 +20,15 @@ public class HelloApplication extends Application {
     public void start(Stage stage) {
         stage.setTitle("Clash Of Clans");
 //        WelcomePage.show(stage);
-        Field field = Values.maps.get(0);
+        Field field =(Field) Values.maps.get(0).getContent();
         Spear spear = new Spear();
         field.getChildren().add(spear.getImageView(60));
         spear.initDefaultAnimation();
-        IGameComponent iGameComponent  = field.getTargetFor(spear);
+        IGameComponent iGameComponent = field.getTargetFor(spear);
         System.out.println(iGameComponent.getInsets());
-        ComponentMover.moveComponent(iGameComponent.getInsets() , spear , Duration.seconds(2));
+        ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(2));
 
-        Scene scene = new Scene(field );
+        Scene scene = new Scene(field);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -37,7 +37,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         MapHandler.map1();
         MapHandler.map2();
-        Account account = new Account("hossein","123","hossein@gmial.com");
+        Account account = new Account("hossein", "123", "hossein@gmial.com");
         account.setMap(Values.maps.get(1));
         Values.users.add(account);
         Values.loggedInUser = account;
