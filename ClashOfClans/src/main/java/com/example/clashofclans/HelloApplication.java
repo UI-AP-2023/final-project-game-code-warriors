@@ -19,17 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Clash Of Clans");
-//        WelcomePage.show(stage);
-        Field field =(Field) Values.maps.get(0).getContent();
-        Spear spear = new Spear();
-        field.getChildren().add(spear.getImageView(60));
-        spear.initDefaultAnimation();
-        IGameComponent iGameComponent = field.getTargetFor(spear);
-        System.out.println(iGameComponent.getInsets());
-        ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(2));
-
-        Scene scene = new Scene(field);
-        stage.setScene(scene);
+        WelcomePage.show(stage);
         stage.setResizable(false);
         stage.show();
     }
