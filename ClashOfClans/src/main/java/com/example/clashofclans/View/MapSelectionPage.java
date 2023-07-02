@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MapSelectionPage {
     static int index;
 
-    public static void show(int map, Stage stage) {
+    public static void show(int map, String sender) {
         index = map;
 
         BackwardButton btn_Backward = new BackwardButton(50);
@@ -23,22 +23,26 @@ public class MapSelectionPage {
         btn_Backward.setTranslateY(210);
 
         btn_Backward.setOnMouseClicked(event -> {
-            show(--index, stage);
+            show(--index, sender);
 
         });
 
         ConfirmButton btn_Confirm = new ConfirmButton(50);
         btn_Confirm.setTranslateY(210);
         btn_Confirm.setOnMouseClicked(event -> {
-            Values.loggedInUser.setMap(Values.maps.get(index));
-            GamePage.show(stage);
+            if (sender.equals("sign up")) {
+                Values.loggedInUser.setMap(Values.maps.get(index));
+                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), sender);
+            } else if (sender.equals("attack")) {
+                GamePage.show(Values.maps.get(index), 0, sender);
+            }
         });
 
         ForwardButton btn_Forward = new ForwardButton(50);
         btn_Forward.setTranslateX(150);
         btn_Forward.setTranslateY(210);
         btn_Forward.setOnMouseClicked(event -> {
-            show(++index, stage);
+            show(++index, sender);
         });
 
 
@@ -50,6 +54,6 @@ public class MapSelectionPage {
         }
 
         StackPane root = new StackPane(Values.maps.get(index), btn_Backward, btn_Confirm, btn_Forward);
-        stage.setScene(new Scene(root, 1000, 600));
+        Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 }

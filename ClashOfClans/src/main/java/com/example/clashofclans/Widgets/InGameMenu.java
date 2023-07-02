@@ -1,28 +1,30 @@
 package com.example.clashofclans.Widgets;
 
 import com.example.clashofclans.View.GamePage;
-import javafx.geometry.Insets;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import com.example.clashofclans.View.MapSelectionPage;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 public class InGameMenu extends VBox {
-    public InGameMenu() {
-        this.setPrefWidth(100);
-        MenuItem item_Attack = new MenuItem(90, 40, "Attack");
-
+    public InGameMenu(String sender) {
         MenuItem item_Heroes = new MenuItem(90, 40, "Heroes");
         item_Heroes.setOnMouseClicked(event -> {
             GamePage.showHeroList();
         });
+        this.getChildren().addAll(item_Heroes);
 
-        this.getChildren().addAll(item_Attack, item_Heroes);
+        if (sender.equals("sign up")||sender.equals("login")) {
+            MenuItem item_Attack = new MenuItem(90, 40, "Attack");
+            item_Attack.setOnMouseClicked(event -> {
+                MapSelectionPage.show(0, "attack");
+            });
+            this.getChildren().add(item_Attack);
+        } else if (sender.equals("attack")) {
+            MenuItem item_Leave = new MenuItem(90, 40, "Leave");
+            this.getChildren().add(item_Leave);
+        }
+
         this.setVisible(false);
         this.setSpacing(2);
-        this.setBackground(new Background(new BackgroundFill(Color.BLACK,new CornerRadii(0),new Insets(0))));
-        //this.setMaxHeight(100);
         this.setMaxWidth(100);
     }
 }

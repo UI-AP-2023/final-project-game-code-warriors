@@ -2,6 +2,7 @@ package com.example.clashofclans.View;
 
 import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
 import com.example.clashofclans.Widgets.ErrorMessage;
 import com.example.clashofclans.Widgets.SubmitButton;
@@ -19,7 +20,7 @@ import javafx.stage.Stage;
 
 
 public class LoginPage {
-    public static void show(Stage stage) {
+    public static void show() {
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
 
@@ -39,7 +40,6 @@ public class LoginPage {
 
 
         BackwardButton btn_Back = new BackwardButton(30);
-        //btn_Back.setTranslateY(-180);
         btn_Back.setTranslateX(-450);
         btn_Back.setMinSize(100, 600);
         btn_Back.setMaxSize(100, 600);
@@ -52,7 +52,7 @@ public class LoginPage {
             pane_Back.setOpacity(0);
         });
         btn_Back.setOnMouseClicked(event -> {
-            WelcomePage.show(stage);
+            //WelcomePage.show(stage);
         });
 
 
@@ -80,7 +80,7 @@ public class LoginPage {
         btn_Login.setTranslateY(70);
         btn_Login.setOnMouseClicked(event -> {
             if (AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText())) {
-                GamePage.show(stage);
+                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(),"login");
             }
             else {
                 ErrorMessage errorMessage = new ErrorMessage("Invalid username or password!");
@@ -100,6 +100,6 @@ public class LoginPage {
 
         root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back,img_Icon);
 
-        stage.setScene(new Scene(root, 1000, 600));
+        Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 }

@@ -3,6 +3,7 @@ package com.example.clashofclans;
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Model.Field;
 import javafx.scene.control.ScrollPane;
+import javafx.stage.Stage;
 
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class Values {
     public static ArrayList<ScrollPane> maps;
     public static ArrayList<Account> users;
     public static Account loggedInUser = null;
+    private static Stage mainStage;
 
     static {
         users = new ArrayList<>();
@@ -21,6 +23,14 @@ public class Values {
     // Max Damage = 500;
 
     // Knight - middle
+    public static void setStage(Stage stage) {
+        mainStage = stage;
+    }
+
+    public static Stage getStage() {
+        return mainStage;
+    }
+
     public static int KNIGHT_HEALTH = 60;
     public static int KNIGHT_HIT = 30;
     public static int KNIGHT_SPEED = 10;

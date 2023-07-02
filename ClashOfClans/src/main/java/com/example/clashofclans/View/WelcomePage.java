@@ -1,6 +1,7 @@
 package com.example.clashofclans.View;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
 import com.example.clashofclans.Widgets.SubmitButton;
 import javafx.geometry.Insets;
@@ -14,7 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class WelcomePage {
-    public static void show(Stage stage) {
+    public static void show() {
         StackPane root = new StackPane();
         root.setPrefWidth(1000);
         root.setPrefHeight(600);
@@ -36,13 +37,13 @@ public class WelcomePage {
 
         SubmitButton btn_Login = new SubmitButton(200, 50);
         btn_Login.setTranslateY(-30);
-        btn_Login.setOnMouseClicked(event -> LoginPage.show(stage));
+        btn_Login.setOnMouseClicked(event -> LoginPage.show());
 
 
         SubmitButton btn_SignUp = new SubmitButton(200, 50);
         btn_SignUp.setTranslateY(30);
         btn_SignUp.setText("Sign Up");
-        btn_SignUp.setOnMouseClicked(event -> SignUpPage.show(stage));
+        btn_SignUp.setOnMouseClicked(event -> SignUpPage.show());
 
 
         VBox vBox_Buttons = new VBox();
@@ -54,6 +55,6 @@ public class WelcomePage {
         root.getChildren().addAll(imageView, vBox_Buttons, btn_Login, btn_SignUp,img_Icon);
 
 
-        stage.setScene(new Scene(root, 1000, 600));
+        Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 }

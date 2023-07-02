@@ -12,16 +12,13 @@ import javafx.stage.Stage;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GamePage {
-    private static StackPane root = new StackPane();
-    public static void show(Stage stage) {
+    private static StackPane root;
+
+    public static void show(ScrollPane map, double score, String sender) {
+        root = new StackPane();
         root.setPrefSize(1000, 600);
 
-        ScrollPane scrollPane = new ScrollPane(Values.loggedInUser.getMap());
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
-
-        InGameMenu menu = new InGameMenu();
+        InGameMenu menu = new InGameMenu(sender);
         menu.setTranslateX(-440);
         menu.setTranslateY(50);
 
@@ -36,7 +33,7 @@ public class GamePage {
         settingButton.setTranslateX(-435);
         settingButton.setTranslateY(-270);
 
-        Board scoreBoard = new Board(100, 30, "Score: " + Values.loggedInUser.getScore());
+        Board scoreBoard = new Board(100, 30, "Score: " + score);
         scoreBoard.setTranslateY(-270);
         scoreBoard.setTranslateX(440);
 
@@ -44,8 +41,8 @@ public class GamePage {
         heroesList.setTranslateY(225);
 
 
-        root.getChildren().addAll(Values.loggedInUser.getMap(), menuButton, menu, settingButton, scoreBoard, heroesList);
-        stage.setScene(new Scene(root, 1000, 600));
+        root.getChildren().addAll(map, menuButton, menu, settingButton, scoreBoard, heroesList);
+        Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 
     public static void showHeroList() {
