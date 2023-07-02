@@ -20,8 +20,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         Values.setStage(stage);
-        //WelcomePage.show();
-        GamePage.show(Values.loggedInUser.getMap(),Values.loggedInUser.getScore(),"login");
+        WelcomePage.show();
         stage.setTitle("Clash Of Clans");
         stage.getIcons().add(new Image(getClass().getResource("Stage Icon.png").toString()));
         stage.setResizable(false);
