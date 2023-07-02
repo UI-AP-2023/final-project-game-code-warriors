@@ -6,4 +6,7 @@ module com.example.clashofclans {
 
     opens com.example.clashofclans to javafx.fxml;
     exports com.example.clashofclans;
+    exports com.example.clashofclans.Model.Interfaces;
+    opens com.example.clashofclans.Model.Interfaces to javafx.fxml;
+
 }

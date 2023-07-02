@@ -1,6 +1,6 @@
 package com.example.clashofclans.Utility;
 
-import com.example.clashofclans.Model.IGameComponent;
+import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -9,6 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+import java.util.LinkedList;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 
 public class ComponentMover {
 
@@ -16,34 +20,42 @@ public class ComponentMover {
         Timeline timeline = new Timeline();
         ImageView component = gameComponent.getImageView();
 
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        double moveLength = calculateMoveLength(AnchorPane.getTopAnchor(component), AnchorPane.getLeftAnchor(component), targetPosition.getTop(), targetPosition.getLeft());
-        Platform.runLater(()-> {
-            addKeyFrames(targetPosition, duration, timeline, component);
+        Platform.runLater(() -> {
+            System.out.println("hello");
+            LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, duration, component);
+            timeline.getKeyFrames().addAll(keyFrames);
+            System.out.println("done");
             timeline.play();
-            timeline.setCycleCount(1);
         });
+
+
     }
 
-    private static void addKeyFrames(Insets targetPosition, Duration duration, Timeline timeline, ImageView component) {
-        for (int i = 0; i < duration.toMillis(); i++) {
-            final double initialLeftAnchor = AnchorPane.getLeftAnchor(component); // Get the initial position
-            final double initialTopAnchor = AnchorPane.getTopAnchor(component); // Get the initial position
-            final double finalI = i;
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(i), event -> {
-                double interpolatedLeftValue = initialLeftAnchor + (finalI / duration.toMillis()) * (targetPosition.getLeft() - initialLeftAnchor);
-                double interpolatedTopValue = initialLeftAnchor + (finalI / duration.toMillis()) * (targetPosition.getTop() - initialTopAnchor);
-                AnchorPane.setLeftAnchor(component, interpolatedLeftValue);
-                AnchorPane.setTopAnchor(component, interpolatedTopValue);
+    private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, Duration duration, ImageView component) {
+        double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
+        double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
+
+        LinkedList<KeyFrame> res = new LinkedList<>();
+        for (int i = 0; i < duration.toMillis(); i += 10) {
+            double interpolatedLeftValue = oneFrameLeftMove * (i/10) + component.getX();
+            double interpolatedTopValue = oneFrameTopMove * (i/10) + component.getY();
+
+
+            res.add(new KeyFrame(Duration.millis(i), event -> {
+                component.setX(interpolatedLeftValue);
+                component.setY(interpolatedTopValue);
             }));
+
         }
+        return res;
+
     }
 
     public static double calculateMoveLength(double currentTop, double currentLeft, double targetTop, double targetLeft) {
         var height = (currentTop - targetTop);
         var base = (currentLeft - targetLeft);
-        if (height < 0 ) height = -height;
-        if (base < 0 ) base = -base;
+        if (height < 0) height = -height;
+        if (base < 0) base = -base;
         height *= height;
         base *= base;
         System.out.println(height + base);

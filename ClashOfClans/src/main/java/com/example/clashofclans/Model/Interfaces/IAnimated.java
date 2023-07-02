@@ -1,4 +1,4 @@
-package com.example.clashofclans.Model;
+package com.example.clashofclans.Model.Interfaces;
 
 import javafx.animation.Timeline;
 

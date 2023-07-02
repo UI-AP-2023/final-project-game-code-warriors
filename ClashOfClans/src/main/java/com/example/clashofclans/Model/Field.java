@@ -1,21 +1,44 @@
 package com.example.clashofclans.Model;
 
 import com.example.clashofclans.HelloApplication;
-import com.example.clashofclans.Model.Building.Canon;
+import com.example.clashofclans.Model.Hero.Spear;
+import com.example.clashofclans.Model.Interfaces.IGameComponent;
+import com.example.clashofclans.Model.Interfaces.ITargetHolder;
+import com.example.clashofclans.Utility.ComponentMover;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Screen;
 import javafx.util.Duration;
 
-public class Field extends AnchorPane {
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
+
+public class Field extends Pane implements ITargetHolder {
+
+
+
     public Field() {
+
+
+        this.setOnMouseClicked(event -> {
+                    Spear spear = new Spear(60);
+                    this.addChildren(spear);
+                    spear.initDefaultAnimation();
+                    spear.getTimeLine().play();
+                    spear.setInsets(event.getY(),event.getX());
+                    IGameComponent iGameComponent = this.getTargetFor(spear);
+                    ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
+        });
+
+
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
         BackgroundImage backgroundImage = new BackgroundImage(image, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.RIGHT, 0, true, Side.BOTTOM, 0, true), new BackgroundSize(1150, 865, true, false, true, false));
 
@@ -40,4 +63,39 @@ public class Field extends AnchorPane {
         }
         timeline.play();
     }
+
+
+
+    @Override
+    public ObservableList<Node> getChildren() {
+        return super.getChildren();
+    }
+
+    public void addChildren(IGameComponent iGameComponent){
+        targets.add(iGameComponent);
+        this.getChildren().add(iGameComponent.getImageView());
+    }
+    public void addBulkChildren(IGameComponent ... iGameComponents){
+        targets.addAll(List.of(iGameComponents));
+        this.getChildren().addAll(Arrays.stream(iGameComponents).map(IGameComponent::getImageView).toList());
+    }
+
+    @Override
+    public IGameComponent getTargetFor(IGameComponent gameComponent) {
+        double top =  gameComponent.getInsets().getTop();
+        double left = gameComponent.getInsets().getLeft();
+        Map<IGameComponent , Double > targetDistanceMap = getTargetDistanceMap(top, left , true);
+        AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
+        AtomicReference<IGameComponent> target = new AtomicReference<>();
+        targetDistanceMap.forEach((key , value)->{
+            System.out.println("hhh");
+            if (value < min.get()) {
+                target.set(key);
+                min.set(value);
+            };
+        });
+        System.out.println(target.get().getInsets());
+        return target.get();
+    }
+
 }

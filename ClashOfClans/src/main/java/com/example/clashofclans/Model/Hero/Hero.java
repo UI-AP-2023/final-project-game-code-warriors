@@ -1,7 +1,7 @@
 package com.example.clashofclans.Model.Hero;
 
 
-import com.example.clashofclans.Model.IGameComponent;
+import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.scene.image.Image;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

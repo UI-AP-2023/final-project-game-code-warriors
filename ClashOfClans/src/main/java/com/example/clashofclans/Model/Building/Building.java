@@ -1,12 +1,7 @@
 package com.example.clashofclans.Model.Building;
 
-import com.example.clashofclans.HelloApplication;
-import com.example.clashofclans.Model.IGameComponent;
+import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 
 public abstract class Building implements IGameComponent {
