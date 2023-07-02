@@ -10,7 +10,7 @@ public class CardInformation extends Label {
     public CardInformation(String key, String value) {
         this.setText(key + ": " + value);
         this.setAlignment(Pos.CENTER_LEFT);
-        this.setFont(Font.font(this.getFont().getFamily(), FontWeight.BOLD, 13));
+        this.setFont(Font.font(this.getFont().getFamily(), FontWeight.BOLD, 11));
         this.setTextFill(Color.WHITE);
     }
 }

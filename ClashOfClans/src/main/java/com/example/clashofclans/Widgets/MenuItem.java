@@ -4,6 +4,7 @@ import com.example.clashofclans.HelloApplication;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -20,5 +21,15 @@ public class MenuItem extends Button {
         this.setTextFill(Color.WHITE);
         this.setFont(Font.font(this.getFont().getFamily(), FontWeight.BOLD, 13));
         this.setAlignment(Pos.BASELINE_CENTER);
+
+        this.setOnMousePressed(event -> {
+            DropShadow dropShadow = new DropShadow();
+            dropShadow.setColor(Color.BLACK);
+            dropShadow.setRadius(5);
+            this.setEffect(dropShadow);
+        });
+        this.setOnMouseReleased(event ->{
+            this.setEffect(null);
+        });
     }
 }

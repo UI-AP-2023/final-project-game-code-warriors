@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="" />
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/CardInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/CardInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/MenuItem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "showHero",
-    "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans/Buttons",
+    "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/java/com/example/clashofclans/Widgets",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -64,11 +73,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\Widgets" />
+      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\View" />
+      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Buttons" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans" />
-      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Building" />
-      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\Model" />
-      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\Heroes\Troll" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Building" />
