@@ -20,7 +20,6 @@ public class GamePage {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setPannable(true);
-
         InGameMenu menu = new InGameMenu();
         menu.setTranslateX(-440);
         menu.setTranslateY(50);
@@ -43,11 +42,9 @@ public class GamePage {
         HeroesList heroesList = new HeroesList();
         heroesList.setTranslateY(225);
 
-
         root.getChildren().addAll(Values.loggedInUser.getMap(), menuButton, menu, settingButton, scoreBoard, heroesList);
         stage.setScene(new Scene(root, 1000, 600));
     }
-
     public static void showHeroList() {
         (root.getChildren().get(root.getChildren().size() - 1)).setVisible(!root.getChildren().get(root.getChildren().size() - 1).isVisible());
     }

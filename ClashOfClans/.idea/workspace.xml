@@ -4,11 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="merge showHero to master">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Powder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Powder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Thrower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Thrower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Green.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Green.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IAnimated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IAnimated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IGameComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IGameComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -31,7 +53,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "menuBugs",
+    "git-widget-placeholder": "addAttackLogic",
     "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -39,6 +61,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.clashofclans.Model.Interfaces" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Buttons" />
@@ -65,11 +90,21 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="fix map holder bug">
+      <option name="closed" value="true" />
+      <created>1688324725835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688324725835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge showHero to master" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge showHero to master" />
+    <MESSAGE value="fix map holder bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix map holder bug" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

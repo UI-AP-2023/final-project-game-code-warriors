@@ -20,7 +20,7 @@ import static com.example.clashofclans.Values.TrollFrames;
 public class Troll extends Hero implements IGameComponent, IMortal , IAnimated {
     private ImageView imageView ;
     public Troll() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Troll/Troll_01_1_WALK_000.png").toString()),Values.TROLL_HEALTH, Values.TROLL_HIT,10, Values.TROLL_SPEED, Values.TROLL_HITRANGE);
+        super(new Image(HelloApplication.class.getResource("Heroes/Troll/Troll_01_1_WALK_000.png").toString()),Values.TROLL_HEALTH, Values.TROLL_HIT,10, Values.TROLL_SPEED, Values.TROLL_HITRANGE,new Timeline());
         imageView = new ImageView();
     }
     public Troll(double size) {
@@ -40,7 +40,15 @@ public class Troll extends Hero implements IGameComponent, IMortal , IAnimated {
         return imageView;
     }
 
+    @Override
+    public void setAttackToDefaultAnimation() {
 
+    }
+
+    @Override
+    public void addDamage(IGameComponent target, double damage) {
+
+    }
 
 
     @Override

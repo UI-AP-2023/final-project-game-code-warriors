@@ -35,13 +35,13 @@ public class Field extends Pane implements ITargetHolder {
         });
         this.setOnMouseClicked(event -> {
             if (!isDragged.get()) {
-                Spear spear = new Spear(60);
+                Spear spear = new Spear();
                 this.addChildren(spear);
                 spear.initDefaultAnimation();
                 spear.getTimeLine().play();
                 spear.setInsets(event.getY(), event.getX());
                 IGameComponent iGameComponent = this.getTargetFor(spear);
-                ComponentMover.moveComponent(iGameComponent.getInsets(), spear, Duration.seconds(3));
+                ComponentMover.moveComponent(iGameComponent, spear, Duration.seconds(3));
             }
             isDragged.set(false);
         });

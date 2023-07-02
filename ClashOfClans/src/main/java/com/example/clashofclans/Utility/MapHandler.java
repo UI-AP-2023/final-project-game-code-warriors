@@ -3,6 +3,7 @@ package com.example.clashofclans.Utility;
 import com.example.clashofclans.Model.Building.*;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Values;
+import javafx.event.Event;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
@@ -50,6 +51,7 @@ public class MapHandler {
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setPannable(true);
 
+
         Values.maps.add(scrollPane);
     }
 
@@ -96,6 +98,8 @@ public class MapHandler {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setPannable(true);
+
+
 
         Values.maps.add(scrollPane);
     }

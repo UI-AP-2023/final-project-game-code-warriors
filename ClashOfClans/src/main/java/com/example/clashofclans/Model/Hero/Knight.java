@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public class Knight extends Hero implements IAnimated , IMortal , IGameComponent  {
     private ImageView imageView ;
     public Knight() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Knight/Knight_01__RUN_000.png").toString()),Values.KNIGHT_HEALTH, Values.KNIGHT_HIT,10, Values.KNIGHT_SPEED,Values.KNIGHT_HITRANGE);
+        super(new Image(HelloApplication.class.getResource("Heroes/Knight/Knight_01__RUN_000.png").toString()),Values.KNIGHT_HEALTH, Values.KNIGHT_HIT,10, Values.KNIGHT_SPEED,Values.KNIGHT_HITRANGE,new Timeline());
         imageView= new ImageView(this.getImage());
     }
     public Knight(double size) {
@@ -37,7 +37,15 @@ public class Knight extends Hero implements IAnimated , IMortal , IGameComponent
         return imageView;
     }
 
+    @Override
+    public void setAttackToDefaultAnimation() {
 
+    }
+
+    @Override
+    public void addDamage(IGameComponent target, double damage) {
+
+    }
 
 
     @Override

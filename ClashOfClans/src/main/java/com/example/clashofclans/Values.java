@@ -99,6 +99,13 @@ public class Values {
     public static String SpearDieFrame3 = "Heroes/Spear/7 DIE_003.png";
     public static String SpearDieFrame4 = "Heroes/Spear/7 DIE_004.png";
 
+    public static String SpearAttackFrame0 = "Heroes/Spear/5 ATTACK_000.png";
+    public static String SpearAttackFrame1 = "Heroes/Spear/5 ATTACK_001.png";
+    public static String SpearAttackFrame2 = "Heroes/Spear/5 ATTACK_002.png";
+    public static String SpearAttackFrame3 = "Heroes/Spear/5 ATTACK_003.png";
+    public static String SpearAttackFrame4 = "Heroes/Spear/5 ATTACK_004.png";
+
+
     public static String TrollFrame0 = "Heroes/Troll/Troll_01_1_RUN_000.png";
     public static String TrollFrame1 = "Heroes/Troll/Troll_01_1_RUN_001.png";
     public static String TrollFrame2 = "Heroes/Troll/Troll_01_1_RUN_002.png";

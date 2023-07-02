@@ -12,7 +12,11 @@ public interface IGameComponent {
         getImageView().setX(leftInset);
     }
 
+
     default Insets getInsets(){
         return new Insets(getImageView().getY(),0,0,getImageView().getX());
     };
+
+    void setAttackToDefaultAnimation();
+    void addDamage(IGameComponent target,double damage);
 }

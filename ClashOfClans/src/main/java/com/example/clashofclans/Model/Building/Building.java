@@ -1,12 +1,18 @@
 package com.example.clashofclans.Model.Building;
 
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
 
 
-public abstract class Building implements IGameComponent {
+public abstract class Building implements IGameComponent , IDamageHandler {
     private int damage;
     private Values.DefensiveType type;
+
+    @Override
+    public void addDamage(double damage) {
+        this.damage += damage;
+    }
 
     public Building(int damage, Values.DefensiveType type) {
         this.damage = damage;

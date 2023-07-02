@@ -1,5 +1,6 @@
 package com.example.clashofclans.Utility;
 
+import com.example.clashofclans.Event.OnAttackerArriveToTargetEvents;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -15,36 +16,26 @@ import java.util.List;
 
 public class ComponentMover {
 
-    public static void moveComponent(Insets targetPosition, IGameComponent gameComponent, Duration duration) {
+    public static void moveComponent(IGameComponent target, IGameComponent gameComponent, Duration duration) {
         Timeline timeline = new Timeline();
+        Insets targetPosition = target.getInsets();
         ImageView component = gameComponent.getImageView();
 
         Platform.runLater(() -> {
             LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, component);
             timeline.getKeyFrames().addAll(keyFrames);
             timeline.play();
-            timeline.setOnFinished(actionEvent -> System.out.println(component.getX() + " => " + component.getY()));
+            timeline.setOnFinished(actionEvent -> {
+                System.out.println("asdasdasdasdasdasdasdasdadasdasdasd");
+                gameComponent.setAttackToDefaultAnimation();
+                OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
+            });
+
         });
 
     }
 
     private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, ImageView component) {
-//        double oneFrameLeftMove = (targetPosition.getLeft() - component.getX()) / (duration.toMillis() / 10);
-//        double oneFrameTopMove = (targetPosition.getTop() - component.getY()) / (duration.toMillis() / 10);
-//
-//        LinkedList<KeyFrame> res = new LinkedList<>();
-//        for (int i = 0; i < duration.toMillis(); i += 10) {
-//            double interpolatedLeftValue = oneFrameLeftMove * (i/10) + component.getX();
-//            double interpolatedTopValue = oneFrameTopMove * (i/10) + component.getY();
-//
-//
-//            res.add(new KeyFrame(Duration.millis(i), event -> {
-//                component.setX(interpolatedLeftValue);
-//                component.setY(interpolatedTopValue);
-//            }));
-//
-//        }
-//        return res;
 
         LinkedList<KeyFrame> keyFrames = new LinkedList<>();
 

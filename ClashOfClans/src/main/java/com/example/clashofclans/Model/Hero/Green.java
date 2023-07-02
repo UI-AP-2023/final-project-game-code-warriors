@@ -18,7 +18,7 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent  {
     private ImageView imageView ;
 
     public Green() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Green/GREEN_WALK_000.png").toString()),Values.GREEN_HEALTH,Values.GREEN_HIT,10,Values.GREEN_SPEED,Values.GREEN_HITRANGE);
+        super(new Image(HelloApplication.class.getResource("Heroes/Green/GREEN_WALK_000.png").toString()),Values.GREEN_HEALTH,Values.GREEN_HIT,10,Values.GREEN_SPEED,Values.GREEN_HITRANGE, new Timeline());
         imageView= new ImageView(this.getImage());
     }
     public Green(double size) {
@@ -37,6 +37,17 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent  {
         return imageView;
     }
 
+    @Override
+    public void setAttackToDefaultAnimation() {
+
+    }
+
+
+
+    @Override
+    public void addDamage(IGameComponent target, double damage) {
+
+    }
 
 
     @Override

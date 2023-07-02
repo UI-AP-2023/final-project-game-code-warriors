@@ -1,7 +1,9 @@
 package com.example.clashofclans.Model.Hero;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
+import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,7 +17,7 @@ public class Dragon extends Hero  {
     }
 
     public Dragon() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Dragon/Dragon - Walk.png").toString()),Values.DRAGON_HEALTH, Values.DRAGON_HIT, 10 ,Values.DRAGON_SPEED, Values.DRAGON_HITRANGE);
+        super(new Image(HelloApplication.class.getResource("Heroes/Dragon/Dragon - Walk.png").toString()),Values.DRAGON_HEALTH, Values.DRAGON_HIT, 10 ,Values.DRAGON_SPEED, Values.DRAGON_HITRANGE, new Timeline());
         imageView = new ImageView(this.getImage());
     }
 
@@ -36,6 +38,16 @@ public class Dragon extends Hero  {
     @Override
     public Insets getInsets() {
         return null;
+    }
+
+    @Override
+    public void setAttackToDefaultAnimation() {
+
+    }
+
+    @Override
+    public void addDamage(IGameComponent target, double damage) {
+
     }
 
 
