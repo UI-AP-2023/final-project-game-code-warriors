@@ -22,12 +22,11 @@ public class FramerTimeLine implements IFramer {
         this.duration = duration;
     }
 
-    public FramerTimeLine( ImageView imageView,List<String> frames, Duration duration, OnFrameExecutedEvent onFrameExecutedEvent) {
+    public FramerTimeLine(ImageView imageView, List<String> frames, Duration duration, OnFrameExecutedEvent onFrameExecutedEvent) {
         this.frames = frames;
         this.duration = duration;
         this.imageView = imageView;
         this.onFrameExecutedEvent = onFrameExecutedEvent;
-        onFrameExecutedEvent.event();
     }
 
     @Override
@@ -46,13 +45,19 @@ public class FramerTimeLine implements IFramer {
         List<KeyFrame> keyFrames = new ArrayList<>();
         int i = 0;
         for (String frame : frames) {
+            final int index = i; // Capture the current index
+
             keyFrames.add(
-                    new KeyFrame(Duration.millis(duration.toMillis() / frames.size() * (i++)), e -> {
-                        if (onFrameExecutedEvent != null) onFrameExecutedEvent.event();
+                    new KeyFrame(Duration.millis((i++) * 100), e -> {
+                        if (onFrameExecutedEvent != null) {
+                            System.out.println("damaged -- - -- - - - ");
+                            onFrameExecutedEvent.event();
+                        }
                         imageView.setImage(new Image(HelloApplication.class.getResource(frame).toString()));
                     })
             );
         }
         return keyFrames;
     }
+
 }

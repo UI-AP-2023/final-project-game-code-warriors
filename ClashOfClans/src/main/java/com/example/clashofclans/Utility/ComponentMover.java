@@ -14,13 +14,13 @@ import java.util.LinkedList;
 
 public class ComponentMover {
 
-    public static void moveComponent(IGameComponent target, IGameComponent gameComponent, Duration duration) {
+    public static void moveComponent(IGameComponent target, IGameComponent gameComponent) {
         Timeline timeline = new Timeline();
         Insets targetPosition = target.getInsets();
-        ImageView component = gameComponent.getImageView();
+
 
         Platform.runLater(() -> {
-            LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, component);
+            LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, gameComponent);
             timeline.getKeyFrames().addAll(keyFrames);
             timeline.play();
             timeline.setOnFinished(actionEvent -> {
@@ -33,10 +33,10 @@ public class ComponentMover {
 
     }
 
-    private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, ImageView component) {
+    private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, IGameComponent iGameComponent) {
 
         LinkedList<KeyFrame> keyFrames = new LinkedList<>();
-
+        ImageView component = iGameComponent.getImageView();
         double destenationX = targetPosition.getLeft();
         double destenationY = targetPosition.getTop();
         double currentX = component.getX();
@@ -46,7 +46,7 @@ public class ComponentMover {
         while (true){
             double differenceX = destenationX > currentX ? destenationX - currentX : currentX - destenationX;
             double differenceY = destenationY > currentY ? destenationY - currentY : currentY - destenationY;
-            if (differenceY < speed*2 && differenceX < speed*2)break;
+            if (differenceY < speed*1.3 && differenceX < speed*1.3)break;
             if (currentX == destenationX && currentY == destenationY) break;
             if (differenceX > speed){
                 if (currentX != destenationX){
@@ -66,8 +66,9 @@ public class ComponentMover {
             keyFrames.add(new KeyFrame(Duration.millis(index), event -> {
                 component.setX(finalCurrentX);
                 component.setY(finalCurrentY);
+                iGameComponent.setInsets(finalCurrentY , finalCurrentX);
             }));
-            index += 20;
+            index += 200;
         }
         return keyFrames;
 

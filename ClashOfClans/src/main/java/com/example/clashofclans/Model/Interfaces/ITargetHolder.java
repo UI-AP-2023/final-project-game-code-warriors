@@ -2,16 +2,16 @@ package com.example.clashofclans.Model.Interfaces;
 
 import com.example.clashofclans.Model.Hero.Hero;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public interface ITargetHolder {
 
     List<IGameComponent> getTargets();
 
-    IGameComponent getTargetFor(IGameComponent gameComponent);
+    AtomicReference<IGameComponent> getTargetFor(IGameComponent gameComponent);
 
     default Map<IGameComponent, Double> getTargetDistanceMap(double top, double left, Boolean isHero) {
         List<IGameComponent> targets = getTargets();

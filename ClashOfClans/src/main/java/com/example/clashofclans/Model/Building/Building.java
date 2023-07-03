@@ -35,12 +35,15 @@ public abstract class Building implements IGameComponent {
         this.health = health;
     }
 
-    public Building(int health, Values.DefensiveType type) {
+    public Building(int health, Values.DefensiveType type,int score) {
         this.health = health;
         this.type = type;
+        this.score=score;
+//        System.out.println(damage);
     }
 
-    public Building(int damage, Values.DefensiveType type,int score) {
+    public Building(int health,int damage, Values.DefensiveType type,int score) {
+        this.health = health;
         this.damage = damage;
         this.type = type;
         this.score=score;

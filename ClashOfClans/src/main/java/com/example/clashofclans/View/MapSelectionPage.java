@@ -1,5 +1,6 @@
 package com.example.clashofclans.View;
 
+import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Utility.MapHandler;
 import com.example.clashofclans.Values;
@@ -33,7 +34,10 @@ public class MapSelectionPage {
                 Values.loggedInUser.setMap(Values.maps.get(index-1));
                 GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), sender);
             } else if (sender.equals("attack")) {
+                Values.loggedInUser.setAttackMap(Values.maps.get(index-1));
                 GamePage.show(Values.maps.get(index-1), 0, sender);
+                FightPairList.setField(Values.maps.get(index-1).getField());
+                System.out.println("Field setted");
             }
         });
 

@@ -16,7 +16,6 @@ public class OnFrameExecutedEventImpl implements OnFrameExecutedEvent {
 
     @Override
     public void event() {
-        System.out.println(damage);
         target.getDamageHandler().addDamage(damage ,attacker);
     }
 }

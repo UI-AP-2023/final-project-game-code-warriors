@@ -46,8 +46,8 @@ public class Field extends Pane implements ITargetHolder {
                 spear.initDefaultAnimation();
                 spear.getTimeLine().play();
                 spear.setInsets(event.getY(), event.getX());
-                IGameComponent iGameComponent = this.getTargetFor(spear);
-                ComponentMover.moveComponent(iGameComponent, spear, Duration.seconds(3));
+                AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear);
+                ComponentMover.moveComponent(iGameComponent.get(), spear);
             }
             isDragged.set(false);
         });
@@ -58,6 +58,11 @@ public class Field extends Pane implements ITargetHolder {
 
         this.setBackground(new Background(backgroundImage));
         this.setPrefSize(1150, 865);
+
+        FightPairList.addOnAttackerDestroyTarget(iGameComponent -> {
+            this.getTargets().remove(iGameComponent);
+            this.getChildren().remove(iGameComponent.getImageView());
+        });
     }
 
     public void move(Insets targetPosition, IGameComponent gameComponent, Duration duration) {
@@ -106,23 +111,22 @@ public class Field extends Pane implements ITargetHolder {
     }
 
     @Override
-    public IGameComponent getTargetFor(IGameComponent gameComponent) {
+    public AtomicReference<IGameComponent> getTargetFor(IGameComponent gameComponent) {
         double top = gameComponent.getInsets().getTop();
         double left = gameComponent.getInsets().getLeft();
         Map<IGameComponent, Double> targetDistanceMap = getTargetDistanceMap(top, left, true);
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
         targetDistanceMap.forEach((key, value) -> {
-            System.out.println(key.getInsets() + "=>" + key.getClass());
+
             if (value < min.get()) {
                 target.set(key);
                 min.set(value);
             };
         });
-        System.out.println(target.get().getClass());
-        System.out.println(target.get().getInsets());
+        System.out.println("Target selected for attacker     "+target.get().getClass());
         FightPairList.addFight(target.get() , gameComponent);
-        return target.get();
+        return target;
     }
 
 

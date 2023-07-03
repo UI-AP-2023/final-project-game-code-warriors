@@ -49,7 +49,7 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
 
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
-        OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target , this , this.getHit());
+        OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target , this , 5);
         IFramer framer = new FramerTimeLine(
                 imageView ,
                 List.of(SpearAttackFrame0 ,
@@ -57,16 +57,14 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
                         Values.SpearAttackFrame2 ,
                         Values.SpearAttackFrame3 ,
                         Values.SpearAttackFrame4 ),
-                Duration.seconds(0.5),
-                onFrameExecutedEvent::event
+                Duration.millis(40000),
+                onFrameExecutedEvent
         );
         System.out.println("asdasdasdasdasdasdasdasdadasdasdasd");
-        imageView.setFitWidth(100);
+        imageView.setFitWidth(120);
         timeLine.stop();
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(framer.getKeyFrames());
-        imageView.setImage(new Image(HelloApplication.class.getResource(SpearDieFrame0).toString()));
-        timeLine.getKeyFrames().get(0);
         timeLine.play();
     }
 
