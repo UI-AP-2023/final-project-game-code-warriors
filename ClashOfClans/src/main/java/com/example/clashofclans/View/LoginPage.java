@@ -3,6 +3,7 @@ package com.example.clashofclans.View;
 import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.Exception.InvalidInputException;
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
 import com.example.clashofclans.Widgets.ErrorMessage;
@@ -82,9 +83,9 @@ public class LoginPage {
         btn_Login.setOnMouseClicked(event -> {
             try {
                 AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText());
-                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), "login");
+                GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), "login");
             }
-            catch (InvalidInputException e){
+            catch (Exception e){
                 ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
                 errorMessage.setTranslateY(35);
                 errorMessage.setTranslateX(-10);

@@ -1,6 +1,7 @@
 package com.example.clashofclans.Widgets;
 
 import com.example.clashofclans.Controller.AccountController;
+import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.View.GamePage;
 import com.example.clashofclans.View.MapSelectionPage;
@@ -25,9 +26,9 @@ public class InGameMenu extends VBox {
             this.getChildren().add(item_Leave);
 
             item_Leave.setOnMouseClicked(event -> {
-                Values.loggedInUser.getMap().getField().getScore();
+                Holder.getLoggedInUser().getMap().getField().getScore();
                 AccountController.endGame(0);
-                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), "login");
+                GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), "login");
             });
         }
 

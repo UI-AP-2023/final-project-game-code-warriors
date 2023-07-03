@@ -2,6 +2,7 @@ package com.example.clashofclans.Widgets;
 
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Hero.Hero;
+import com.example.clashofclans.Utility.Holder;
 import javafx.animation.ScaleTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -13,7 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class HeroCard extends VBox {
-    public HeroCard(Hero hero,double imageSize) {
+    public HeroCard(Hero hero, double imageSize) {
         VBox vBox_Information = new VBox();
         CardInformation lbl_Name = new CardInformation("Name", hero.getClass().getSimpleName());
         CardInformation lbl_Health = new CardInformation("Health", Integer.toString(hero.getHealth()));
@@ -35,6 +36,7 @@ public class HeroCard extends VBox {
         ScaleTransition scaleTransition = new ScaleTransition();
         scaleTransition.setDuration(Duration.millis(200));
         scaleTransition.setNode(this);
+
         this.setOnMouseEntered(event -> {
             scaleTransition.setToX(1.05);
             scaleTransition.setToY(1.05);
@@ -51,8 +53,11 @@ public class HeroCard extends VBox {
             dropShadow.setRadius(5);
             this.setEffect(dropShadow);
         });
-        this.setOnMouseReleased(event ->{
+        this.setOnMouseReleased(event -> {
             this.setEffect(null);
+        });
+        this.setOnMouseClicked(event -> {
+            Holder.setSelectedHero(hero);
         });
 
         this.getChildren().addAll(hero.getImageView(imageSize), vBox_Information);
