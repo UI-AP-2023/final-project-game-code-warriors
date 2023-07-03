@@ -42,4 +42,6 @@ public class AccountController {
 
         return matcher.find();
     }
+
+    public static void endGame(double score){}
 }

@@ -53,7 +53,7 @@ public class LoginPage {
             pane_Back.setOpacity(0);
         });
         btn_Back.setOnMouseClicked(event -> {
-            //WelcomePage.show(stage);
+            WelcomePage.show();
         });
 
 

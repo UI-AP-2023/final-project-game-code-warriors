@@ -1,5 +1,7 @@
 package com.example.clashofclans.Widgets;
 
+import com.example.clashofclans.Controller.AccountController;
+import com.example.clashofclans.Values;
 import com.example.clashofclans.View.GamePage;
 import com.example.clashofclans.View.MapSelectionPage;
 import javafx.scene.layout.VBox;
@@ -12,7 +14,7 @@ public class InGameMenu extends VBox {
         });
         this.getChildren().addAll(item_Heroes);
 
-        if (sender.equals("sign up")||sender.equals("login")) {
+        if (sender.equals("sign up") || sender.equals("login")) {
             MenuItem item_Attack = new MenuItem(90, 40, "Attack");
             item_Attack.setOnMouseClicked(event -> {
                 MapSelectionPage.show(1, "attack");
@@ -21,6 +23,11 @@ public class InGameMenu extends VBox {
         } else if (sender.equals("attack")) {
             MenuItem item_Leave = new MenuItem(90, 40, "Leave");
             this.getChildren().add(item_Leave);
+
+            item_Leave.setOnMouseClicked(event -> {
+                Values.loggedInUser.getMap().getField().getScore();
+                AccountController.endGame(-Values.loggedInUser.getMap().getField().getScore());
+            });
         }
 
         this.setVisible(false);
