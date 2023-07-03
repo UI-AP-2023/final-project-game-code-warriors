@@ -1,6 +1,7 @@
 package com.example.clashofclans.View;
 
 import com.example.clashofclans.Controller.AccountController;
+import com.example.clashofclans.Exception.InvalidInputException;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
@@ -79,13 +80,14 @@ public class LoginPage {
         SubmitButton btn_Login = new SubmitButton(200, 50);
         btn_Login.setTranslateY(70);
         btn_Login.setOnMouseClicked(event -> {
-            if (AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText())) {
-                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(),"login");
+            try {
+                AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText());
+                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), "login");
             }
-            else {
-                ErrorMessage errorMessage = new ErrorMessage("Invalid username or password!");
+            catch (InvalidInputException e){
+                ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
                 errorMessage.setTranslateY(35);
-                errorMessage.setTranslateX(-30);
+                errorMessage.setTranslateX(-10);
 
                 vBox_field.setMaxHeight(250);
                 vBox_field.setMinHeight(250);
@@ -93,12 +95,11 @@ public class LoginPage {
                 textInput_Username.setTranslateY(200);
                 btn_Login.setTranslateY(80);
                 root.getChildren().add(errorMessage);
-
             }
         });
 
 
-        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back,img_Icon);
+        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, btn_Login, pane_Back, btn_Back, img_Icon);
 
         Values.getStage().setScene(new Scene(root, 1000, 600));
     }
