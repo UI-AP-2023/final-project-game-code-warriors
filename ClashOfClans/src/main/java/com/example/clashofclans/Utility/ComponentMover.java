@@ -3,10 +3,14 @@ package com.example.clashofclans.Utility;
 import com.example.clashofclans.Event.OnAttackerArriveToTargetEvents;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.animation.KeyFrame;
+import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 import java.util.LinkedList;
@@ -31,6 +35,26 @@ public class ComponentMover {
 
         });
 
+    }
+
+    public static void arcMover(IGameComponent gameComponent ,IGameComponent destenation ,  IGameComponent target){
+        double currentTop = destenation.getInsets().getTop();
+        double currentLeft = destenation.getInsets().getLeft();
+        double targetTop = target.getInsets().getTop();
+        double targetLeft = target.getInsets().getLeft();
+
+        Path path = new Path();
+        path.getElements().add(new MoveTo(currentLeft, currentTop));
+        path.getElements().add(new CubicCurveTo(currentLeft, currentTop, currentLeft, currentTop, targetLeft, targetTop));
+        PathTransition pathTransition = new PathTransition();
+        pathTransition.setDuration(Duration.seconds(3));
+        pathTransition.setNode(gameComponent.getImageView());
+        pathTransition.setPath(path);
+        pathTransition.play();
+        pathTransition.onFinishedProperty().set(actionEvent -> {
+            OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
+            gameComponent.setInsets(targetTop , targetLeft);
+        });
     }
 
     private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, IGameComponent iGameComponent) {
