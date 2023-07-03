@@ -104,7 +104,7 @@ public class Values {
 
     // Storage - Weak
     public static int STORAGE_DAMAGE = 200;
-    public static int SORAGE_SCORE = 20;
+    public static int STORAGE_SCORE = 20;
 
     public static String SpearFrame0 = "Heroes/Spear/2 WALK_000.png";
     public static String SpearFrame1 = "Heroes/Spear/2 WALK_001.png";
@@ -135,6 +135,17 @@ public class Values {
     public static String TrollFrame8 = "Heroes/Troll/Troll_01_1_RUN_008.png";
     public static String TrollFrame9 = "Heroes/Troll/Troll_01_1_RUN_009.png";
 
+    public static String TrollAttackFrame0 = "Heroes/Troll/Troll_01_1_ATTACK_000.png";
+    public static String TrollAttackFrame1 = "Heroes/Troll/Troll_01_1_ATTACK_001.png";
+    public static String TrollAttackFrame2 = "Heroes/Troll/Troll_01_1_ATTACK_002.png";
+    public static String TrollAttackFrame3 = "Heroes/Troll/Troll_01_1_ATTACK_003.png";
+    public static String TrollAttackFrame4 = "Heroes/Troll/Troll_01_1_ATTACK_004.png";
+    public static String TrollAttackFrame5 = "Heroes/Troll/Troll_01_1_ATTACK_005.png";
+    public static String TrollAttackFrame6 = "Heroes/Troll/Troll_01_1_ATTACK_006.png";
+    public static String TrollAttackFrame7 = "Heroes/Troll/Troll_01_1_ATTACK_007.png";
+    public static String TrollAttackFrame8 = "Heroes/Troll/Troll_01_1_ATTACK_008.png";
+    public static String TrollAttackFrame9 = "Heroes/Troll/Troll_01_1_ATTACK_009.png";
+
     public static String TrollDieFrame0 = "Heroes/Troll/Troll_01_1_DIE_000.png";
     public static String TrollDieFrame1 = "Heroes/Troll/Troll_01_1_DIE_001.png";
     public static String TrollDieFrame2 = "Heroes/Troll/Troll_01_1_DIE_002.png";
@@ -157,6 +168,16 @@ public class Values {
     public static String KnightFrame8 = "Heroes/Knight/Knight_01__RUN_008.png";
     public static String KnightFrame9 = "Heroes/Knight/Knight_01__RUN_009.png";
 
+    public static String KnightAttackFrame0 = "Heroes/Knight/Knight_01__ATTACK_000.png";
+    public static String KnightAttackFrame1 = "Heroes/Knight/Knight_01__ATTACK_001.png";
+    public static String KnightAttackFrame2 = "Heroes/Knight/Knight_01__ATTACK_002.png";
+    public static String KnightAttackFrame3 = "Heroes/Knight/Knight_01__ATTACK_003.png";
+    public static String KnightAttackFrame4 = "Heroes/Knight/Knight_01__ATTACK_004.png";
+    public static String KnightAttackFrame5 = "Heroes/Knight/Knight_01__ATTACK_005.png";
+    public static String KnightAttackFrame6 = "Heroes/Knight/Knight_01__ATTACK_006.png";
+    public static String KnightAttackFrame7 = "Heroes/Knight/Knight_01__ATTACK_007.png";
+    public static String KnightAttackFrame8 = "Heroes/Knight/Knight_01__ATTACK_008.png";
+    public static String KnightAttackFrame9 = "Heroes/Knight/Knight_01__ATTACK_009.png";
 
     public static String KnightDieFrame0 = "Heroes/Knight/Knight_01__DIE_000.png";
     public static String KnightDieFrame1 = "Heroes/Knight/Knight_01__DIE_001.png";
@@ -181,7 +202,16 @@ public class Values {
     public static String GreenFrame8 = "Heroes/Green/GREEN_RUN_008.png";
     public static String GreenFrame9 = "Heroes/Green/GREEN_RUN_009.png";
 
-
+    public static String GreenAttackFrame0 = "Heroes/Green/GREEN_ATTACK_000.png";
+    public static String GreenAttackFrame1 = "Heroes/Green/GREEN_ATTACK_001.png";
+    public static String GreenAttackFrame2 = "Heroes/Green/GREEN_ATTACK_002.png";
+    public static String GreenAttackFrame3 = "Heroes/Green/GREEN_ATTACK_003.png";
+    public static String GreenAttackFrame4 = "Heroes/Green/GREEN_ATTACK_004.png";
+    public static String GreenAttackFrame5 = "Heroes/Green/GREEN_ATTACK_005.png";
+    public static String GreenAttackFrame6 = "Heroes/Green/GREEN_ATTACK_006.png";
+    public static String GreenAttackFrame7 = "Heroes/Green/GREEN_ATTACK_007.png";
+    public static String GreenAttackFrame8 = "Heroes/Green/GREEN_ATTACK_008.png";
+    public static String GreenAttackFrame9 = "Heroes/Green/GREEN_ATTACK_009.png";
     public static String GreenDieFrame0 = "Heroes/Green/GREEN_DIE_000.png";
     public static String GreenDieFrame1 = "Heroes/Green/GREEN_DIE_001.png";
     public static String GreenDieFrame2 = "Heroes/Green/GREEN_DIE_002.png";
@@ -193,17 +223,26 @@ public class Values {
     public static String GreenDieFrame8 = "Heroes/Green/GREEN_DIE_008.png";
     public static String GreenDieFrame9 = "Heroes/Green/GREEN_DIE_009.png";
 
+    public static String DragonFrame = "Heroes/Dragon/Dragon - Walk.png";
+    public static String DragonAttackFrame = "Heroes/Dragon/Dragon - Fire.png";
 
-    public static List<String> TrollFrames = List.of(Values.TrollFrame0, Values.TrollFrame1, Values.TrollFrame2, Values.TrollFrame3, Values.TrollFrame4, Values.TrollFrame5, Values.TrollFrame6, Values.TrollFrame7, Values.TrollFrame8, Values.TrollFrame9);
-    public static List<String> TrollDieFrames = List.of(Values.TrollDieFrame0, Values.TrollDieFrame1, Values.TrollDieFrame2, Values.TrollDieFrame3, Values.TrollDieFrame4, Values.TrollDieFrame5, Values.TrollDieFrame6, Values.TrollDieFrame7, Values.TrollDieFrame8, Values.TrollDieFrame9);
 
-    public static List<String> SpearFrames = List.of(Values.SpearFrame0, Values.SpearFrame1, Values.SpearFrame2, Values.SpearFrame3, Values.SpearFrame4);
-    public static List<String> SpearDieFrames = List.of(Values.SpearDieFrame0, Values.SpearDieFrame1, Values.SpearDieFrame2, Values.SpearDieFrame3, Values.SpearDieFrame4);
+    public static List<String> TrollFrames = List.of(TrollFrame0, TrollFrame1, TrollFrame2, TrollFrame3, TrollFrame4, TrollFrame5, TrollFrame6, TrollFrame7, TrollFrame8, TrollFrame9);
+    public static List<String> TrollDieFrames = List.of(TrollDieFrame0, TrollDieFrame1, TrollDieFrame2, TrollDieFrame3, TrollDieFrame4, TrollDieFrame5, TrollDieFrame6, TrollDieFrame7, TrollDieFrame8, TrollDieFrame9);
 
-    public static List<String> KnightFrames = List.of(Values.KnightFrame0, Values.KnightFrame1, Values.KnightFrame2, Values.KnightFrame3, Values.KnightFrame4, Values.KnightFrame5, Values.KnightFrame6, Values.KnightFrame7, Values.KnightFrame8, Values.KnightFrame9);
-    public static List<String> KnightDieFrames = List.of(Values.KnightDieFrame0, Values.KnightDieFrame1, Values.KnightDieFrame2, Values.KnightDieFrame3, Values.KnightDieFrame4, Values.KnightDieFrame5, Values.KnightDieFrame6, Values.KnightDieFrame7, Values.KnightDieFrame8, Values.KnightDieFrame9);
+    public static List<String> TrollAttackFrames = List.of(TrollAttackFrame0, TrollAttackFrame1, TrollAttackFrame2, TrollAttackFrame3, TrollAttackFrame4, TrollAttackFrame5, TrollAttackFrame6, TrollAttackFrame7, TrollAttackFrame8, TrollAttackFrame9);
 
-    public static List<String> GreenFrames = List.of(Values.GreenFrame0, Values.GreenFrame1, Values.GreenFrame2, Values.GreenFrame3, Values.GreenFrame4, Values.GreenFrame5, Values.GreenFrame6, Values.GreenFrame7, Values.GreenFrame8, Values.GreenFrame9);
-    public static List<String> GreenDieFrames = List.of(Values.GreenDieFrame0, Values.GreenDieFrame1, Values.GreenDieFrame2, Values.GreenDieFrame3, Values.GreenDieFrame4, Values.GreenDieFrame5, Values.GreenDieFrame6, Values.GreenDieFrame7, Values.GreenDieFrame8, Values.GreenDieFrame9);
+    public static List<String> SpearFrames = List.of(SpearFrame0, SpearFrame1, SpearFrame2, SpearFrame3, SpearFrame4);
+    public static List<String> SpearAttackFrames = List.of(SpearAttackFrame0, SpearAttackFrame1, SpearAttackFrame2, SpearAttackFrame3, SpearAttackFrame4);
+    public static List<String> SpearDieFrames = List.of(SpearDieFrame0, SpearDieFrame1, SpearDieFrame2, SpearDieFrame3, SpearDieFrame4);
+
+    public static List<String> KnightFrames = List.of(KnightFrame0, KnightFrame1, KnightFrame2, KnightFrame3, KnightFrame4, KnightFrame5, KnightFrame6, KnightFrame7, KnightFrame8, KnightFrame9);
+    public static List<String> KnightAttackFrames = List.of(KnightAttackFrame0, KnightAttackFrame1, KnightAttackFrame2, KnightAttackFrame3, KnightAttackFrame4, KnightAttackFrame5, KnightAttackFrame6, KnightAttackFrame7, KnightAttackFrame8, KnightAttackFrame9);
+    public static List<String> KnightDieFrames = List.of(KnightDieFrame0, KnightDieFrame1, KnightDieFrame2, KnightDieFrame3, KnightDieFrame4, KnightDieFrame5, KnightDieFrame6, KnightDieFrame7, KnightDieFrame8, KnightDieFrame9);
+
+
+    public static List<String> GreenFrames = List.of(GreenFrame0, GreenFrame1, GreenFrame2, GreenFrame3, GreenFrame4,GreenFrame5, GreenFrame6, GreenFrame7, GreenFrame8, GreenFrame9);
+    public static List<String> GreenAttackFrames = List.of(GreenAttackFrame0, GreenAttackFrame1, GreenAttackFrame2, GreenAttackFrame3, GreenAttackFrame4, GreenAttackFrame5, GreenAttackFrame6, GreenAttackFrame7, GreenAttackFrame8, GreenAttackFrame9);
+    public static List<String> GreenDieFrames = List.of(GreenDieFrame0, GreenDieFrame1, GreenDieFrame2, GreenDieFrame3, GreenDieFrame4, GreenDieFrame5, GreenDieFrame6, GreenDieFrame7, GreenDieFrame8, GreenDieFrame9);
 
 }

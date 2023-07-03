@@ -3,7 +3,7 @@ package com.example.clashofclans.Model;
 import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Building.Building;
-import com.example.clashofclans.Model.Hero.Spear;
+import com.example.clashofclans.Model.Hero.*;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
 import com.example.clashofclans.Utility.ComponentMover;
@@ -45,7 +45,7 @@ public class Field extends Pane implements ITargetHolder {
 
             this.setOnMouseClicked(event -> {
                 if (!isDragged.get() && isPlayable) {
-                    Spear spear = new Spear();
+                    Troll spear = new Troll();
                     this.addChildren(spear);
                     spear.initDefaultAnimation();
                     spear.getTimeLine().play();

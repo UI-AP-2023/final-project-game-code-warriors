@@ -3,14 +3,10 @@ package com.example.clashofclans.View;
 import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.*;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GamePage {
     private static StackPane root;

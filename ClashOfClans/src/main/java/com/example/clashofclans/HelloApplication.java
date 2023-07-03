@@ -22,10 +22,9 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         MapHandler.addToList();
-        Account account = new Account("hossein", "ho12", "hossein@gmail.com");
+        Account account = new Account("hossein", "123", "hossein@gmail.com");
         account.setMap(Values.maps.get(1));
         Values.users.add(account);
-        //Values.loggedInUser = account;
         launch();
     }
 }

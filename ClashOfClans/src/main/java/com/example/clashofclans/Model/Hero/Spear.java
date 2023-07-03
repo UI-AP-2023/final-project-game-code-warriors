@@ -14,21 +14,21 @@ import javafx.util.Duration;
 
 import java.util.List;
 
-import static com.example.clashofclans.Values.SpearAttackFrame0;
-import static com.example.clashofclans.Values.SpearDieFrame0;
+import static com.example.clashofclans.Values.*;
 
-public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
+public class Spear extends Hero implements IAnimated, IMortal, IDamageHandler {
 
-    private ImageView imageView ;
+    private ImageView imageView;
 
     public Spear() {
-        super(new Image(HelloApplication.class.getResource("Heroes/Spear/2 WALK_000.png").toString()), Values.SPEAR_HEALTH, Values.SPEAR_HIT, 10, Values.SPEAR_SPEED, Values.SPEAR_HITRANGE, new Timeline());
-        imageView =  new ImageView(this.getImage());
-        imageView.setFitWidth(50);
+        super(new Image(HelloApplication.class.getResource("Heroes/Spear/2 WALK_000.png").toString()), Values.SPEAR_HEALTH, Values.SPEAR_HIT, Values.SPEAR_SPEED,1, Values.SPEAR_HITRANGE, new Timeline());
+        imageView = new ImageView(this.getImage());
+        imageView.setFitWidth(120);
         imageView.setPreserveRatio(true);
 
 
     }
+
     public Spear(int size) {
         this();
         getImageView(size);
@@ -49,18 +49,8 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
 
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
-        OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target , this , 5);
-        IFramer framer = new FramerTimeLine(
-                imageView ,
-                List.of(SpearAttackFrame0 ,
-                        Values.SpearAttackFrame1 ,
-                        Values.SpearAttackFrame2 ,
-                        Values.SpearAttackFrame3 ,
-                        Values.SpearAttackFrame4 ),
-                Duration.millis(40000),
-                onFrameExecutedEvent
-        );
-        System.out.println("asdasdasdasdasdasdasdasdadasdasdasd");
+        OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target, this, 5);
+        IFramer framer = new FramerTimeLine(imageView, SpearAttackFrames, Duration.millis(40000), onFrameExecutedEvent);
         imageView.setFitWidth(120);
         timeLine.stop();
         timeLine.getKeyFrames().clear();
@@ -83,7 +73,7 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
     public void initDefaultAnimation() {
         timeLine.stop();
         timeLine.getKeyFrames().clear();
-        IFramer iFramer  = new FramerTimeLine(imageView , List.of(Values.SpearFrame1, Values.SpearFrame2 , Values.SpearFrame3 , Values.SpearFrame4 ,Values.SpearFrame0) , Duration.seconds(1));
+        IFramer iFramer = new FramerTimeLine(imageView, SpearFrames, Duration.seconds(1));
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
         imageView.setFitWidth(60);
@@ -92,14 +82,10 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
 
     @Override
     public void setDieToDefaultAnim() {
-        IFramer iFramer = new FramerTimeLine(imageView , List.of(Values.SpearDieFrame0 , Values.SpearDieFrame1 , Values.SpearDieFrame2 , Values.SpearDieFrame3  , Values.SpearDieFrame4),Duration.seconds(1));
+        IFramer iFramer = new FramerTimeLine(imageView, SpearDieFrames, Duration.seconds(1));
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
     }
-
-
-
-
 
 
 }
