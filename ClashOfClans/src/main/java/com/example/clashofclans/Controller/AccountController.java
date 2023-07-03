@@ -4,8 +4,6 @@ import com.example.clashofclans.Exception.InvalidEmailException;
 import com.example.clashofclans.Exception.InvalidInputException;
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Values;
-import com.example.clashofclans.View.GamePage;
-import com.example.clashofclans.View.MapSelectionPage;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -43,5 +41,8 @@ public class AccountController {
         return matcher.find();
     }
 
-    public static void endGame(double score){}
+    public static void endGame(double score) {
+        Values.loggedInUser.setScore(Values.loggedInUser.getScore() + score);
+        Values.loggedInUser.setAttackMap(null);
+    }
 }

@@ -26,7 +26,8 @@ public class InGameMenu extends VBox {
 
             item_Leave.setOnMouseClicked(event -> {
                 Values.loggedInUser.getMap().getField().getScore();
-                AccountController.endGame(-Values.loggedInUser.getMap().getField().getScore());
+                AccountController.endGame(0);
+                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), "login");
             });
         }
 
