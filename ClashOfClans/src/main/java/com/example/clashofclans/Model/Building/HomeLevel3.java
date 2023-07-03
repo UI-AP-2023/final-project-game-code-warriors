@@ -33,6 +33,11 @@ public class HomeLevel3 extends Building implements IDamageHandler {
     }
 
     @Override
+    public int getHitRange() {
+        return 0;
+    }
+
+    @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }

@@ -18,6 +18,7 @@ public class Storage extends Building implements IDamageHandler {
         this();
         getImageView(size);
     }
+
     @Override
     public ImageView getImageView(double size) {
         imageView.setFitWidth(size);
@@ -28,6 +29,11 @@ public class Storage extends Building implements IDamageHandler {
     @Override
     public ImageView getImageView() {
         return imageView;
+    }
+
+    @Override
+    public int getHitRange() {
+        return 0;
     }
 
     @Override

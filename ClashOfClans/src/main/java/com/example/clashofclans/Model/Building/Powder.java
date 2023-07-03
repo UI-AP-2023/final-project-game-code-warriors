@@ -18,6 +18,7 @@ public class Powder extends DefensiveBuilding implements IDamageHandler {
         this();
         getImageView(size);
     }
+
     @Override
     public ImageView getImageView(double size) {
         imageView.setFitWidth(size);

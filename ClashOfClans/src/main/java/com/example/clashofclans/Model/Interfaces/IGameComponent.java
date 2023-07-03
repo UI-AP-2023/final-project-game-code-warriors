@@ -10,7 +10,7 @@ public interface IGameComponent {
         getImageView().setY(topInset);
         getImageView().setX(leftInset);
     }
-
+    int getHitRange();
 
     default Insets getInsets(){
         return new Insets(getImageView().getY(),0,0,getImageView().getX());
