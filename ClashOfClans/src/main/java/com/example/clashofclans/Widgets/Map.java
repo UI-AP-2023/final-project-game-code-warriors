@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Map extends ScrollPane {
-    Field field;
+    private Field field;
 
     public Map(Field field) {
         this.field = field;

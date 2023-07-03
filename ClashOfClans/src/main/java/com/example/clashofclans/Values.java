@@ -11,7 +11,7 @@ import java.util.List;
 public class Values {
     public static ArrayList<Map> maps;
     public static ArrayList<Account> users;
-    public static Account loggedInUser = null;
+    public static Account loggedInUser;
     private static Stage mainStage;
 
     public static void setStage(Stage stage) {

@@ -43,7 +43,6 @@ public class SignUpPage {
 
 
         BackwardButton btn_Back = new BackwardButton(30);
-        //btn_Back.setTranslateY(-180);
         btn_Back.setTranslateX(-450);
         btn_Back.setMinSize(100, 600);
         btn_Back.setMaxSize(100, 600);
