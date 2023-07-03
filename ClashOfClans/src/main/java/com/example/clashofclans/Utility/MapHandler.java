@@ -89,7 +89,6 @@ public class MapHandler {
         field.addBulkChildren(home1, barracks1, barracks2, storage1, thrower1, thrower2, canon1, canon2, castle, home2, home3, home4);
 
         return new Map(field);
-
     }
 
     public static void addToList() {

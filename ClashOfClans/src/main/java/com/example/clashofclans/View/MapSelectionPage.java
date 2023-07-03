@@ -8,6 +8,7 @@ import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
 import com.example.clashofclans.Widgets.ConfirmButton;
 import com.example.clashofclans.Widgets.ForwardButton;
+import com.example.clashofclans.Widgets.Map;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
@@ -18,8 +19,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class MapSelectionPage {
     private static int index;
 
-    public static void show(int map, String sender) {
-        index = map;
+    public static void show(int mapIndex, String sender) {
+        index = mapIndex;
+        Map map = map();
 
         BackwardButton btn_Backward = new BackwardButton(50);
         btn_Backward.setTranslateX(-150);
@@ -35,10 +37,9 @@ public class MapSelectionPage {
                 Holder.getLoggedInUser().setMap(Values.maps.get(index-1));
                 GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), sender);
             } else if (sender.equals("attack")) {
-                Holder.getLoggedInUser().setAttackMap(Values.maps.get(index-1));
-                GamePage.show(Values.maps.get(index-1), 0, sender);
-                FightPairList.setField(Values.maps.get(index-1).getField());
-                System.out.println("Field setted");
+                Holder.getLoggedInUser().setAttackMap(map);
+                GamePage.show(map, 0, sender);
+                FightPairList.setField(map.getField());
             }
         });
 
@@ -61,7 +62,7 @@ public class MapSelectionPage {
         Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 
-    private static ScrollPane map() {
+    private static Map map() {
         switch (index) {
             case 2:
                 return MapHandler.map2();
