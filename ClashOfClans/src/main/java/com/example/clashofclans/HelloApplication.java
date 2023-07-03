@@ -1,19 +1,12 @@
 package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Account;
-import com.example.clashofclans.Model.Field;
-import com.example.clashofclans.Model.Hero.Spear;
-import com.example.clashofclans.Model.Interfaces.IGameComponent;
-import com.example.clashofclans.Utility.ComponentMover;
 import com.example.clashofclans.Utility.MapHandler;
 import com.example.clashofclans.View.*;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+
 
 
 public class HelloApplication extends Application {

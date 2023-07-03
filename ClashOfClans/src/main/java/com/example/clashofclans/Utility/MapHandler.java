@@ -3,12 +3,10 @@ package com.example.clashofclans.Utility;
 import com.example.clashofclans.Model.Building.*;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Values;
-import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import com.example.clashofclans.Widgets.Map;
 
 public class MapHandler {
-    public static ScrollPane map1() {
+    public static Map map1() {
         HomeLevel3 home1 = new HomeLevel3(60);
         home1.setInsets(280, 530);
 
@@ -45,15 +43,12 @@ public class MapHandler {
         Field field = new Field();
         field.addBulkChildren(home1, home2, home3, home4, storage1, storage2, storage3, canon1, canon2, thrower1, barracks1);
 
-        ScrollPane scrollPane = new ScrollPane(field);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
+        Map map = new Map(field);
 
-        return scrollPane;
+        return map;
     }
 
-    public static ScrollPane map2() {
+    public static Map map2() {
         HomeLevel2 home1 = new HomeLevel2(70);
         home1.setInsets(350, 550);
 
@@ -92,12 +87,9 @@ public class MapHandler {
 
         Field field = new Field();
         field.addBulkChildren(home1, barracks1, barracks2, storage1, thrower1, thrower2, canon1, canon2, castle, home2, home3, home4);
-        ScrollPane scrollPane = new ScrollPane(field);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
 
-        return scrollPane;
+        return new Map(field);
+
     }
 
     public static void addToList() {

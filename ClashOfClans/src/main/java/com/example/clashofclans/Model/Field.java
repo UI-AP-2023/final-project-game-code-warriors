@@ -1,6 +1,7 @@
 package com.example.clashofclans.Model;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Building.Building;
 import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
@@ -15,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,9 +26,11 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+@Getter
+@Setter
 public class Field extends Pane implements ITargetHolder {
     List<IGameComponent> targets = new ArrayList<>();
-
+    private double score = 0;
 
     public Field() {
 
@@ -45,7 +50,6 @@ public class Field extends Pane implements ITargetHolder {
             }
             isDragged.set(false);
         });
-
 
 
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
@@ -88,6 +92,11 @@ public class Field extends Pane implements ITargetHolder {
     public void addBulkChildren(IGameComponent... iGameComponents) {
         targets.addAll(List.of(iGameComponents));
         this.getChildren().addAll(Arrays.stream(iGameComponents).map(IGameComponent::getImageView).toList());
+        for (IGameComponent b : iGameComponents) {
+            if (b instanceof Building) {
+                this.score += ((Building) b).getScore();
+            }
+        }
     }
 
     @Override
@@ -115,5 +124,6 @@ public class Field extends Pane implements ITargetHolder {
         System.out.println(target.get().getInsets());
         return target.get();
     }
+
 
 }

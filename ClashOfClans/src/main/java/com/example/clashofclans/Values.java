@@ -1,8 +1,7 @@
 package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Account;
-import com.example.clashofclans.Model.Field;
-import javafx.scene.control.ScrollPane;
+import com.example.clashofclans.Widgets.Map;
 import javafx.stage.Stage;
 
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Values {
-    public static ArrayList<ScrollPane> maps;
+    public static ArrayList<Map> maps;
     public static ArrayList<Account> users;
     public static Account loggedInUser = null;
     private static Stage mainStage;
