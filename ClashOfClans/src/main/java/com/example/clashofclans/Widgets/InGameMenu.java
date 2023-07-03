@@ -15,7 +15,7 @@ public class InGameMenu extends VBox {
         if (sender.equals("sign up")||sender.equals("login")) {
             MenuItem item_Attack = new MenuItem(90, 40, "Attack");
             item_Attack.setOnMouseClicked(event -> {
-                MapSelectionPage.show(0, "attack");
+                MapSelectionPage.show(1, "attack");
             });
             this.getChildren().add(item_Attack);
         } else if (sender.equals("attack")) {

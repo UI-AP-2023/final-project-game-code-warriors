@@ -28,8 +28,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        MapHandler.map1();
-        MapHandler.map2();
+        MapHandler.addToList();
         Account account = new Account("hossein", "123", "hossein@gmial.com");
         account.setMap(Values.maps.get(1));
         Values.users.add(account);

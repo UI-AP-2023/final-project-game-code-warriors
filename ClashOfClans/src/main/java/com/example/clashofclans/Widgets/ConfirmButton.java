@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 public class ConfirmButton extends Button {
     public ConfirmButton(double size) {
         Image backgroundImage = new Image(HelloApplication.class.getResource("Buttons/Confirm Button.png").toString());
-        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(size - 5, size - 5, true, true, true, true))));
+        this.setBackground(new Background(new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(size, size, true, true, true, true))));
 
         this.setPrefSize(size, size);
         this.setCursor(Cursor.HAND);

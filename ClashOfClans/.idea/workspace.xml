@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="merge showHero to master">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="in game menu bug fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/MapSelectionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/MapSelectionPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/SignUpPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/SignUpPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/WelcomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/ConfirmButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/ConfirmButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/InGameMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,9 +22,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2S35Bl56NMvkRufHaP8F7E5XlAx" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -36,11 +39,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "attack",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "heroLayer",
     "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -70,22 +77,22 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="in game menu bug fixed" />
+      <created>1688362294727</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688362294727</updated>
+      <workItem from="1688362296526" duration="7430000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge showHero to master" />
     <option name="LAST_COMMIT_MESSAGE" value="merge showHero to master" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/MapSelectionPage.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
