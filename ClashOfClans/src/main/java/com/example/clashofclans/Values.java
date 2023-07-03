@@ -34,7 +34,7 @@ public class Values {
 
     // Spear - middle
     public static int SPEAR_HEALTH = 80;
-    public static int SPEAR_HIT = 15;
+    public static int SPEAR_HIT = 40;
     public static int SPEAR_SPEED = 15;
     public static int SPEAR_HITRANGE = 5;
 

@@ -2,7 +2,6 @@ package com.example.clashofclans.Model.Interfaces;
 
 import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
 public interface IGameComponent {
     ImageView getImageView(double size);
@@ -17,6 +16,7 @@ public interface IGameComponent {
         return new Insets(getImageView().getY(),0,0,getImageView().getX());
     };
 
-    void setAttackToDefaultAnimation();
-    void addDamage(IGameComponent target,double damage);
+    void setAttackToDefaultAnimation(IGameComponent target);
+
+    IDamageHandler getDamageHandler();
 }

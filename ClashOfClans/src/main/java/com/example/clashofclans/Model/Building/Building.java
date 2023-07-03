@@ -5,17 +5,22 @@ import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
 
 
-public abstract class Building implements IGameComponent , IDamageHandler {
-    private int damage;
+public abstract class Building implements IGameComponent {
+    protected int damage = 0 ;
+    private int health ;
     private Values.DefensiveType type;
 
-    @Override
-    public void addDamage(double damage) {
-        this.damage += damage;
+
+    public int getHealth() {
+        return health;
     }
 
-    public Building(int damage, Values.DefensiveType type) {
-        this.damage = damage;
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public Building(int health, Values.DefensiveType type) {
+        this.health = health;
         this.type = type;
     }
 
@@ -25,6 +30,7 @@ public abstract class Building implements IGameComponent , IDamageHandler {
 
     public void setDamage(int damage) {
         this.damage = damage;
+//        System.out.println(damage);
     }
 
     public Values.DefensiveType getType() {

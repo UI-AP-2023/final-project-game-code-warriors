@@ -1,19 +1,19 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
-import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
-public class Barracks extends Building {
+public class Barracks extends Building implements IDamageHandler {
     private ImageView imageView;
 
     public Barracks() {
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Barracks.png").toString()));
+
     }
     public Barracks(double size) {
         this();
@@ -28,20 +28,26 @@ public class Barracks extends Building {
         return imageView;
     }
 
+
+
     @Override
     public ImageView getImageView() {
         return imageView;
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }
 
     @Override
-    public void addDamage(IGameComponent target, double damage) {
-
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
+
+
+
+
 
 
 }

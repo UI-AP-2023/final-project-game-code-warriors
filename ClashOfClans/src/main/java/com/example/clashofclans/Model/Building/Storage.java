@@ -1,15 +1,13 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
-public class Storage extends Building{
+public class Storage extends Building implements IDamageHandler {
     private ImageView imageView ;
     public Storage() {
         super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
@@ -32,14 +30,19 @@ public class Storage extends Building{
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }
 
     @Override
-    public void addDamage(IGameComponent target, double damage) {
-
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
+
+
+
+
+
 
 
 }

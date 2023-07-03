@@ -4,6 +4,8 @@ import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Interfaces.*;
 import com.example.clashofclans.Utility.FramerTimeLine;
 import com.example.clashofclans.Utility.IFramer;
+import com.example.clashofclans.Utility.OnFrameExecutedEvent;
+import com.example.clashofclans.Utility.OnFrameExecutedEventImpl;
 import com.example.clashofclans.Values;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
@@ -15,7 +17,7 @@ import java.util.List;
 import static com.example.clashofclans.Values.SpearAttackFrame0;
 import static com.example.clashofclans.Values.SpearDieFrame0;
 
-public class Spear extends Hero implements IAnimated , IMortal {
+public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
 
     private ImageView imageView ;
 
@@ -46,7 +48,8 @@ public class Spear extends Hero implements IAnimated , IMortal {
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
+        OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target , this , this.getHit());
         IFramer framer = new FramerTimeLine(
                 imageView ,
                 List.of(SpearAttackFrame0 ,
@@ -54,14 +57,22 @@ public class Spear extends Hero implements IAnimated , IMortal {
                         Values.SpearAttackFrame2 ,
                         Values.SpearAttackFrame3 ,
                         Values.SpearAttackFrame4 ),
-                Duration.seconds(0.5));
+                Duration.seconds(0.5),
+                onFrameExecutedEvent::event
+        );
         System.out.println("asdasdasdasdasdasdasdasdadasdasdasd");
         imageView.setFitWidth(100);
         timeLine.stop();
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(framer.getKeyFrames());
         imageView.setImage(new Image(HelloApplication.class.getResource(SpearDieFrame0).toString()));
+        timeLine.getKeyFrames().get(0);
         timeLine.play();
+    }
+
+    @Override
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
 
 
@@ -83,7 +94,6 @@ public class Spear extends Hero implements IAnimated , IMortal {
 
 
 
-    @Override
-    public void addDamage(IGameComponent target, double damage) {
-    }
+
+
 }

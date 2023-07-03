@@ -1,14 +1,13 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
-import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
-public class Thrower extends DefensiveBuilding {
+public class Thrower extends DefensiveBuilding implements IDamageHandler {
     private ImageView imageView;
 
     public Thrower() {
@@ -33,13 +32,13 @@ public class Thrower extends DefensiveBuilding {
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }
 
     @Override
-    public void addDamage(IGameComponent target, double damage) {
-
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
 
 

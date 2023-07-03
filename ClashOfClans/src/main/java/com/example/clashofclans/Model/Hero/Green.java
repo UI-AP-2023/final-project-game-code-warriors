@@ -2,19 +2,18 @@ package com.example.clashofclans.Model.Hero;
 
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Interfaces.IAnimated;
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.IMortal;
-import com.example.clashofclans.Model.Interfaces.ITarget;
 import com.example.clashofclans.Utility.FramerTimeLine;
 import com.example.clashofclans.Utility.IFramer;
 import com.example.clashofclans.Values;
 import javafx.animation.Timeline;
-import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-public class Green extends Hero implements IAnimated, IMortal, IGameComponent  {
+public class Green extends Hero implements IAnimated, IMortal, IGameComponent , IDamageHandler {
     private ImageView imageView ;
 
     public Green() {
@@ -38,16 +37,17 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent  {
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }
-
-
 
     @Override
-    public void addDamage(IGameComponent target, double damage) {
-
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
+
+
+
 
 
     @Override

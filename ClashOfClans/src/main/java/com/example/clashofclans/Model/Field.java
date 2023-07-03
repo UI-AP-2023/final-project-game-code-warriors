@@ -103,13 +103,11 @@ public class Field extends Pane implements ITargetHolder {
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
         targetDistanceMap.forEach((key, value) -> {
-//            System.out.println("hhh")hhh
             System.out.println(key.getInsets() + "=>" + key.getClass());
             if (value < min.get()) {
                 target.set(key);
                 min.set(value);
-            }
-            ;
+            };
         });
         System.out.println(target.get().getClass());
         System.out.println(target.get().getInsets());

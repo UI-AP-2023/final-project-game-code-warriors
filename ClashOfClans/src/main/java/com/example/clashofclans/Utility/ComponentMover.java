@@ -9,9 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 
 public class ComponentMover {
@@ -27,8 +25,8 @@ public class ComponentMover {
             timeline.play();
             timeline.setOnFinished(actionEvent -> {
                 System.out.println("asdasdasdasdasdasdasdasdadasdasdasd");
-                gameComponent.setAttackToDefaultAnimation();
                 OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
+                gameComponent.setAttackToDefaultAnimation(target);
             });
 
         });

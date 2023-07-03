@@ -1,15 +1,13 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 
-public class Powder extends DefensiveBuilding{
+public class Powder extends DefensiveBuilding implements IDamageHandler {
     private ImageView imageView ;
     public Powder() {
         super(Values.POWDER_DAMAGE, Values.POWDER_HIT, Values.POWDER_HITRANGE);
@@ -32,14 +30,15 @@ public class Powder extends DefensiveBuilding{
     }
 
     @Override
-    public void setAttackToDefaultAnimation() {
+    public void setAttackToDefaultAnimation(IGameComponent target) {
 
     }
 
     @Override
-    public void addDamage(IGameComponent target, double damage) {
-
+    public IDamageHandler getDamageHandler() {
+        return this;
     }
+
 
 
 }

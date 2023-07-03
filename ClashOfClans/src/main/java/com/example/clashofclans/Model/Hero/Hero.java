@@ -12,6 +12,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public abstract class Hero implements IGameComponent {
+    protected int damage = 0 ;
     private Image image;
     private int health;
     private int hit;
