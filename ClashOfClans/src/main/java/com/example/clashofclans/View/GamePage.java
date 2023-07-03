@@ -1,6 +1,6 @@
 package com.example.clashofclans.View;
 
-import com.example.clashofclans.Model.Field;
+import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.*;
 import javafx.geometry.Insets;
@@ -19,12 +19,8 @@ public class GamePage {
         root = new StackPane();
         root.setPrefSize(1000, 600);
 
-        Map gameField = Values.loggedInUser.getMap();
+        Map gameField = Holder.getLoggedInUser().getMap();
         gameField.getField().setPlayable(false);
-        ScrollPane scrollPane = new ScrollPane(gameField);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
         InGameMenu menu = new InGameMenu(sender);
         menu.setTranslateX(-440);
         menu.setTranslateY(50);

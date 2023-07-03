@@ -2,6 +2,7 @@ package com.example.clashofclans.View;
 
 import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.Model.Field;
+import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Utility.MapHandler;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
@@ -31,10 +32,10 @@ public class MapSelectionPage {
         btn_Confirm.setTranslateY(210);
         btn_Confirm.setOnMouseClicked(event -> {
             if (sender.equals("sign up")) {
-                Values.loggedInUser.setMap(Values.maps.get(index-1));
-                GamePage.show(Values.loggedInUser.getMap(), Values.loggedInUser.getScore(), sender);
+                Holder.getLoggedInUser().setMap(Values.maps.get(index-1));
+                GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), sender);
             } else if (sender.equals("attack")) {
-                Values.loggedInUser.setAttackMap(Values.maps.get(index-1));
+                Holder.getLoggedInUser().setAttackMap(Values.maps.get(index-1));
                 GamePage.show(Values.maps.get(index-1), 0, sender);
                 FightPairList.setField(Values.maps.get(index-1).getField());
                 System.out.println("Field setted");
