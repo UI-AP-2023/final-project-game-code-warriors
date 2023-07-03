@@ -11,7 +11,7 @@ public class Barracks extends Building {
     private ImageView imageView;
 
     public Barracks() {
-        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
+        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL,Values.BARRACKS_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Barracks.png").toString()));
     }
     public Barracks(double size) {

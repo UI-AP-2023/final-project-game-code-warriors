@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 public class Storage extends Building{
     private ImageView imageView ;
     public Storage() {
-        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL);
+        super(Values.BARRACKS_DAMAGE, Values.DefensiveType.NORMAL,Values.SORAGE_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Storage.png").toString()));
     }
     public Storage(double size) {

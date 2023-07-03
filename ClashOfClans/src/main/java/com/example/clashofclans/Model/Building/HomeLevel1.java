@@ -11,7 +11,7 @@ public class HomeLevel1 extends Building {
     private ImageView imageView;
 
     public HomeLevel1() {
-        super(Values.HOME1_DAMAGE, Values.DefensiveType.NORMAL);
+        super(Values.HOME1_DAMAGE, Values.DefensiveType.NORMAL,Values.HOME1_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/HomeLevel1.png").toString()));
     }
     public HomeLevel1(double size) {

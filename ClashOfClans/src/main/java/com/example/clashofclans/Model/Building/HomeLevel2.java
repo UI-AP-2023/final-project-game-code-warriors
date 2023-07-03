@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 public class HomeLevel2 extends Building {
     private ImageView imageView ;
     public HomeLevel2() {
-        super(Values.HOME2_DAMAGE, Values.DefensiveType.NORMAL);
+        super(Values.HOME2_DAMAGE, Values.DefensiveType.NORMAL,Values.HOME2_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/HomeLevel2.png").toString()));
     }
     public HomeLevel2(double size) {

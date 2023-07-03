@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 public class Powder extends DefensiveBuilding{
     private ImageView imageView ;
     public Powder() {
-        super(Values.POWDER_DAMAGE, Values.POWDER_HIT, Values.POWDER_HITRANGE);
+        super(Values.POWDER_DAMAGE, Values.POWDER_HIT, Values.POWDER_HITRANGE,Values.POWDER_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Powder.png").toString()));
     }
     public Powder(double size) {
