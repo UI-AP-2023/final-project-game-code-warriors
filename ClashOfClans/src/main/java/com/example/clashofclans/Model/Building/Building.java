@@ -9,7 +9,23 @@ public abstract class Building implements IGameComponent {
     protected int damage = 0 ;
     private int health ;
     private Values.DefensiveType type;
+    private int score;
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public int getHealth() {
         return health;
@@ -24,12 +40,10 @@ public abstract class Building implements IGameComponent {
         this.type = type;
     }
 
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
+    public Building(int damage, Values.DefensiveType type,int score) {
         this.damage = damage;
+        this.type = type;
+        this.score=score;
 //        System.out.println(damage);
     }
 

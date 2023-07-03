@@ -12,7 +12,7 @@ public class Thrower extends DefensiveBuilding implements IDamageHandler {
     private ImageView imageView;
 
     public Thrower() {
-        super(Values.THROWER_DAMAGE, Values.THROWER_HIT, Values.THROWER_HITRANGE);
+        super(Values.THROWER_DAMAGE, Values.THROWER_HIT, Values.THROWER_HITRANGE,Values.THROWER_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Thrower.png").toString()));
     }
     public Thrower(double size) {

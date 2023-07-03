@@ -1,8 +1,11 @@
 package com.example.clashofclans.View;
 
 import com.example.clashofclans.Controller.AccountController;
+import com.example.clashofclans.Exception.InvalidEmailException;
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.BackwardButton;
+import com.example.clashofclans.Widgets.ErrorMessage;
 import com.example.clashofclans.Widgets.SubmitButton;
 import com.example.clashofclans.Widgets.TextInput;
 import javafx.geometry.Insets;
@@ -16,7 +19,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SignUpPage {
-    public static void show(Stage stage) {
+    public static void show() {
+        StackPane root = new StackPane();
         GaussianBlur gaussianBlur = new GaussianBlur();
         gaussianBlur.setRadius(20);
 
@@ -41,17 +45,17 @@ public class SignUpPage {
         BackwardButton btn_Back = new BackwardButton(30);
         //btn_Back.setTranslateY(-180);
         btn_Back.setTranslateX(-450);
-        btn_Back.setMinSize(100,600);
-        btn_Back.setMaxSize(100,600);
+        btn_Back.setMinSize(100, 600);
+        btn_Back.setMaxSize(100, 600);
 
         btn_Back.setOnMouseEntered(event -> {
             pane_Back.setOpacity(0.3);
         });
-        btn_Back.setOnMouseExited(event->{
+        btn_Back.setOnMouseExited(event -> {
             pane_Back.setOpacity(0);
         });
-        btn_Back.setOnMouseClicked(event->{
-            WelcomePage.show(stage);
+        btn_Back.setOnMouseClicked(event -> {
+            WelcomePage.show();
         });
 
 
@@ -64,29 +68,35 @@ public class SignUpPage {
 
         TextInput textInput_Username = new TextInput("Username");
         textInput_Username.setTranslateX(390);
-        textInput_Username.setTranslateY(180);
+        textInput_Username.setTranslateY(160);
 
         TextInput textInput_Password = new TextInput("Password");
         textInput_Password.setTranslateX(390);
-        textInput_Password.setTranslateY(250);
+        textInput_Password.setTranslateY(225);
 
         TextInput textInput_Email = new TextInput("Email");
         textInput_Email.setTranslateX(390);
-        textInput_Email.setTranslateY(320);
+        textInput_Email.setTranslateY(290);
 
         SubmitButton btn_SignUp = new SubmitButton(200, 50);
         btn_SignUp.setTranslateY(110);
         btn_SignUp.setText("Sign Up");
         btn_SignUp.setOnMouseClicked(event -> {
-            if (AccountController.signUp(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText(), textInput_Email.getTextField().getText())) {
-                MapSelectionPage.show(0, stage);
+            try {
+                AccountController.signUp(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText(), textInput_Email.getTextField().getText());
+                MapSelectionPage.show(1, "sign up");
+            } catch (InvalidEmailException e) {
+                ErrorMessage errorMessage = new ErrorMessage(e.getMessage());
+                errorMessage.setTranslateY(65);
+                errorMessage.setTranslateX(-20);
+                root.getChildren().add(errorMessage);
             }
         });
 
 
-        StackPane root = new StackPane(imageView, vBox_field, textInput_Username, textInput_Password, textInput_Email, btn_SignUp,pane_Back,btn_Back,img_Icon);
+        root.getChildren().addAll(imageView, vBox_field, textInput_Username, textInput_Password, textInput_Email, btn_SignUp, pane_Back, btn_Back, img_Icon);
 
-        stage.setScene(new Scene(root, 1000, 600));
+        Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 
 }

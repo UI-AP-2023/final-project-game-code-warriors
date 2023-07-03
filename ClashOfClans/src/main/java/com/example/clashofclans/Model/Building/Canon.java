@@ -12,7 +12,7 @@ public class Canon extends DefensiveBuilding implements IDamageHandler {
 
     private ImageView imageView ;
     public Canon() {
-        super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE);
+        super(Values.CANON_DAMAGE, Values.CANON_HIT, Values.CANON_HITRANGE,Values.CANON_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Canon.png").toString()));
     }
     public Canon(double size) {

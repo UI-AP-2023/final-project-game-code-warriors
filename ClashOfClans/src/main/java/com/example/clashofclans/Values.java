@@ -1,17 +1,26 @@
 package com.example.clashofclans;
 
 import com.example.clashofclans.Model.Account;
-import com.example.clashofclans.Model.Field;
-import javafx.scene.control.ScrollPane;
+import com.example.clashofclans.Widgets.Map;
+import javafx.stage.Stage;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Values {
-    public static ArrayList<ScrollPane> maps;
+    public static ArrayList<Map> maps;
     public static ArrayList<Account> users;
     public static Account loggedInUser = null;
+    private static Stage mainStage;
+
+    public static void setStage(Stage stage) {
+        mainStage = stage;
+    }
+
+    public static Stage getStage() {
+        return mainStage;
+    }
 
     static {
         users = new ArrayList<>();
@@ -59,34 +68,44 @@ public class Values {
     public static int CANON_HIT = 20;
     public static int CANON_HITRANGE = 20;
     public static int CANON_DAMAGE = 200;
+    public static int CANON_SCORE = 30;
 
     // Thrower - middle
     public static int THROWER_HIT = 30;
     public static int THROWER_HITRANGE = 15;
     public static int THROWER_DAMAGE = 250;
+    public static int THROWER_SCORE = 35;
 
     // Powder - Strong
     public static int POWDER_HIT = 40;
     public static int POWDER_HITRANGE = 10;
     public static int POWDER_DAMAGE = 300;
+    public static int POWDER_SCORE = 40;
+
 
     // Home (Level 1) - weak
-    public static int HOME1_DAMAGE = 170;
+    public static int HOME1_DAMAGE = 150;
+    public static int HOME1_SCORE = 15;
 
     // Home (Level 2) - middle
     public static int HOME2_DAMAGE = 200;
+    public static int HOME2_SCORE = 20;
 
     // Home (Level 3) - Strong
     public static int HOME3_DAMAGE = 250;
+    public static int HOME3_SCORE = 25;
 
     // Castle - Strong
     public static int CASTLE_DAMAGE = 350;
+    public static int CASTLE_SCORE = 35;
 
     // Barracks - Middle
     public static int BARRACKS_DAMAGE = 250;
+    public static int BARRACKS_SCORE = 25;
 
     // Storage - Weak
     public static int STORAGE_DAMAGE = 200;
+    public static int SORAGE_SCORE = 20;
 
     public static String SpearFrame0 = "Heroes/Spear/2 WALK_000.png";
     public static String SpearFrame1 = "Heroes/Spear/2 WALK_001.png";

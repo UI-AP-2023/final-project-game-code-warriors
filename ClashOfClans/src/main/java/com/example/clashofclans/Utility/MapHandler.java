@@ -3,13 +3,10 @@ package com.example.clashofclans.Utility;
 import com.example.clashofclans.Model.Building.*;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Values;
-import javafx.event.Event;
-import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
+import com.example.clashofclans.Widgets.Map;
 
 public class MapHandler {
-    public static void map1() {
+    public static Map map1() {
         HomeLevel3 home1 = new HomeLevel3(60);
         home1.setInsets(280, 530);
 
@@ -44,18 +41,14 @@ public class MapHandler {
         barracks1.setInsets(250, 700);
 
         Field field = new Field();
-        field.addBulkChildren(home1 , home2 , home3 , home4 , storage1 , storage2 ,storage3 , canon1 , canon2 ,thrower1 , barracks1);
+        field.addBulkChildren(home1, home2, home3, home4, storage1, storage2, storage3, canon1, canon2, thrower1, barracks1);
 
-        ScrollPane scrollPane = new ScrollPane(field);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
+        Map map = new Map(field);
 
-
-        Values.maps.add(scrollPane);
+        return map;
     }
 
-    public static void map2() {
+    public static Map map2() {
         HomeLevel2 home1 = new HomeLevel2(70);
         home1.setInsets(350, 550);
 
@@ -81,26 +74,26 @@ public class MapHandler {
         canon2.setInsets(500, 700);
 
         Castle castle = new Castle(60);
-        castle.setInsets(250,700);
+        castle.setInsets(250, 700);
 
         HomeLevel2 home2 = new HomeLevel2(70);
-        home2.setInsets(450,210);
+        home2.setInsets(450, 210);
 
         HomeLevel2 home3 = new HomeLevel2(70);
-        home3.setInsets(480,255);
+        home3.setInsets(480, 255);
 
         HomeLevel2 home4 = new HomeLevel2(70);
-        home4.setInsets(650,600);
+        home4.setInsets(650, 600);
 
         Field field = new Field();
         field.addBulkChildren(home1, barracks1, barracks2, storage1, thrower1, thrower2, canon1, canon2, castle, home2, home3, home4);
-        ScrollPane scrollPane = new ScrollPane(field);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.setPannable(true);
 
+        return new Map(field);
 
+    }
 
-        Values.maps.add(scrollPane);
+    public static void addToList() {
+        Values.maps.add(map1());
+        Values.maps.add(map2());
     }
 }

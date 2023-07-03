@@ -12,7 +12,7 @@ public class Castle extends Building implements IDamageHandler {
     private ImageView imageView;
 
     public Castle() {
-        super(Values.CASTLE_DAMAGE, Values.DefensiveType.NORMAL);
+        super(Values.CASTLE_DAMAGE, Values.DefensiveType.NORMAL,Values.CASTLE_SCORE);
         imageView = new ImageView(new Image(HelloApplication.class.getResource("Building/Castle.png").toString()));
     }
     public Castle(double size) {
