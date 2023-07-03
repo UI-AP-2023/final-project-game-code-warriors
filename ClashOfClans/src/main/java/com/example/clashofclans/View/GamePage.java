@@ -1,5 +1,6 @@
 package com.example.clashofclans.View;
 
+import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Values;
 import com.example.clashofclans.Widgets.*;
 import javafx.geometry.Insets;
@@ -18,7 +19,9 @@ public class GamePage {
         root = new StackPane();
         root.setPrefSize(1000, 600);
 
-        ScrollPane scrollPane = new ScrollPane(Values.loggedInUser.getMap());
+        Map gameField = Values.loggedInUser.getMap();
+        gameField.getField().setPlayable(false);
+        ScrollPane scrollPane = new ScrollPane(gameField);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setPannable(true);

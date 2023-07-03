@@ -32,25 +32,30 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Field extends Pane implements ITargetHolder {
     List<IGameComponent> targets = new ArrayList<>();
     private double score = 0;
+    boolean isPlayable = true;
+
+
 
     public Field() {
-
         AtomicBoolean isDragged = new AtomicBoolean(false);
         this.setOnDragDetected(mouseEvent -> {
             isDragged.set(true);
         });
-        this.setOnMouseClicked(event -> {
-            if (!isDragged.get()) {
-                Spear spear = new Spear();
-                this.addChildren(spear);
-                spear.initDefaultAnimation();
-                spear.getTimeLine().play();
-                spear.setInsets(event.getY(), event.getX());
-                AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear);
-                ComponentMover.moveComponent(iGameComponent.get(), spear);
-            }
-            isDragged.set(false);
-        });
+
+
+            this.setOnMouseClicked(event -> {
+                if (!isDragged.get() && isPlayable) {
+                    Spear spear = new Spear();
+                    this.addChildren(spear);
+                    spear.initDefaultAnimation();
+                    spear.getTimeLine().play();
+                    spear.setInsets(event.getY(), event.getX());
+                    AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear);
+                    ComponentMover.moveComponent(iGameComponent.get(), spear);
+                }
+                isDragged.set(false);
+            });
+
 
 
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
@@ -122,10 +127,11 @@ public class Field extends Pane implements ITargetHolder {
             if (value < min.get()) {
                 target.set(key);
                 min.set(value);
-            };
+            }
+            ;
         });
-        System.out.println("Target selected for attacker     "+target.get().getClass());
-        FightPairList.addFight(target.get() , gameComponent);
+        System.out.println("Target selected for attacker     " + target.get().getClass());
+        FightPairList.addFight(target.get(), gameComponent);
         return target;
     }
 
