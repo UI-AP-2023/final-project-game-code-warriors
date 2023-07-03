@@ -76,6 +76,11 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent, I
     }
 
     @Override
+    public Timeline geTimeLine() {
+        return timeLine;
+    }
+
+    @Override
     public void setDieToDefaultAnim() {
         IFramer iFramer = new FramerTimeLine(imageView, Values.GreenDieFrames, Duration.seconds(1));
         timeLine.setCycleCount(1);

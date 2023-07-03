@@ -1,19 +1,24 @@
 package com.example.clashofclans.Utility;
 
 import com.example.clashofclans.Event.OnAttackerArriveToTargetEvents;
+import com.example.clashofclans.Model.Building.DefensiveBuilding;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.animation.KeyFrame;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.geometry.Point2D;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
 import java.util.LinkedList;
+import java.util.Random;
+import java.util.random.RandomGenerator;
 
 
 public class ComponentMover {
@@ -21,7 +26,36 @@ public class ComponentMover {
     public static void moveComponent(IGameComponent target, IGameComponent gameComponent) {
         Timeline timeline = new Timeline();
         Insets targetPosition = target.getInsets();
-
+//
+//        double currentTop = gameComponent.getInsets().getTop();
+//        double currentLeft = gameComponent.getInsets().getLeft();
+//        double targetTop = targetPosition.getTop();
+//        double targetLeft = targetPosition.getLeft();
+//
+//        Point2D start = new Point2D(currentLeft , currentTop);
+//        Point2D end = new Point2D(targetLeft , targetTop);
+//
+//        double distance = start.distance(end);
+//        Duration duration = Duration.seconds(distance / 100);
+//
+//        Path path = new Path();
+//        path.getElements().add(new MoveTo(currentLeft , currentTop));
+//        path.getElements().add(new LineTo(targetLeft , targetTop));
+//        path.getElements().add(new MoveTo(targetLeft , targetTop));
+//
+//        PathTransition pathTransition =  new PathTransition();
+//        pathTransition.setPath(path);
+//        pathTransition.setDuration(duration);
+//        pathTransition.setCycleCount(1);
+//        pathTransition.autoReverseProperty().set(false);
+//        pathTransition.setNode(gameComponent.getImageView());
+//        pathTransition.play();
+//
+//        pathTransition.setOnFinished(actionEvent -> {
+//            gameComponent.setInsets(targetTop , targetLeft);
+//            OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
+//            gameComponent.setAttackToDefaultAnimation(target);
+//        });
 
         Platform.runLater(() -> {
             LinkedList<KeyFrame> keyFrames = getKeyFrames(targetPosition, gameComponent);
@@ -37,12 +71,11 @@ public class ComponentMover {
 
     }
 
-    public static void arcMover(IGameComponent gameComponent ,IGameComponent destenation ,  IGameComponent target){
+    public static void arcMover(IGameComponent gameComponent ,IGameComponent destenation ,  IGameComponent target , IOnArcMoveFinish onArcMoveFinish){
         double currentTop = destenation.getInsets().getTop();
         double currentLeft = destenation.getInsets().getLeft();
         double targetTop = target.getInsets().getTop();
         double targetLeft = target.getInsets().getLeft();
-
         Path path = new Path();
         path.getElements().add(new MoveTo(currentLeft, currentTop));
         path.getElements().add(new CubicCurveTo(currentLeft, currentTop, currentLeft, currentTop, targetLeft, targetTop));
@@ -54,10 +87,27 @@ public class ComponentMover {
         pathTransition.onFinishedProperty().set(actionEvent -> {
             OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
             gameComponent.setInsets(targetTop , targetLeft);
+            int min = 1;
+            int max = 10;
+
+            // Create a Random object
+            Random random = new Random();
+
+            // Generate a random integer within the specified range
+            int randomNumber = random.nextInt(max - min + 1) + min;
+            try {
+                Thread.sleep(java.time.Duration.ofMillis(randomNumber));
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            target.getDamageHandler().addDamage(50D , gameComponent);
+            onArcMoveFinish.onFinish();
         });
     }
 
     private static LinkedList<KeyFrame> getKeyFrames(Insets targetPosition, IGameComponent iGameComponent) {
+
+
 
         LinkedList<KeyFrame> keyFrames = new LinkedList<>();
         ImageView component = iGameComponent.getImageView();
@@ -66,7 +116,7 @@ public class ComponentMover {
         double currentX = component.getX();
         double currentY = component.getY();
         long index = 0;
-        int speed = 5;
+        int speed = 2;
         while (true){
             double differenceX = destenationX > currentX ? destenationX - currentX : currentX - destenationX;
             double differenceY = destenationY > currentY ? destenationY - currentY : currentY - destenationY;
@@ -87,12 +137,10 @@ public class ComponentMover {
 
             double finalCurrentX = currentX;
             double finalCurrentY = currentY;
-            keyFrames.add(new KeyFrame(Duration.millis(index), event -> {
-                component.setX(finalCurrentX);
-                component.setY(finalCurrentY);
+            keyFrames.add(new KeyFrame(Duration.millis(index * 2 ), event -> {
                 iGameComponent.setInsets(finalCurrentY , finalCurrentX);
             }));
-            index += 200;
+            index += 10;
         }
         return keyFrames;
 

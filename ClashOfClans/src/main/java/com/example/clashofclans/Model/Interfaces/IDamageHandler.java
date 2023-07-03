@@ -13,13 +13,15 @@ public interface IDamageHandler {
     ImageView getImageView();
 
     default void addDamage(double damage, IGameComponent attacker) {
-        setDamage((int) (getDamage() + damage));
-        System.out.println(getDamage());
-        if (getDamage() > getHealth()) {
-            getImageView().setOpacity(0);
-            FightPairList.onAnyGameComponentDestroyed(attacker);
+        synchronized (this) {
+            setDamage((int) (getDamage() + damage));
+//        System.out.println(getDamage());
+            if (getDamage() > getHealth()) {
+                FightPairList fightPairList = new FightPairList();
+                fightPairList.onAnyGameComponentDestroyed(attacker);
+            }
+            ;
         }
-        ;
     }
 }
 

@@ -5,6 +5,8 @@ import com.example.clashofclans.Controller.IDefensiveBuildingController;
 import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Building.Building;
+import com.example.clashofclans.Model.Building.DefensiveBuilding;
+import com.example.clashofclans.Model.Hero.Hero;
 import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
@@ -67,8 +69,18 @@ public class Field extends Pane implements ITargetHolder {
 
 
         FightPairList.addOnAttackerDestroyTarget(iGameComponent -> {
+            if (iGameComponent instanceof DefensiveBuilding){
+                defensiveBuildingController.removeDefensiveBuilding(iGameComponent);
+            }
+            if (iGameComponent instanceof Hero){
+//                defensiveBuildingController.initiateDefensiveBuildings(this);
+                iGameComponent.getAnimHandler().geTimeLine().stop();
+                iGameComponent.getAnimHandler().setDieToDefaultAnim();
+                getTargets().remove(iGameComponent);
+            }
             this.getTargets().remove(iGameComponent);
-            this.getChildren().remove(iGameComponent.getImageView());
+//            this.getChildren().remove(iGameComponent.getImageView());
+
         });
     }
 

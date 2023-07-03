@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="in game menu bug fixed">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="add defend logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/MapSelectionPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/MapSelectionPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Controller/DefensiveBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Controller/DefensiveBuildingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/FireBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/FireBall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +18,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="2S35Bl56NMvkRufHaP8F7E5XlAx" />
@@ -40,8 +44,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "map",
-    "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans",
+    "git-widget-placeholder": "addDefendLogic",
+    "last_opened_file_path": "/Users/mahdimazaheri/Programming/Game/final-project-game-code-warriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -50,11 +54,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/clashofclans" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Buttons" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Building" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\Model" />
-      <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\Heroes\Troll" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\com\example\clashofclans\Building" />
@@ -62,6 +66,9 @@
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\resources\Heroes" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\Model\Hero" />
       <recent name="E:\University\java\final-project-codewarriors\ClashOfClans\src\main\java\com\example\clashofclans\Model" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.example.clashofclans.Controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -82,7 +89,57 @@
       <option name="presentableId" value="Default" />
       <updated>1688362294727</updated>
       <workItem from="1688362296526" duration="7430000" />
+      <workItem from="1688415985147" duration="12664000" />
     </task>
+    <task id="LOCAL-00001" summary="make field playable only in attack mode">
+      <option name="closed" value="true" />
+      <created>1688411904373</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688411904373</updated>
+    </task>
+    <task id="LOCAL-00002" summary="rewrite target Holder">
+      <option name="closed" value="true" />
+      <created>1688427646317</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688427646317</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rewrite target Holder">
+      <option name="closed" value="true" />
+      <created>1688427667000</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688427667000</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add hit range to game component">
+      <option name="closed" value="true" />
+      <created>1688427694659</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688427694659</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add arc move to move fire ball">
+      <option name="closed" value="true" />
+      <created>1688427714168</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688427714168</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add defend logic">
+      <option name="closed" value="true" />
+      <created>1688427735489</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688427735489</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,18 +147,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge showHero to master" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge showHero to master" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/clashofclans/Controller/AccountController.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="make field playable only in attack mode" />
+    <MESSAGE value="rewrite target Holder" />
+    <MESSAGE value="add hit range to game component" />
+    <MESSAGE value="add arc move to move fire ball" />
+    <MESSAGE value="add defend logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add defend logic" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

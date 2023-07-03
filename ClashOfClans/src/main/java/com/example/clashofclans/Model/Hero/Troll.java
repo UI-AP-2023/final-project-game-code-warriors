@@ -81,6 +81,11 @@ public class Troll extends Hero implements IGameComponent, IMortal, IAnimated, I
     }
 
     @Override
+    public Timeline geTimeLine() {
+        return timeLine;
+    }
+
+    @Override
     public void setDieToDefaultAnim() {
         IFramer iFramer = new FramerTimeLine(imageView, TrollDieFrames, Duration.seconds(1));
         timeLine.getKeyFrames().clear();
