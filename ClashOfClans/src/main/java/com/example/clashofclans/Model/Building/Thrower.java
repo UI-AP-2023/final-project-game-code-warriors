@@ -1,6 +1,7 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IAnimated;
 import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
@@ -39,6 +40,11 @@ public class Thrower extends DefensiveBuilding implements IDamageHandler {
     @Override
     public IDamageHandler getDamageHandler() {
         return this;
+    }
+
+    @Override
+    public IAnimated getAnimHandler() {
+        return null;
     }
 
 

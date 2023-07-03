@@ -1,5 +1,6 @@
 package com.example.clashofclans.Model.Building;
 
+import com.example.clashofclans.Model.Interfaces.IAnimated;
 import com.example.clashofclans.Values;
 
 public abstract class DefensiveBuilding extends Building {
@@ -26,5 +27,11 @@ public abstract class DefensiveBuilding extends Building {
 
     public void setHitRange(int hitRange) {
         this.hitRange = hitRange;
+    }
+
+
+    @Override
+    public IAnimated getAnimHandler() {
+        return null;
     }
 }

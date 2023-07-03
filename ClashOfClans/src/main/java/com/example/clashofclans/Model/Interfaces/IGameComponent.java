@@ -19,4 +19,5 @@ public interface IGameComponent {
     void setAttackToDefaultAnimation(IGameComponent target);
 
     IDamageHandler getDamageHandler();
+    IAnimated getAnimHandler();
 }

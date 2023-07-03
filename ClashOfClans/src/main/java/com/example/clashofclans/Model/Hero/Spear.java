@@ -75,12 +75,20 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
         return this;
     }
 
+    @Override
+    public IAnimated getAnimHandler() {
+        return this;
+    }
+
 
     @Override
     public void initDefaultAnimation() {
+        timeLine.stop();
+        timeLine.getKeyFrames().clear();
         IFramer iFramer  = new FramerTimeLine(imageView , List.of(Values.SpearFrame1, Values.SpearFrame2 , Values.SpearFrame3 , Values.SpearFrame4 ,Values.SpearFrame0) , Duration.seconds(1));
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+        imageView.setFitWidth(60);
         timeLine.play();
     }
 

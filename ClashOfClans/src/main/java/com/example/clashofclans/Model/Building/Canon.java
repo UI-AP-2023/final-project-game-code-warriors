@@ -1,6 +1,7 @@
 package com.example.clashofclans.Model.Building;
 
 import com.example.clashofclans.HelloApplication;
+import com.example.clashofclans.Model.Interfaces.IAnimated;
 import com.example.clashofclans.Model.Interfaces.IDamageHandler;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Values;
@@ -41,7 +42,10 @@ public class Canon extends DefensiveBuilding implements IDamageHandler {
         return this;
     }
 
-
+    @Override
+    public IAnimated getAnimHandler() {
+        return null;
+    }
 
 
 }

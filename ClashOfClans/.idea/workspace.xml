@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="finish move to target and start attacking logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Barracks.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Canon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/Castle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/DefensiveBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/DefensiveBuilding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Building/HomeLevel3.java" afterDir="false" />
@@ -25,11 +25,9 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Troll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IAnimated.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IAnimated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IDamageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IDamageHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IGameComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IGameComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/MapHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Values.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/View/GamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/OnFrameExecutedEventImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/OnFrameExecutedEventImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +42,10 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2S46POUgY2mrZmgXeNjt66owpLt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -53,15 +55,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "addAttackLogic",
     "last_opened_file_path": "E:/University/java/final-project-codewarriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.clashofclans.Utility" />
       <recent name="com.example.clashofclans.Model.Interfaces" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -98,13 +106,74 @@
       <option name="project" value="LOCAL" />
       <updated>1688324725835</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add a list of even for when hero reach the target">
+      <option name="closed" value="true" />
+      <created>1688335262928</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688335262928</updated>
+    </task>
+    <task id="LOCAL-00003" summary="refactor some abstract methods and interfaces">
+      <option name="closed" value="true" />
+      <created>1688335311817</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1688335311817</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="refactor some abstract methods and interfaces" />
+      <created>1688393483038</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688393483038</updated>
+      <workItem from="1688393487747" duration="7758000" />
+    </task>
+    <task id="LOCAL-00004" summary="finish move to target and start attacking logic">
+      <option name="closed" value="true" />
+      <created>1688397565904</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688397565904</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finish move to target and start attacking logic">
+      <option name="closed" value="true" />
+      <created>1688397584061</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688397584061</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="merge showHero to master" />
     <MESSAGE value="fix map holder bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix map holder bug" />
+    <MESSAGE value="add a list of even for when hero reach the target" />
+    <MESSAGE value="refactor some abstract methods and interfaces" />
+    <MESSAGE value="finish move to target and start attacking logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish move to target and start attacking logic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/clashofclans/Event/FightPairList.java</url>
+          <line>27</line>
+          <properties class="com.example.clashofclans.Event.FightPairList" method="onAnyGameComponentDestroyed">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

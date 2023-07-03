@@ -1,6 +1,7 @@
 package com.example.clashofclans.Model.Hero;
 
 
+import com.example.clashofclans.Model.Interfaces.IAnimated;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import javafx.animation.Timeline;
 import javafx.scene.image.Image;
@@ -35,4 +36,10 @@ public abstract class Hero implements IGameComponent {
     public Timeline getTimeLine(){
         return timeLine;
     };
+
+    @Override
+    public IAnimated getAnimHandler() {
+        return null;
+    }
+
 }

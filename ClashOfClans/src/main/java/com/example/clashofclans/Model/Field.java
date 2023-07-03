@@ -1,5 +1,6 @@
 package com.example.clashofclans.Model;
 
+import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
@@ -111,6 +112,7 @@ public class Field extends Pane implements ITargetHolder {
         });
         System.out.println(target.get().getClass());
         System.out.println(target.get().getInsets());
+        FightPairList.addFight(target.get() , gameComponent);
         return target.get();
     }
 

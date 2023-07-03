@@ -46,8 +46,10 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent , 
         return this;
     }
 
-
-
+    @Override
+    public IAnimated getAnimHandler() {
+        return this;
+    }
 
 
     @Override

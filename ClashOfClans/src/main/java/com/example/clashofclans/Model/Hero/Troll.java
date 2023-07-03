@@ -49,9 +49,10 @@ public class Troll extends Hero implements IGameComponent, IMortal , IAnimated ,
         return this;
     }
 
-
-
-
+    @Override
+    public IAnimated getAnimHandler() {
+        return this;
+    }
 
 
     @Override
