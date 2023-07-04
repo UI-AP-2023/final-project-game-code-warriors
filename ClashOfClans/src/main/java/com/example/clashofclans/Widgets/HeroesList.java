@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 
 public class HeroesList extends HBox {
     public HeroesList() {
-        HeroCard card_Knight = new HeroCard(new Knight(),50);
+        HeroCard card_Knight = new HeroCard(new Knight(),70);
         HeroCard card_Dragon = new HeroCard(new Dragon(),40);
         HeroCard card_Green = new HeroCard(new Green(),80);
         HeroCard card_Spear = new HeroCard(new Spear(),40);

@@ -15,6 +15,10 @@ import javafx.util.Duration;
 
 public class HeroCard extends VBox {
     public HeroCard(Hero hero, double imageSize) {
+        ImageView imageView = new ImageView(hero.getImage());
+        imageView.setFitWidth(imageSize);
+        imageView.setPreserveRatio(true);
+
         VBox vBox_Information = new VBox();
         CardInformation lbl_Name = new CardInformation("Name", hero.getClass().getSimpleName());
         CardInformation lbl_Health = new CardInformation("Health", Integer.toString(hero.getHealth()));
@@ -60,6 +64,6 @@ public class HeroCard extends VBox {
             Holder.setSelectedHero(hero);
         });
 
-        this.getChildren().addAll(hero.getImageView(imageSize), vBox_Information);
+        this.getChildren().addAll(imageView, vBox_Information);
     }
 }

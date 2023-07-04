@@ -26,7 +26,7 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
     public Knight() {
         super(new Image(HelloApplication.class.getResource("Heroes/Knight/Knight_01__RUN_000.png").toString()), Values.KNIGHT_HEALTH, Values.KNIGHT_HIT, Values.KNIGHT_SPEED, 1, Values.KNIGHT_HITRANGE, new Timeline());
         imageView = new ImageView(this.getImage());
-        imageView.setFitWidth(120);
+        imageView.setFitWidth(150);
         imageView.setPreserveRatio(true);
     }
 
@@ -62,7 +62,7 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
     public void setAttackToDefaultAnimation(IGameComponent target) {
         OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target, this, 5);
         IFramer framer = new FramerTimeLine(imageView, KnightAttackFrames, Duration.millis(40000), onFrameExecutedEvent);
-        imageView.setFitWidth(130);
+        imageView.setFitWidth(150);
         imageView.setPreserveRatio(true);
         timeLine.stop();
         timeLine.getKeyFrames().clear();

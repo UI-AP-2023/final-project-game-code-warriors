@@ -80,14 +80,14 @@ public class Field extends Pane implements ITargetHolder {
         FightPairList.addOnAttackerDestroyTarget(iGameComponent -> {
             if (!iGameComponent.getIsAlive()) {
                 System.out.println(iGameComponent.getClass() + " is destroyed");
-//                iGameComponent.getImageView().setOpacity(0);
+                iGameComponent.getImageView().setOpacity(0);
 
 
                 if (iGameComponent instanceof DefensiveBuilding) {
                     this.getChildren().remove(iGameComponent.getImageView());
                     this.getChildren().remove(iGameComponent.getImageView());
                     defensiveBuildingController.removeDefensiveBuilding(iGameComponent);
-//                    getChildren().remove(iGameComponent.getImageView());
+                    getChildren().remove(iGameComponent.getImageView());
                     defensiveBuildingController.setTargetHolder(this);
                     defensiveBuildingController.initiateDefensiveBuildings(this);
                 }
