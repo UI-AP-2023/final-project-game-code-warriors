@@ -97,8 +97,6 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
 
     @Override
     public void setDieToDefaultAnim() {
-
-
             isAlive = false;
             IFramer iFramer = new FramerTimeLine(imageView, Values.KnightDieFrames, Duration.seconds(1));
             timeLine.stop();

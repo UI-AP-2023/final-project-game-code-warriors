@@ -60,11 +60,6 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
 
 
     @Override
-    public Insets getInsets() {
-        return null;
-    }
-
-    @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
         OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target, this, 5);
         IFramer framer = new FramerTimeLine(imageView, List.of(DragonAttackFrame), Duration.millis(40000), onFrameExecutedEvent);
@@ -73,8 +68,6 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(framer.getKeyFrames());
         timeLine.play();
-
-
     }
 
 
@@ -85,7 +78,7 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
 
     @Override
     public IAnimated getAnimHandler() {
-        return null;
+        return this;
     }
 
     boolean isTargeted = false;
@@ -100,18 +93,15 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
     }
     @Override
     public void initDefaultAnimation() {
-        timeLine.stop();
-        timeLine.getKeyFrames().clear();
         IFramer iFramer = new FramerTimeLine(imageView, SpearFrames, Duration.seconds(1));
         timeLine.setCycleCount(Timeline.INDEFINITE);
+        timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
-        imageView.setFitWidth(60);
-        timeLine.play();
     }
 
     @Override
     public Timeline geTimeLine() {
-        return null;
+        return timeLine;
     }
 
     @Override
