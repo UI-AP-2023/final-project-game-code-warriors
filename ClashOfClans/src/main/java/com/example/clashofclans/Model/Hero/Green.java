@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import static com.example.clashofclans.Values.GreenAttackFrames;
-import static com.example.clashofclans.Values.TrollAttackFrames;
 
 public class Green extends Hero implements IAnimated, IMortal, IGameComponent, IDamageHandler {
     private ImageView imageView;
@@ -46,6 +45,7 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent, I
     }
 
     boolean isAlive = true;
+
     @Override
     public boolean getIsAlive() {
         return isAlive;
@@ -93,15 +93,26 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent, I
 
     @Override
     public void setDieToDefaultAnim() {
-        IFramer iFramer = new FramerTimeLine(imageView, Values.GreenDieFrames, Duration.seconds(1));
-        timeLine.setCycleCount(1);
-        timeLine.getKeyFrames().clear();
-        timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+        if (isAlive) {
+            isAlive = false;
+            IFramer iFramer = new FramerTimeLine(imageView, Values.GreenDieFrames, Duration.seconds(1));
+            timeLine.stop();
+            timeLine.getKeyFrames().clear();
+            timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+            timeLine.play();
+            timeLine.cycleCountProperty().set(1);
+            timeLine.onFinishedProperty().set(event ->
+            {
+                imageView.setOpacity(0);
+                timeLine.stop();
+                timeLine.getKeyFrames().clear();
+            });
 
-
+        }
     }
 
     boolean isTargeted = false;
+
     @Override
     public boolean isTargeted() {
         return false;

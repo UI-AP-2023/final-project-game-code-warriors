@@ -14,7 +14,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import java.util.Map;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MapSelectionPage {
@@ -38,10 +38,12 @@ public class MapSelectionPage {
                 Holder.getLoggedInUser().setMap(Values.maps.get(index-1));
                 GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), sender);
             } else if (sender.equals("attack")) {
+                map.getField().setPlayable(true);
                 Holder.getLoggedInUser().setAttackMap(map);
                 GamePage.show(map, 0, sender);
                 FightPairList.setField(map.getField());
             }
+            ;
         });
 
         ForwardButton btn_Forward = new ForwardButton(50);
@@ -58,20 +60,21 @@ public class MapSelectionPage {
         if ((index + 1 > Values.maps.size())) {
             btn_Forward.setDisable(true);
         }
-
-        StackPane root = new StackPane(map(), btn_Backward, btn_Confirm, btn_Forward);
+        Map map1  = map();
+        map1.getField().setPlayable(false);
+        StackPane root = new StackPane(map1, btn_Backward, btn_Confirm, btn_Forward);
         Values.getStage().setScene(new Scene(root, 1000, 600));
     }
 
     private static Map map() {
         switch (index) {
             case 2:
-                MapHandler.map2().getField().setPlayable(true);
+                MapHandler.map2().getField().setPlayable(false);
                 return MapHandler.map2();
             case 3:
                 return MapHandler.map3();
             default:
-                MapHandler.map1().getField().setPlayable(true);
+                MapHandler.map1().getField().setPlayable(false);
                 return MapHandler.map1();
         }
     }

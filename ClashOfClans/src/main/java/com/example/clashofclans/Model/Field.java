@@ -7,10 +7,10 @@ import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Building.Building;
 import com.example.clashofclans.Model.Building.DefensiveBuilding;
 import com.example.clashofclans.Model.Hero.Hero;
-import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
 import com.example.clashofclans.Utility.ComponentMover;
+import com.example.clashofclans.Utility.Holder;
 import javafx.collections.ObservableList;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -34,6 +34,9 @@ public class Field extends Pane implements ITargetHolder {
     private double score = 0;
     boolean isPlayable = true;
 
+    public void setPlayable(boolean playable) {
+        this.isPlayable = playable;
+    }
 
     public Field() {
 
@@ -46,20 +49,23 @@ public class Field extends Pane implements ITargetHolder {
 
         AtomicBoolean isFirstClick = new AtomicBoolean(true);
         this.setOnMouseClicked(event -> {
-            if (isFirstClick.get()) {
-                defensiveBuildingController.setTargetHolder(this);
-                defensiveBuildingController.addAllDefensiveBuildings(getDefensiveBuildings());
-                defensiveBuildingController.initiateDefensiveBuildings(this);
-            } else isFirstClick.set(false);
-//            if (!isDragged.get() && isPlayable) {
-            Spear spear = new Spear();
-            this.addChildren(spear);
-            spear.initDefaultAnimation();
-            spear.getTimeLine().play();
-            spear.setInsets(event.getY(), event.getX());
-            AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear, false);
-            ComponentMover.moveComponent(iGameComponent.get(), spear);
-//            }
+            if (!isDragged.get()) {
+                if (isPlayable){
+                    if (isFirstClick.get()) {
+                        defensiveBuildingController.setTargetHolder(this);
+                        defensiveBuildingController.addAllDefensiveBuildings(getDefensiveBuildings());
+                        defensiveBuildingController.initiateDefensiveBuildings(this);
+                    } else isFirstClick.set(false);
+                    IGameComponent gameComponent = Holder.getSelectedHero();
+                    this.addChildren(gameComponent);
+                    gameComponent.getAnimHandler().initDefaultAnimation();
+                    gameComponent.getAnimHandler().geTimeLine().play();
+                    gameComponent.setInsets(event.getY(), event.getX());
+                    AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(gameComponent, false);
+                    ComponentMover.moveComponent(iGameComponent.get(), gameComponent);
+                }
+
+            }
             isDragged.set(false);
         });
 

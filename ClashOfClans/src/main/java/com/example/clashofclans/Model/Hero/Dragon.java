@@ -73,6 +73,8 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(framer.getKeyFrames());
         timeLine.play();
+
+
     }
 
 

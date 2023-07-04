@@ -2,10 +2,11 @@ package com.example.clashofclans.Utility;
 
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Model.Hero.Hero;
+import com.example.clashofclans.Model.Hero.Spear;
 
 public class Holder {
     private static Account loggedInUser;
-    private static Hero selectedHero;
+    private static Hero selectedHero = new Spear();
 
     public static Account getLoggedInUser() {
         return loggedInUser;

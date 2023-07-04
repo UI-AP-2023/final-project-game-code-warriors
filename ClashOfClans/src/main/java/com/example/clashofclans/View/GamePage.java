@@ -16,7 +16,8 @@ public class GamePage {
         root.setPrefSize(1000, 600);
 
         Map gameField = map;
-        gameField.getField().setPlayable(false);
+
+
         InGameMenu menu = new InGameMenu(sender);
         menu.setTranslateX(-440);
         menu.setTranslateY(50);

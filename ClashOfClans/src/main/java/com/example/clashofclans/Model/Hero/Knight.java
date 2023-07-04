@@ -15,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.util.List;
+
 import static com.example.clashofclans.Values.KnightAttackFrames;
 import static com.example.clashofclans.Values.TrollAttackFrames;
 
@@ -95,10 +97,23 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
 
     @Override
     public void setDieToDefaultAnim() {
-        IFramer iFramer = new FramerTimeLine(imageView, Values.KnightDieFrames, Duration.seconds(1));
-        timeLine.setCycleCount(Timeline.INDEFINITE);
-        timeLine.getKeyFrames().clear();
-        timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+
+        if (isAlive) {
+            isAlive = false;
+            IFramer iFramer = new FramerTimeLine(imageView, Values.KnightDieFrames, Duration.seconds(1));
+            timeLine.stop();
+            timeLine.getKeyFrames().clear();
+            timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+            timeLine.play();
+            timeLine.cycleCountProperty().set(1);
+            timeLine.onFinishedProperty().set(event ->
+            {
+                imageView.setOpacity(0);
+                timeLine.stop();
+                timeLine.getKeyFrames().clear();
+            });
+        }
+
     }
     boolean isTargeted = false;
     @Override
