@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
-//        WelcomePage.show(stage);
         Values.setStage(stage);
         WelcomePage.show();
         stage.setTitle("Clash Of Clans");

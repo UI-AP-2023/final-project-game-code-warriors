@@ -66,6 +66,8 @@ public class MapSelectionPage {
         switch (index) {
             case 2:
                 return MapHandler.map2();
+            case 3:
+                return MapHandler.map3();
             default:
                 return MapHandler.map1();
         }

@@ -11,11 +11,11 @@ import javafx.scene.layout.*;
 public class GamePage {
     private static StackPane root;
 
-    public static void show(ScrollPane map, double score, String sender) {
+    public static void show(Map map, double score, String sender) {
         root = new StackPane();
         root.setPrefSize(1000, 600);
 
-        Map gameField = Holder.getLoggedInUser().getMap();
+        Map gameField = map;
         gameField.getField().setPlayable(false);
         InGameMenu menu = new InGameMenu(sender);
         menu.setTranslateX(-440);

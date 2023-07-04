@@ -30,7 +30,7 @@ public class AccountController {
     }
 
     private static boolean checkEmailValidation(String email) {
-        Pattern pattern = Pattern.compile("^\\w+@\\w+.\\w");
+        Pattern pattern = Pattern.compile("^\\w+@\\w+\\.\\w");
         Matcher matcher = pattern.matcher(email);
 
         return matcher.find();

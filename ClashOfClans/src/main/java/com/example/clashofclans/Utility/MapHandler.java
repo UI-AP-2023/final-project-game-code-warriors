@@ -91,8 +91,53 @@ public class MapHandler {
         return new Map(field);
     }
 
+    public static Map map3() {
+        Castle castle1 = new Castle(70);
+        castle1.setInsets(400, 500);
+
+        HomeLevel3 home1 = new HomeLevel3(70);
+        home1.setInsets(430,460);
+
+        Powder powder1 = new Powder(70);
+        powder1.setInsets(350, 200);
+
+        Barracks barracks1 = new Barracks(80);
+        barracks1.setInsets(250, 500);
+
+        Barracks barracks2 = new Barracks(80);
+        barracks2.setInsets(270, 530);
+
+        Barracks barracks3 = new Barracks(80);
+        barracks3.setInsets(290, 560);
+
+        Barracks barracks4 = new Barracks(80);
+        barracks4.setInsets(310, 590);
+
+        Barracks barracks5 = new Barracks(80);
+        barracks5.setInsets(270, 470);
+
+        Barracks barracks6 = new Barracks(80);
+        barracks6.setInsets(290, 440);
+
+        Barracks barracks7 = new Barracks(80);
+        barracks7.setInsets(310, 410);
+
+        Canon canon1 = new Canon(60);
+        canon1.setInsets(110,540);
+
+        Canon canon2 = new Canon(60);
+        canon2.setInsets(400,800);
+
+
+        Field field = new Field();
+        field.addBulkChildren(castle1,home1, powder1, barracks1, barracks2, barracks3, barracks4, barracks5, barracks6, barracks7,canon1,canon2);
+
+        return new Map(field);
+    }
+
     public static void addToList() {
         Values.maps.add(map1());
         Values.maps.add(map2());
+        Values.maps.add(map3());
     }
 }
