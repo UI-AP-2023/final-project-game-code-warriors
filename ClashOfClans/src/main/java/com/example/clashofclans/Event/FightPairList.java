@@ -49,7 +49,7 @@ public class FightPairList {
 //                field.getChildren().remove(target.getImageView());
                 runOnGameComponentDestroyed(target);
                 attacker.getAnimHandler().initDefaultAnimation();
-                AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner);
+                AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner , false);
                 if (newTarget.get() != null){
                     pairFightModels.remove(pairFightModel);
                     ComponentMover.moveComponent(newTarget.get(), winner);

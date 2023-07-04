@@ -1,22 +1,19 @@
 package com.example.clashofclans.Model;
 
+import com.example.clashofclans.Controller.DefensiveBuildingController;
+import com.example.clashofclans.Controller.IDefensiveBuildingController;
 import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Building.Building;
-import com.example.clashofclans.Model.Hero.*;
+import com.example.clashofclans.Model.Hero.Spear;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
 import com.example.clashofclans.Utility.ComponentMover;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.util.Duration;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,31 +28,35 @@ import java.util.concurrent.atomic.AtomicReference;
 @Setter
 public class Field extends Pane implements ITargetHolder {
     List<IGameComponent> targets = new ArrayList<>();
+    private IDefensiveBuildingController defensiveBuildingController;
     private double score = 0;
     boolean isPlayable = true;
 
 
-
     public Field() {
+        defensiveBuildingController = new DefensiveBuildingController();
         AtomicBoolean isDragged = new AtomicBoolean(false);
         this.setOnDragDetected(mouseEvent -> {
             isDragged.set(true);
         });
 
-
-            this.setOnMouseClicked(event -> {
-                if (!isDragged.get() && isPlayable) {
-                    Troll spear = new Troll();
-                    this.addChildren(spear);
-                    spear.initDefaultAnimation();
-                    spear.getTimeLine().play();
-                    spear.setInsets(event.getY(), event.getX());
-                    AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear);
-                    ComponentMover.moveComponent(iGameComponent.get(), spear);
-                }
-                isDragged.set(false);
-            });
-
+        AtomicBoolean isFirstClick = new AtomicBoolean(true);
+        this.setOnMouseClicked(event -> {
+            if (!isDragged.get() && isPlayable) {
+                Spear spear = new Spear();
+                this.addChildren(spear);
+                spear.initDefaultAnimation();
+                spear.getTimeLine().play();
+                spear.setInsets(event.getY(), event.getX());
+                AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear, false);
+                ComponentMover.moveComponent(iGameComponent.get(), spear);
+            }
+            if (isFirstClick.get()) {
+                defensiveBuildingController.addAllDefensiveBuildings(getDefensiveBuildings());
+                defensiveBuildingController.initiateDefensiveBuildings(this);
+            } else isFirstClick.set(false);
+            isDragged.set(false);
+        });
 
 
         Image image = new Image(HelloApplication.class.getResource("Field.jpg").toString());
@@ -64,31 +65,12 @@ public class Field extends Pane implements ITargetHolder {
         this.setBackground(new Background(backgroundImage));
         this.setPrefSize(1150, 865);
 
+
         FightPairList.addOnAttackerDestroyTarget(iGameComponent -> {
             this.getTargets().remove(iGameComponent);
             this.getChildren().remove(iGameComponent.getImageView());
         });
     }
-
-    public void move(Insets targetPosition, IGameComponent gameComponent, Duration duration) {
-        Timeline timeline = new Timeline();
-        ImageView component = gameComponent.getImageView();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-//        double moveLength = calculateMoveLength(AnchorPane.getTopAnchor(component), AnchorPane.getLeftAnchor(component), targetPosition.getTop(), targetPosition.getLeft());
-        for (int i = 0; i < 1000; i++) {
-            final double initialLeftAnchor = AnchorPane.getLeftAnchor(component); // Get the initial position
-            final double initialTopAnchor = AnchorPane.getTopAnchor(component); // Get the initial position
-            final double finalI = i;
-            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(i), event -> {
-                double interpolatedLeftValue = initialLeftAnchor + (finalI / 1000) * (targetPosition.getLeft() - initialLeftAnchor);
-                double interpolatedTopValue = initialLeftAnchor + (finalI / 1000) * (targetPosition.getTop() - initialTopAnchor);
-                AnchorPane.setLeftAnchor(component, interpolatedLeftValue);
-                AnchorPane.setTopAnchor(component, interpolatedTopValue);
-            }));
-        }
-        timeline.play();
-    }
-
 
     @Override
     public ObservableList<Node> getChildren() {
@@ -116,10 +98,23 @@ public class Field extends Pane implements ITargetHolder {
     }
 
     @Override
-    public AtomicReference<IGameComponent> getTargetFor(IGameComponent gameComponent) {
+    public IGameComponent keepGettingTargetFor(IGameComponent gameComponent, int radius) {
+        var distanceMap = getTargetDistanceMap(gameComponent.getInsets().getTop(), gameComponent.getInsets().getLeft(), false);
+        for (IGameComponent iGameComponent : distanceMap.keySet()) {
+            if (distanceMap.get(iGameComponent) < radius && distanceMap.get(iGameComponent) > 5) {
+                return iGameComponent;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public AtomicReference<IGameComponent> getTargetFor(IGameComponent gameComponent,
+                                                        boolean isForDefenciveBuilding) {
         double top = gameComponent.getInsets().getTop();
         double left = gameComponent.getInsets().getLeft();
-        Map<IGameComponent, Double> targetDistanceMap = getTargetDistanceMap(top, left, true);
+        Map<IGameComponent, Double> targetDistanceMap = getTargetDistanceMap(top, left, !isForDefenciveBuilding);
         AtomicReference<Double> min = new AtomicReference<>(Double.MAX_VALUE);
         AtomicReference<IGameComponent> target = new AtomicReference<>();
         targetDistanceMap.forEach((key, value) -> {
