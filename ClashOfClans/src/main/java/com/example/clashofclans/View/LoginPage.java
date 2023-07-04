@@ -83,6 +83,7 @@ public class LoginPage {
         btn_Login.setOnMouseClicked(event -> {
             try {
                 AccountController.login(textInput_Username.getTextField().getText(), textInput_Password.getTextField().getText());
+                Holder.getLoggedInUser().getMap().getField().setPlayable(false);
                 GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), "login");
             }
             catch (Exception e){

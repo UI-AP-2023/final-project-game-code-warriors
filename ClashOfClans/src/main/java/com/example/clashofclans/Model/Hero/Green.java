@@ -93,7 +93,7 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent, I
 
     @Override
     public void setDieToDefaultAnim() {
-        if (isAlive) {
+
             isAlive = false;
             IFramer iFramer = new FramerTimeLine(imageView, Values.GreenDieFrames, Duration.seconds(1));
             timeLine.stop();
@@ -108,7 +108,7 @@ public class Green extends Hero implements IAnimated, IMortal, IGameComponent, I
                 timeLine.getKeyFrames().clear();
             });
 
-        }
+
     }
 
     boolean isTargeted = false;

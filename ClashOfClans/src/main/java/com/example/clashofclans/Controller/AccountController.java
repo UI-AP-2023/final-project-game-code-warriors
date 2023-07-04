@@ -5,6 +5,7 @@ import com.example.clashofclans.Exception.InvalidInputException;
 import com.example.clashofclans.Model.Account;
 import com.example.clashofclans.Utility.Holder;
 import com.example.clashofclans.Values;
+import com.example.clashofclans.View.GamePage;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -39,5 +40,7 @@ public class AccountController {
     public static void endGame(double score) {
         Holder.getLoggedInUser().setScore(Holder.getLoggedInUser().getScore() + score);
         Holder.getLoggedInUser().setAttackMap(null);
+        GamePage.show(Holder.getLoggedInUser().getMap(), Holder.getLoggedInUser().getScore(), "login");
+
     }
 }

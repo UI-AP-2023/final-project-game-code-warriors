@@ -98,7 +98,7 @@ public class Troll extends Hero implements IGameComponent, IMortal, IAnimated, I
 
     @Override
     public void setDieToDefaultAnim() {
-        if (isAlive){
+
             isAlive = false;
             IFramer iFramer = new FramerTimeLine(imageView , TrollDieFrames,Duration.seconds(1));
             timeLine.stop();
@@ -112,7 +112,7 @@ public class Troll extends Hero implements IGameComponent, IMortal, IAnimated, I
                 timeLine.stop();
                 timeLine.getKeyFrames().clear();
             });
-        }
+
 
     }
     boolean isTargeted = false;
