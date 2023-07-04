@@ -37,6 +37,17 @@ public class HomeLevel3 extends Building implements IDamageHandler {
         return 0;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
 
@@ -53,4 +64,14 @@ public class HomeLevel3 extends Building implements IDamageHandler {
     }
 
 
+    boolean isTargeted = false;
+    @Override
+    public boolean isTargeted() {
+        return false;
+    }
+
+    @Override
+    public void setIsTargeted(boolean isTargeted) {
+        this.isTargeted = isTargeted;
+    }
 }

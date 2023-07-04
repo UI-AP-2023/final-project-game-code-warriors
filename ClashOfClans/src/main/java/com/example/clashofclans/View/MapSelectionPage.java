@@ -14,6 +14,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MapSelectionPage {
@@ -65,10 +66,12 @@ public class MapSelectionPage {
     private static Map map() {
         switch (index) {
             case 2:
+                MapHandler.map2().getField().setPlayable(true);
                 return MapHandler.map2();
             case 3:
                 return MapHandler.map3();
             default:
+                MapHandler.map1().getField().setPlayable(true);
                 return MapHandler.map1();
         }
     }

@@ -29,6 +29,16 @@ public abstract class DefensiveBuilding extends Building {
         return hitRange;
     }
 
+    @Override
+    public boolean getIsAlive() {
+        return false;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+
+    }
+
     public void setHitRange(int hitRange) {
         this.hitRange = hitRange;
     }

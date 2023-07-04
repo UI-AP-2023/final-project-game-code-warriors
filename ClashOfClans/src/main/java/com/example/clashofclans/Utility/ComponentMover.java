@@ -72,10 +72,10 @@ public class ComponentMover {
     }
 
     public static void arcMover(IGameComponent gameComponent ,IGameComponent destenation ,  IGameComponent target , IOnArcMoveFinish onArcMoveFinish){
-        double currentTop = destenation.getInsets().getTop();
-        double currentLeft = destenation.getInsets().getLeft();
-        double targetTop = target.getInsets().getTop();
-        double targetLeft = target.getInsets().getLeft();
+        final double currentTop = destenation.getInsets().getTop();
+        final double currentLeft = destenation.getInsets().getLeft();
+        final double targetTop = target.getInsets().getTop();
+        final double targetLeft = target.getInsets().getLeft();
         Path path = new Path();
         path.getElements().add(new MoveTo(currentLeft, currentTop));
         path.getElements().add(new CubicCurveTo(currentLeft, currentTop, currentLeft, currentTop, targetLeft, targetTop));
@@ -87,20 +87,6 @@ public class ComponentMover {
         pathTransition.onFinishedProperty().set(actionEvent -> {
             OnAttackerArriveToTargetEvents.runEvents(target , gameComponent);
             gameComponent.setInsets(targetTop , targetLeft);
-            int min = 1;
-            int max = 10;
-
-            // Create a Random object
-            Random random = new Random();
-
-            // Generate a random integer within the specified range
-            int randomNumber = random.nextInt(max - min + 1) + min;
-            try {
-                Thread.sleep(java.time.Duration.ofMillis(randomNumber));
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            target.getDamageHandler().addDamage(50D , gameComponent);
             onArcMoveFinish.onFinish();
         });
     }

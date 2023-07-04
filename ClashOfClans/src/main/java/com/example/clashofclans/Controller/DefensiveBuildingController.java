@@ -1,6 +1,7 @@
 package com.example.clashofclans.Controller;
 
 import com.example.clashofclans.Event.FightPairList;
+import com.example.clashofclans.Model.Building.DefensiveBuilding;
 import com.example.clashofclans.Model.Building.FireBall;
 import com.example.clashofclans.Model.Field;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
@@ -9,6 +10,7 @@ import com.example.clashofclans.Utility.ComponentMover;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.geometry.Point2D;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -19,7 +21,7 @@ import java.util.Map;
 public class DefensiveBuildingController implements IDefensiveBuildingController {
     private final List<IGameComponent> defensiveBuildings;
     private ITargetHolder targetHolder;
-    private Map<IGameComponent , Timeline> defenceWithTimeLine;
+    private Map<IGameComponent, Timeline> defenceWithTimeLine;
 
     public Map<IGameComponent, Timeline> getDefenceWithTimeLine() {
         return defenceWithTimeLine;
@@ -36,32 +38,53 @@ public class DefensiveBuildingController implements IDefensiveBuildingController
         this.targetHolder = targetHolder;
     }
 
+    Timeline timeline = new Timeline();
     @Override
     public void initiateDefensiveBuildings(Field field) {
-        defenceWithTimeLine.forEach((defensiveBuilding , timeline)->{
-            timeline.stop();
-            timeline.getKeyFrames().clear();
+        timeline.stop();
+        timeline.getKeyFrames().clear();
+        defenceWithTimeLine.forEach((defensiveBuilding, timeline) -> {
+            if (!defensiveBuilding.getIsAlive()) timeline.stop();
+        });
+        defensiveBuildings.clear();
+        field.getTargets().forEach(target -> {
+            if (target instanceof DefensiveBuilding) {
+                defensiveBuildings.add(target);
+            }
         });
         for (IGameComponent defensiveBuilding : defensiveBuildings) {
-            Timeline timeline = new Timeline();
-            timeline.setCycleCount(Timeline.INDEFINITE);
-            timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), event -> {
-                        Platform.runLater(() -> {
-                            IGameComponent target = field.keepGettingTargetFor(defensiveBuilding, 400);
-                            if (target != null) {
-                                System.out.println("Target Found");
-                                FireBall fireBall = new FireBall();
-                                field.getChildren().add(fireBall.getImageView());
-                                FightPairList.addFight(target , defensiveBuilding);
-                                ComponentMover.arcMover(fireBall, defensiveBuilding, target , ()->{});
-                            }
-                        });
-                    })
-            );
-            defenceWithTimeLine.put(defensiveBuilding , timeline);
-            timeline.play();
-        }
+            if (defensiveBuilding.getIsAlive()) {
+                timeline.setCycleCount(Timeline.INDEFINITE);
+                FireBall fireBall = new FireBall();
+                field.getChildren().add(fireBall.getImageView());
+                fireBall.getImageView().setOpacity(0);
+                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), event -> {
+                            Platform.runLater(() -> {
+                                IGameComponent target = field.keepGettingTargetFor(defensiveBuilding, 400);
+                                if (target != null) {
+                                    System.out.println("Target Found");
+                                    FightPairList.addFight(target, defensiveBuilding);
+                                    fireBall.getImageView().setOpacity(1);
+                                    ComponentMover.arcMover(fireBall, defensiveBuilding, target, () -> {
+                                        Point2D targetPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
+                                        Point2D fireBallPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
 
+                                        if (targetPos.distance(fireBallPos) < 80) {
+                                            target.getDamageHandler().addDamage(50D, defensiveBuilding);
+                                        }
+                                        field.getChildren().remove(fireBall.getImageView());
+                                        field.getTargets().remove(fireBall);
+
+                                    });
+                                }
+                            });
+                        })
+                );
+
+            }
+
+        }
+        timeline.play();
     }
 
     @Override
@@ -76,11 +99,6 @@ public class DefensiveBuildingController implements IDefensiveBuildingController
 
     @Override
     public void removeDefensiveBuilding(IGameComponent defensiveBuilding) {
-
-        if (defenceWithTimeLine.get(defensiveBuilding) != null){
-            defenceWithTimeLine.get(defensiveBuilding).stop();
-            defenceWithTimeLine.remove(defensiveBuilding);
-        }
         defensiveBuildings.remove(defensiveBuilding);
 
     }

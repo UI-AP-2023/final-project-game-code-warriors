@@ -47,6 +47,16 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
         return imageView;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
 
 
     @Override
@@ -76,6 +86,16 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
         return null;
     }
 
+    boolean isTargeted = false;
+    @Override
+    public boolean isTargeted() {
+        return false;
+    }
+
+    @Override
+    public void setIsTargeted(boolean isTargeted) {
+        this.isTargeted = isTargeted;
+    }
     @Override
     public void initDefaultAnimation() {
         timeLine.stop();
@@ -85,6 +105,11 @@ public class Dragon extends Hero implements IAnimated, IMortal, IDamageHandler {
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
         imageView.setFitWidth(60);
         timeLine.play();
+    }
+
+    @Override
+    public Timeline geTimeLine() {
+        return null;
     }
 
     @Override

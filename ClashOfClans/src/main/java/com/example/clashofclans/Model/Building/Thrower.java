@@ -32,6 +32,17 @@ public class Thrower extends DefensiveBuilding implements IDamageHandler {
         return imageView;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
 
@@ -46,6 +57,15 @@ public class Thrower extends DefensiveBuilding implements IDamageHandler {
     public IAnimated getAnimHandler() {
         return null;
     }
+    boolean isTargeted = false;
+    @Override
+    public boolean isTargeted() {
+        return false;
+    }
 
+    @Override
+    public void setIsTargeted(boolean isTargeted) {
+        this.isTargeted = isTargeted;
+    }
 
 }

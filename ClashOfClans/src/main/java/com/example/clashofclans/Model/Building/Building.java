@@ -58,6 +58,16 @@ public abstract class Building implements IGameComponent {
         this.type = type;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
     @Override
     public IAnimated getAnimHandler() {
         return null;

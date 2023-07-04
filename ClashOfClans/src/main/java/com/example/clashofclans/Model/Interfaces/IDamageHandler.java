@@ -10,15 +10,19 @@ public interface IDamageHandler {
 
     int getHealth();
 
+    boolean getIsAlive();
+
+    void setIsAlive(boolean isAlive);
+
     ImageView getImageView();
 
     default void addDamage(double damage, IGameComponent attacker) {
         synchronized (this) {
             setDamage((int) (getDamage() + damage));
-//        System.out.println(getDamage());
+            System.out.println(getDamage() +"=>" +getHealth());
             if (getDamage() > getHealth()) {
-                FightPairList fightPairList = new FightPairList();
-                fightPairList.onAnyGameComponentDestroyed(attacker);
+                setIsAlive(false);
+                FightPairList.onAnyGameComponentDestroyed(attacker);
             }
             ;
         }

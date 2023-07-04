@@ -36,7 +36,9 @@ public class Field extends Pane implements ITargetHolder {
 
 
     public Field() {
+
         defensiveBuildingController = new DefensiveBuildingController();
+
         AtomicBoolean isDragged = new AtomicBoolean(false);
         this.setOnDragDetected(mouseEvent -> {
             isDragged.set(true);
@@ -44,19 +46,20 @@ public class Field extends Pane implements ITargetHolder {
 
         AtomicBoolean isFirstClick = new AtomicBoolean(true);
         this.setOnMouseClicked(event -> {
-            if (!isDragged.get() && isPlayable) {
-                Spear spear = new Spear();
-                this.addChildren(spear);
-                spear.initDefaultAnimation();
-                spear.getTimeLine().play();
-                spear.setInsets(event.getY(), event.getX());
-                AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear, false);
-                ComponentMover.moveComponent(iGameComponent.get(), spear);
-            }
             if (isFirstClick.get()) {
+                defensiveBuildingController.setTargetHolder(this);
                 defensiveBuildingController.addAllDefensiveBuildings(getDefensiveBuildings());
                 defensiveBuildingController.initiateDefensiveBuildings(this);
             } else isFirstClick.set(false);
+//            if (!isDragged.get() && isPlayable) {
+            Spear spear = new Spear();
+            this.addChildren(spear);
+            spear.initDefaultAnimation();
+            spear.getTimeLine().play();
+            spear.setInsets(event.getY(), event.getX());
+            AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(spear, false);
+            ComponentMover.moveComponent(iGameComponent.get(), spear);
+//            }
             isDragged.set(false);
         });
 
@@ -69,18 +72,32 @@ public class Field extends Pane implements ITargetHolder {
 
 
         FightPairList.addOnAttackerDestroyTarget(iGameComponent -> {
-            if (iGameComponent instanceof DefensiveBuilding){
-                defensiveBuildingController.removeDefensiveBuilding(iGameComponent);
-            }
-            if (iGameComponent instanceof Hero){
-//                defensiveBuildingController.initiateDefensiveBuildings(this);
-                iGameComponent.getAnimHandler().geTimeLine().stop();
-                iGameComponent.getAnimHandler().setDieToDefaultAnim();
-                getTargets().remove(iGameComponent);
-            }
-            this.getTargets().remove(iGameComponent);
-//            this.getChildren().remove(iGameComponent.getImageView());
+            if (!iGameComponent.getIsAlive()) {
+                System.out.println(iGameComponent.getClass() + " is destroyed");
+//                iGameComponent.getImageView().setOpacity(0);
 
+
+                if (iGameComponent instanceof DefensiveBuilding) {
+                    this.getChildren().remove(iGameComponent.getImageView());
+                    this.getChildren().remove(iGameComponent.getImageView());
+                    defensiveBuildingController.removeDefensiveBuilding(iGameComponent);
+//                    getChildren().remove(iGameComponent.getImageView());
+                    defensiveBuildingController.setTargetHolder(this);
+                    defensiveBuildingController.initiateDefensiveBuildings(this);
+                }
+                if (iGameComponent instanceof Hero) {
+                    defensiveBuildingController.initiateDefensiveBuildings(this);
+                    iGameComponent.getAnimHandler().setDieToDefaultAnim();
+                    iGameComponent.getAnimHandler().geTimeLine().setOnFinished(actionEvent -> {
+                        this.getChildren().remove(iGameComponent.getImageView());
+                        this.getChildren().remove(iGameComponent.getImageView());
+                    });
+                } else {
+                    this.getChildren().remove(iGameComponent.getImageView());
+                    this.getChildren().remove(iGameComponent.getImageView());
+
+                }
+            }
         });
     }
 
@@ -106,7 +123,13 @@ public class Field extends Pane implements ITargetHolder {
 
     @Override
     public List<IGameComponent> getTargets() {
-        return targets;
+        List<IGameComponent> _targets = new ArrayList<>();
+        targets.forEach(iGameComponent -> {
+            if (iGameComponent.getIsAlive()) {
+                _targets.add(iGameComponent);
+            }
+        });
+        return _targets;
     }
 
     @Override
@@ -139,6 +162,7 @@ public class Field extends Pane implements ITargetHolder {
         });
         System.out.println("Target selected for attacker     " + target.get().getClass());
         FightPairList.addFight(target.get(), gameComponent);
+        target.get().setIsTargeted(true);
         return target;
     }
 

@@ -11,6 +11,10 @@ public interface IGameComponent {
         getImageView().setX(leftInset);
     }
     int getHitRange();
+    boolean getIsAlive();
+    boolean isTargeted();
+    void setIsTargeted(boolean isTargeted);
+    void setIsAlive(boolean isAlive);
 
     default Insets getInsets(){
         return new Insets(getImageView().getY(),0,0,getImageView().getX());

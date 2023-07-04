@@ -54,75 +54,89 @@ public class FightPairList {
     }
 
     @Synchronized
-    public  void onAnyGameComponentDestroyed(IGameComponent winner) {
-        Thread thread = new Thread(()->{
-
-            for (PairFightModel pairFightModel : pairFightModels) {
-                if (pairFightModel.attacker.equals(winner) || pairFightModel.target.equals(winner)) {
-                    IGameComponent loser = pairFightModel.attacker == winner ? pairFightModel.target : pairFightModel.attacker;
-                    if (winner instanceof Hero) {
-                        winner.getAnimHandler().initDefaultAnimation();
-                        AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
-                        if (newTarget.get() != null) {
-                            ComponentMover.moveComponent(newTarget.get(), winner);
-
-                        }
-                    }
-                    if (loser instanceof Hero) {
-                        loser.getAnimHandler().setDieToDefaultAnim();
-
-                    }
-                    if (loser instanceof DefensiveBuilding) {
-                        loser.getImageView().setOpacity(0);
-                    }
-                    System.out.println("pairFightModels.size() = " + pairFightModels.size());
-                    pairFightModels.remove(pairFightModel);
-                    runOnGameComponentDestroyed(loser);
-                    System.out.println("pairFightModels.size() = " + pairFightModels.size());
-                }
-            }
-        });
-
-        thread.start();
-//        for (PairFightModel pairFightModel : pairFightModels) {
-
-
+    public  static void onAnyGameComponentDestroyed(IGameComponent winner) {
+//            for (PairFightModel pairFightModel : pairFightModels) {
 //
-//            if (attacker.equals(winner)) {
-//                runOnGameComponentDestroyed(target);
-//                if (winner instanceof Hero) {
-//                    attacker.getAnimHandler().initDefaultAnimation();
-//                    AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
-//                    if (newTarget.get() != null) {
-//                        ComponentMover.moveComponent(newTarget.get(), winner);
-//                        break;
+//                if (pairFightModel.attacker.equals(winner) || pairFightModel.target.equals(winner)) {
+//                    IGameComponent loser = pairFightModel.attacker == winner ? pairFightModel.target : pairFightModel.attacker;
+//                    if (!loser.getIsAlive())break;
+//                    if (winner instanceof Hero) {
+//                        winner.getAnimHandler().initDefaultAnimation();
+//                        AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
+//                        if (newTarget.get() != null) {
+//                            ComponentMover.moveComponent(newTarget.get(), winner);
+//                            loser.setIsAlive(false);
+//                        }
 //                    }
-//                } else if (winner instanceof DefensiveBuilding) {
-//                    target.getAnimHandler().setDieToDefaultAnim();
+//                    if (loser instanceof Hero) {
+//                        loser.getAnimHandler().setDieToDefaultAnim();
+//                        loser.getAnimHandler().geTimeLine().setOnFinished(event -> {
+//                            loser.getImageView().setOpacity(0);
+//                        });
+//                    }
+//                    if (loser instanceof DefensiveBuilding) {
+//                        loser.getImageView().setOpacity(0);
+//                    }
+////                    runOnGameComponentDestroyed(loser);
+//                    loser.setIsAlive(false);
+//                    System.out.println("pairFightModels.size() = " + pairFightModels.size());
+//                    pairFightModels.remove(pairFightModel);
+//                    System.out.println("pairFightModels.size() = " + pairFightModels.size());
 //
 //                }
-//                field.getTargets().remove(target);
 //
-//
-//            } else if (target.equals(winner)) {
-//                runOnGameComponentDestroyed(attacker);
-//                if (winner instanceof Hero) {
-//                    target.getAnimHandler().initDefaultAnimation();
-//                    AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
-//                    if (newTarget.get() != null) {
-//                        ComponentMover.moveComponent(newTarget.get(), winner);
-//                        break;
-//                    }
-//                } else if (winner instanceof DefensiveBuilding) {
-//                    attacker.getAnimHandler().setDieToDefaultAnim();
-//
-//                }
-//                field.getTargets().remove(attacker);
 //            }
-//            pairFightModels.remove(pairFightModel);
+//
+
+
+        for (PairFightModel pairFightModel : pairFightModels) {
+            IGameComponent attacker = pairFightModel.attacker;
+            IGameComponent target = pairFightModel.target;
+
+            IGameComponent loser = attacker.equals(winner) ? target : attacker;
+
+//            if (loser.getAnimHandler() != null) {
+//                loser.getAnimHandler().geTimeLine().stop();
+//                loser.getAnimHandler().setDieToDefaultAnim();
+//            };
+
+            if (attacker.equals(winner)) {
+                runOnGameComponentDestroyed(loser);
+                if (winner instanceof Hero) {
+                    attacker.getAnimHandler().initDefaultAnimation();
+                    AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
+                    if (newTarget.get() != null) {
+                        ComponentMover.moveComponent(newTarget.get(), winner);
+                    }
+                }
+                field.getTargets().remove(target);
+                pairFightModels.remove(pairFightModel);
+                break;
+
+
+            } else if (target.equals(winner)) {
+                runOnGameComponentDestroyed(loser);
+                if (winner instanceof Hero) {
+                    target.getAnimHandler().initDefaultAnimation();
+                    AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
+                    if (newTarget.get() != null) {
+                        ComponentMover.moveComponent(newTarget.get(), winner);
+                    }
+                } else if (winner instanceof DefensiveBuilding) {
+                    attacker.getAnimHandler().setDieToDefaultAnim();
+                    attacker.getAnimHandler().geTimeLine().setOnFinished(event -> {
+                        attacker.getImageView().setOpacity(0);
+                    });
+
+                }
+                field.getTargets().remove(attacker);
+                pairFightModels.remove(pairFightModel);
+                break;
+            }
 
 
 //        }
+        }
     }
 }
 

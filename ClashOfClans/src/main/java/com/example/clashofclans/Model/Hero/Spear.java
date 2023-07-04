@@ -47,6 +47,27 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
         return imageView;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    boolean isTargeted = false;
+    @Override
+    public boolean isTargeted() {
+        return false;
+    }
+
+    @Override
+    public void setIsTargeted(boolean isTargeted) {
+        this.isTargeted = isTargeted;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
         OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target , this , 5);
@@ -95,15 +116,24 @@ public class Spear extends Hero implements IAnimated , IMortal , IDamageHandler{
         return timeLine;
     }
 
+
     @Override
     public void setDieToDefaultAnim() {
-        IFramer iFramer = new FramerTimeLine(imageView , List.of(Values.SpearDieFrame0 , Values.SpearDieFrame1 , Values.SpearDieFrame2 , Values.SpearDieFrame3  , Values.SpearDieFrame4),Duration.seconds(1));
-        timeLine.stop();
-        timeLine.getKeyFrames().clear();
-        timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
-        timeLine.play();
-        timeLine.cycleCountProperty().set(1);
-        timeLine.onFinishedProperty().set(event->{imageView.setOpacity(0);});
+        if (isAlive){
+            isAlive = false;
+            IFramer iFramer = new FramerTimeLine(imageView , List.of(Values.SpearDieFrame0 , Values.SpearDieFrame1 , Values.SpearDieFrame2 , Values.SpearDieFrame3  , Values.SpearDieFrame4),Duration.seconds(1));
+            timeLine.stop();
+            timeLine.getKeyFrames().clear();
+            timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+            timeLine.play();
+            timeLine.cycleCountProperty().set(1);
+            timeLine.onFinishedProperty().set(event->
+            {
+                imageView.setOpacity(0);
+                timeLine.stop();
+                timeLine.getKeyFrames().clear();
+            });
+        }
 
     }
 

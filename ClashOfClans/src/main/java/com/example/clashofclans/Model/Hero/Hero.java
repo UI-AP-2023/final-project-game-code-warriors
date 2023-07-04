@@ -37,6 +37,16 @@ public abstract class Hero implements IGameComponent {
         return timeLine;
     };
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
     @Override
     public IAnimated getAnimHandler() {
         return null;

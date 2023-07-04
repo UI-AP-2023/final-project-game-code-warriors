@@ -45,6 +45,17 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
         return imageView;
     }
 
+    boolean isAlive = true;
+    @Override
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+
+    @Override
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
     @Override
     public void setAttackToDefaultAnimation(IGameComponent target) {
         OnFrameExecutedEvent onFrameExecutedEvent = new OnFrameExecutedEventImpl(target, this, 5);
@@ -88,5 +99,15 @@ public class Knight extends Hero implements IAnimated, IMortal, IGameComponent, 
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.getKeyFrames().clear();
         timeLine.getKeyFrames().addAll(iFramer.getKeyFrames());
+    }
+    boolean isTargeted = false;
+    @Override
+    public boolean isTargeted() {
+        return false;
+    }
+
+    @Override
+    public void setIsTargeted(boolean isTargeted) {
+        this.isTargeted = isTargeted;
     }
 }
