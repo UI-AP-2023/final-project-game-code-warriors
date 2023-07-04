@@ -39,6 +39,7 @@ public class DefensiveBuildingController implements IDefensiveBuildingController
     }
 
     Timeline timeline = new Timeline();
+
     @Override
     public void initiateDefensiveBuildings(Field field) {
         timeline.stop();
@@ -58,7 +59,7 @@ public class DefensiveBuildingController implements IDefensiveBuildingController
                 FireBall fireBall = new FireBall();
                 field.getChildren().add(fireBall.getImageView());
                 fireBall.getImageView().setOpacity(0);
-                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(3), event -> {
+                timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(2.9), event -> {
                             Platform.runLater(() -> {
                                 IGameComponent target = field.keepGettingTargetFor(defensiveBuilding, 400);
                                 if (target != null) {
@@ -66,14 +67,17 @@ public class DefensiveBuildingController implements IDefensiveBuildingController
                                     FightPairList.addFight(target, defensiveBuilding);
                                     fireBall.getImageView().setOpacity(1);
                                     ComponentMover.arcMover(fireBall, defensiveBuilding, target, () -> {
-                                        Point2D targetPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
-                                        Point2D fireBallPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
+                                        Platform.runLater(() -> {
 
-                                        if (targetPos.distance(fireBallPos) < 80) {
-                                            target.getDamageHandler().addDamage(50D, defensiveBuilding);
-                                        }
-                                        field.getChildren().remove(fireBall.getImageView());
-                                        field.getTargets().remove(fireBall);
+                                            Point2D targetPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
+                                            Point2D fireBallPos = new Point2D(fireBall.getImageView().getTranslateX(), fireBall.getImageView().getTranslateY());
+
+                                            if (targetPos.distance(fireBallPos) < 30) {
+                                                target.getDamageHandler().addDamage(50D, defensiveBuilding);
+                                            }
+                                            field.getChildren().remove(fireBall.getImageView());
+                                            field.getTargets().remove(fireBall);
+                                        });
 
                                     });
                                 }

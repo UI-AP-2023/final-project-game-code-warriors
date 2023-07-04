@@ -1,12 +1,13 @@
 package com.example.clashofclans.Model;
 
+import com.example.clashofclans.Controller.AccountController;
 import com.example.clashofclans.Controller.DefensiveBuildingController;
 import com.example.clashofclans.Controller.IDefensiveBuildingController;
 import com.example.clashofclans.Event.FightPairList;
 import com.example.clashofclans.HelloApplication;
 import com.example.clashofclans.Model.Building.Building;
 import com.example.clashofclans.Model.Building.DefensiveBuilding;
-import com.example.clashofclans.Model.Hero.Hero;
+import com.example.clashofclans.Model.Hero.*;
 import com.example.clashofclans.Model.Interfaces.IGameComponent;
 import com.example.clashofclans.Model.Interfaces.ITargetHolder;
 import com.example.clashofclans.Utility.ComponentMover;
@@ -57,12 +58,24 @@ public class Field extends Pane implements ITargetHolder {
                         defensiveBuildingController.initiateDefensiveBuildings(this);
                     } else isFirstClick.set(false);
                     IGameComponent gameComponent = Holder.getSelectedHero();
-                    this.addChildren(gameComponent);
-                    gameComponent.getAnimHandler().initDefaultAnimation();
-                    gameComponent.getAnimHandler().geTimeLine().play();
-                    gameComponent.setInsets(event.getY(), event.getX());
-                    AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(gameComponent, false);
-                    ComponentMover.moveComponent(iGameComponent.get(), gameComponent);
+                    IGameComponent hero;
+                    if (gameComponent instanceof Troll) {
+                        hero = new Troll();
+                    } else if (gameComponent instanceof Dragon) {
+                        hero = new Dragon();
+                    } else if (gameComponent instanceof Knight) {
+                        hero = new Knight();
+                    } else if (gameComponent instanceof Green){
+                        hero  = new Green();
+                    }else {
+                        hero = new Spear();
+                    }
+                    this.addChildren(hero);
+                    hero.getAnimHandler().initDefaultAnimation();
+                    hero.getAnimHandler().geTimeLine().play();
+                    hero.setInsets(event.getY(), event.getX());
+                    AtomicReference<IGameComponent> iGameComponent = this.getTargetFor(hero, false);
+                    ComponentMover.moveComponent(iGameComponent.get(), hero);
                 }
 
             }
@@ -92,7 +105,7 @@ public class Field extends Pane implements ITargetHolder {
                     defensiveBuildingController.initiateDefensiveBuildings(this);
                 }
                 if (iGameComponent instanceof Hero) {
-                    defensiveBuildingController.initiateDefensiveBuildings(this);
+//                    defensiveBuildingController.initiateDefensiveBuildings(this);
                     iGameComponent.getAnimHandler().setDieToDefaultAnim();
                     iGameComponent.getAnimHandler().geTimeLine().setOnFinished(actionEvent -> {
                         this.getChildren().remove(iGameComponent.getImageView());
@@ -166,10 +179,24 @@ public class Field extends Pane implements ITargetHolder {
             }
             ;
         });
-        System.out.println("Target selected for attacker     " + target.get().getClass());
-        FightPairList.addFight(target.get(), gameComponent);
-        target.get().setIsTargeted(true);
-        return target;
+        try {
+            System.out.println("Target selected for attacker     " + target.get().getClass());
+            FightPairList.addFight(target.get(), gameComponent);
+            target.get().setIsTargeted(true);
+            return target;
+
+        }catch (NullPointerException e){
+            System.out.println("No target found");
+            getTargets().forEach(iGameComponent -> {
+                iGameComponent.getAnimHandler().geTimeLine().stop();
+            });
+            if (getTargets().get(0) instanceof Hero) {
+                AccountController.endGame(100);
+            } else {
+                AccountController.endGame(-100);
+            }
+            return null;
+        }
     }
 
 

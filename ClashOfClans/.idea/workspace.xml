@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="add defend logic">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="fix bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroesList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Widgets/HeroesList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Controller/DefensiveBuildingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Controller/DefensiveBuildingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Event/FightPairList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Event/FightPairList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Spear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Utility/ComponentMover.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "imageBugs",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/mahdimazaheri/Programming/Game/final-project-game-code-warriors/ClashOfClans/src/main/resources/com/example/clashofclans",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -160,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688477941002</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix bugs">
+      <option name="closed" value="true" />
+      <created>1688482084003</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688482084003</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,19 +195,16 @@
     <MESSAGE value="add arc move to move fire ball" />
     <MESSAGE value="optimize animations" />
     <MESSAGE value="add defend logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="add defend logic" />
+    <MESSAGE value="fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Interfaces/IDamageHandler.java</url>
-          <line>18</line>
-          <properties class="com.example.clashofclans.Model.Interfaces.IDamageHandler" method="addDamage">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Field.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

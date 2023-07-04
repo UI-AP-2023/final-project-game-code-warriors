@@ -105,8 +105,13 @@ public class FightPairList {
                 if (winner instanceof Hero) {
                     attacker.getAnimHandler().initDefaultAnimation();
                     AtomicReference<IGameComponent> newTarget = field.getTargetFor(winner, false);
-                    if (newTarget.get() != null) {
-                        ComponentMover.moveComponent(newTarget.get(), winner);
+                    try {
+
+                        if (newTarget.get() != null) {
+                            ComponentMover.moveComponent(newTarget.get(), winner);
+                        }
+                    }catch (Exception e){
+
                     }
                 }
                 field.getTargets().remove(target);
@@ -122,13 +127,15 @@ public class FightPairList {
                     if (newTarget.get() != null) {
                         ComponentMover.moveComponent(newTarget.get(), winner);
                     }
-                } else if (winner instanceof DefensiveBuilding) {
-                    attacker.getAnimHandler().setDieToDefaultAnim();
-                    attacker.getAnimHandler().geTimeLine().setOnFinished(event -> {
-                        attacker.getImageView().setOpacity(0);
-                    });
-
                 }
+
+
+//                if (loser instanceof  Hero){
+//                    loser.getAnimHandler().setDieToDefaultAnim();
+//                    loser.getAnimHandler().geTimeLine().setOnFinished(event -> {
+//                        loser.getImageView().setOpacity(0);
+//                    });
+//                }
                 field.getTargets().remove(attacker);
                 pairFightModels.remove(pairFightModel);
                 break;

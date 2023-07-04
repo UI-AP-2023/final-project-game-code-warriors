@@ -80,7 +80,7 @@ public class ComponentMover {
         path.getElements().add(new MoveTo(currentLeft, currentTop));
         path.getElements().add(new CubicCurveTo(currentLeft, currentTop, currentLeft, currentTop, targetLeft, targetTop));
         PathTransition pathTransition = new PathTransition();
-        pathTransition.setDuration(Duration.seconds(3));
+        pathTransition.setDuration(Duration.seconds(2));
         pathTransition.setNode(gameComponent.getImageView());
         pathTransition.setPath(path);
         pathTransition.play();
