@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="fix bugs">
+    <list default="true" id="665ca689-ae7c-4954-a869-70c57a83a39e" name="Changes" comment="in game menu bug fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at________Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_۲۸_۰۶_۲۰۲۳_۰۱_۲۸_قبل‌ازظهر_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/clashofclans/Model/Hero/Dragon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +94,16 @@
       <workItem from="1688362296526" duration="7430000" />
       <workItem from="1688415985147" duration="13952000" />
       <workItem from="1688456272291" duration="17645000" />
+      <workItem from="1688543029327" duration="723000" />
+      <workItem from="1688573600480" duration="1337000" />
+      <workItem from="1688589183150" duration="42000" />
+      <workItem from="1688768482385" duration="405000" />
+      <workItem from="1688817897968" duration="599000" />
+      <workItem from="1689105584141" duration="1243000" />
+      <workItem from="1689354841777" duration="34000" />
+      <workItem from="1689410091115" duration="168000" />
+      <workItem from="1689410403603" duration="58000" />
+      <workItem from="1689410550584" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="make field playable only in attack mode">
       <option name="closed" value="true" />
